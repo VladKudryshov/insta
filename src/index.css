@@ -12,3 +12,47 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+.AppBar{
+  width: 100%;
+  height: 60px;
+  background: #5d81f0;
+  /*box-shadow: 0 4px 5px -2px #2b386a;*/
+  position: relative;
+}
+
+.menu{
+  margin: 0;
+  padding: 20px;
+  display: block;
+  float: right;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.menu li{
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.menu li:last-child{
+  margin-right: 0;
+}
+
+.simple-login-form{
+  position: absolute;
+  right: 30px;
+  top: 50px;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 2px 4px 10px -2px #000000;
+}
+
