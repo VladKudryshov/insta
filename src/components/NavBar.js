@@ -42,15 +42,11 @@ class PrimarySearchAppBar extends Component {
                     <Router>
                         <header>
                             <ul className="menu">
-                                <li><NavLink exact to="/">Главная</NavLink></li>
-                                <li><NavLink to="/products" activeClassName="active">Продукты</NavLink></li>
-                                <li><NavLink to="/cart" activeClassName="active">Новости</NavLink></li>
-
-                                {this.isAuth()
-                                    ? <button onClick={this.handleProfileMenuOpen}>Вход</button>
-                                    : <button onClick={this.handleLogout}>Выход</button>
+                                <li>{this.isAuth()
+                                    ? <button className="btn" onClick={this.handleProfileMenuOpen}>Вход</button>
+                                    : <button className="btn" onClick={this.handleLogout}>Выход</button>
                                 }
-
+                                </li>
                             </ul>
                             <LoginComponent open={openComponent} close={this.handleMenuClose}> </LoginComponent>
                         </header>

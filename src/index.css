@@ -24,7 +24,7 @@ code {
 
 .menu{
   margin: 0;
-  padding: 20px;
+  padding: 10px;
   display: block;
   float: right;
 }
@@ -56,3 +56,10 @@ code {
   box-shadow: 2px 4px 10px -2px #000000;
 }
 
+.btn {
+  border: 0;
+  border-radius: 5px;
+  padding: 10px 20px;
+  color: #ffffff;
+  background: #4351A1;
+}

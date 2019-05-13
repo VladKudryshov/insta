@@ -31,7 +31,7 @@ class ListPostComponent extends React.Component {
     componentDidMount() {
         this.setState({isLoading: true});
 
-        instaService.getMedia(10212391882)
+        instaService.getMedia(8400219101)
             .then(data => this.setState({data: data['items'], isLoading: false}))
     }
 

@@ -49,7 +49,7 @@ class LoginComponent extends Component {
                         type="email"
                         name="login"
                         onChange={this.handleChange}
-                    />
+                    /><br/>
                     <TextField
                         autoFocus
                         margin="dense"
