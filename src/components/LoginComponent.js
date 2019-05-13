@@ -22,8 +22,9 @@ class LoginComponent extends Component {
 
     handleLogin = () => {
         const {login, password} = this.state;
-        
         userService.login(login, password);
+        this.props.close();
+
     };
 
     handleChange(e) {

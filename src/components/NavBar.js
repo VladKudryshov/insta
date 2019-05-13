@@ -6,6 +6,7 @@ import {
     NavLink
 } from 'react-router-dom';
 import LoginComponent from "./LoginComponent";
+import {userService} from "../services/userService";
 
 
 class PrimarySearchAppBar extends Component {
@@ -23,6 +24,13 @@ class PrimarySearchAppBar extends Component {
         this.setState({openComponent: false});
     };
 
+    handleLogout = () => {
+        userService.logout();
+    };
+
+    isAuth() {
+        return localStorage.getItem('token') === null
+    }
 
     render() {
 
@@ -37,9 +45,14 @@ class PrimarySearchAppBar extends Component {
                                 <li><NavLink exact to="/">Главная</NavLink></li>
                                 <li><NavLink to="/products" activeClassName="active">Продукты</NavLink></li>
                                 <li><NavLink to="/cart" activeClassName="active">Новости</NavLink></li>
-                                <button onClick={this.handleProfileMenuOpen}>Вход</button>
 
-                                </ul><LoginComponent open={openComponent} close={this.handleMenuClose}> </LoginComponent>
+                                {this.isAuth()
+                                    ? <button onClick={this.handleProfileMenuOpen}>Вход</button>
+                                    : <button onClick={this.handleLogout}>Выход</button>
+                                }
+
+                            </ul>
+                            <LoginComponent open={openComponent} close={this.handleMenuClose}> </LoginComponent>
                         </header>
 
                     </Router>
