@@ -8,6 +8,7 @@ import ListItemSecondaryAction from "@material-ui/core/es/ListItemSecondaryActio
 import ListItemText from "@material-ui/core/ListItemText/ListItemText";
 import Dowload from '@material-ui/icons/CloudDownload';
 import {instaService} from "../services/instaService";
+import CircularProgress from "@material-ui/core/CircularProgress/CircularProgress";
 
 class ReportsComponent extends Component {
 
@@ -36,9 +37,11 @@ class ReportsComponent extends Component {
                     secondary={product.status}
                 />
                 <ListItemSecondaryAction>
-                    <IconButton aria-label="Dowload">
-                        <a href={product.url}><Dowload/></a>
-                    </IconButton>
+                    {
+                        product.status === 'Done'
+                            ? <a href={product.url}><Dowload/></a>
+                            : <CircularProgress size={24}/>
+                    }
                 </ListItemSecondaryAction>
             </ListItem>
         });
