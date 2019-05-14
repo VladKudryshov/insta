@@ -1,32 +1,36 @@
 import React, {Component} from 'react';
-import {
-    BrowserRouter as Router,
-    Route,
-    Switch,
-    NavLink
-} from 'react-router-dom';
+import {BrowserRouter as Router, NavLink, Route, Switch} from 'react-router-dom';
 import LoginComponent from "./LoginComponent";
-import {userService} from "../services/userService";
+import MenuComponent from "./MenuComponent";
+import ReportsComponent from "./ReportsComponent";
+import ListPostComponent from "./ListPostComponent";
 
 
 class PrimarySearchAppBar extends Component {
     state = {
-        openComponent: false,
+        loginComponent: false,
+        menuComponent: false,
         mobileMoreAnchorEl: null,
     };
 
-    handleProfileMenuOpen = event => {
-        const {openComponent} = this.state;
-        this.setState({openComponent: !openComponent})
+    handleOpenLoginComponent = event => {
+        const {loginComponent} = this.state;
+        this.setState({loginComponent: !loginComponent})
+    };
+
+    handleOpenMenuComponent = event => {
+        const {menuComponent} = this.state;
+        this.setState({menuComponent: !menuComponent})
+    };
+
+    handleLoginClose = () => {
+        this.setState({loginComponent: false});
     };
 
     handleMenuClose = () => {
-        this.setState({openComponent: false});
+        this.setState({menuComponent: false});
     };
 
-    handleLogout = () => {
-        userService.logout();
-    };
 
     isAuth() {
         return localStorage.getItem('token') === null
@@ -34,26 +38,37 @@ class PrimarySearchAppBar extends Component {
 
     render() {
 
-        const {openComponent} = this.state;
+        const {loginComponent, menuComponent} = this.state;
 
         return (
             <>
-                <div className="AppBar">
-                    <Router>
+                <Router>
+                    <div className="AppBar">
                         <header>
                             <ul className="menu">
+                                <li><NavLink exact to="/posts">Posts</NavLink></li>
+                                <li><NavLink to="/reports" activeClassName="active">Reports</NavLink></li>
+
                                 <li>{this.isAuth()
-                                    ? <button className="btn" onClick={this.handleProfileMenuOpen}>Вход</button>
-                                    : <button className="btn" onClick={this.handleLogout}>Выход</button>
+                                    ? <button className="btn" onClick={this.handleOpenLoginComponent}>Sign in</button>
+                                    : <button className="btn"
+                                              onClick={this.handleOpenMenuComponent}>{localStorage.getItem('user')}</button>
                                 }
                                 </li>
                             </ul>
-                            <LoginComponent open={openComponent} close={this.handleMenuClose}> </LoginComponent>
+                            <div>
+                                <LoginComponent open={loginComponent} close={this.handleLoginClose}> </LoginComponent>
+                                <MenuComponent open={menuComponent} close={this.handleMenuClose}> </MenuComponent>
+                            </div>
                         </header>
-
-                    </Router>
-
-                </div>
+                    </div>
+                    <div>
+                        <Switch>
+                            <Route path="/reports" component={ReportsComponent}/>
+                            <Route path="/posts" component={ListPostComponent}/>
+                        </Switch>
+                    </div>
+                </Router>
 
             </>
         );

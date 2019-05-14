@@ -10,6 +10,7 @@ function login(login, password) {
         .then(handleResponse)
         .then(user => {
             // login successful if there's a user in the response
+            localStorage.setItem("user", user.email);
             window.location.reload();
         });
 }

@@ -15,12 +15,14 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 import {get} from 'lodash';
 import Typography from "@material-ui/core/Typography/Typography";
+import {instaService} from "../services/instaService";
+import {userService} from "../services/userService";
 
 
 const styles = theme => ({
     card: {
-        width: 400,
-        height: 430,
+        width: 500,
+        height: 480,
         float: 'left',
         margin: 20
     },
@@ -52,10 +54,14 @@ class PostComponent extends React.Component {
         super(props);
     }
 
+    handleGetReport = () => {
+        const {product} = this.props;
+        instaService.prepareReport(product.id, product.user.pk);
+    };
+
     render() {
         const {classes, product} = this.props;
         const image = product.carousel_media !== null ? product.carousel_media[0].image_versions2.candidates[0].url : product.image_versions2.candidates[0].url;
-        console.log(image)
         return (
             <Card className={classes.card}>
                 <CardHeader
@@ -64,12 +70,13 @@ class PostComponent extends React.Component {
                                 className={classes.avatar}/>
                     }
                     action={
-                        <IconButton>
-                            <MoreVertIcon/>
-                        </IconButton>
+                        <button className="btn" onClick={this.handleGetReport}>
+                            Create report
+                        </button>
                     }
                     title={product.user.full_name}
                     subheader={product.user.username}
+
                 />
                 <CardMedia
                     className={classes.media}
@@ -79,7 +86,7 @@ class PostComponent extends React.Component {
                 </CardMedia>
                 <CardContent>
                     <Typography component="p">
-                        {get(product.caption, 'text', '').substring(0, 47) + '...'}
+                        {get(product.caption, 'text', '').substring(0, 58) + '...'}
                     </Typography>
                 </CardContent>
                 <CardActions className={classes.actions} disableActionSpacing>
