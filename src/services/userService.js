@@ -5,7 +5,7 @@ function login(login, password) {
     const params = { login, password }
 
 
-    return axios.post(`http://84.201.155.169:8080/api/users/login`, params)
+    return axios.post(`http://84.201.156.96:8080/api/users/login`, params)
         .then(setAccessToken)
         .then(handleResponse)
         .then(user => {
@@ -23,7 +23,7 @@ function logout() {
 
 function getUserInfo() {
 
-    return axios.get(`http://84.201.141.255:8080/api/users/info`, {headers: {
+    return axios.get(`http://84.201.156.96:8080/api/users/info`, {headers: {
             Authorization: localStorage.getItem('token')
         }})
         .then(handleResponse)

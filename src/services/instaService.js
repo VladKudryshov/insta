@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function getMedia(userId) {
 
-    return axios.get(`http://84.201.155.169:8080/api/intagram/media?userId=` + userId, {headers: {Authorization: localStorage.getItem('token')}})
+    return axios.get(`http://84.201.156.96:8080/api/intagram/media?userId=` + userId, {headers: {Authorization: localStorage.getItem('token')}})
         .then(handleResponse)
         .then(user => {
             // login successful if there's a user in the response
@@ -19,7 +19,7 @@ function getMedia(userId) {
 
 function getReports() {
 
-    return axios.get(`http://84.201.155.169:8080/api/intagram/reports`, {headers: {Authorization: localStorage.getItem('token')}})
+    return axios.get(`http://84.201.156.96:8080/api/intagram/reports`, {headers: {Authorization: localStorage.getItem('token')}})
         .then(handleResponse)
         .then(data => {
             // login successful if there's a user in the response
@@ -36,7 +36,7 @@ function getReports() {
 
 function prepareReport(mediaId, userId) {
 
-    return axios.get(`http://84.201.155.169:8080/api/intagram/report?userId=`+userId+`&mediaId=`+mediaId, {headers: {Authorization: localStorage.getItem('token')}})
+    return axios.get(`http://84.201.156.96:8080/api/intagram/report?userId=`+userId+`&mediaId=`+mediaId, {headers: {Authorization: localStorage.getItem('token')}})
         .then(handleResponse)
         .then(data => {
             // login successful if there's a user in the response
@@ -53,7 +53,7 @@ function prepareReport(mediaId, userId) {
 
 function getUser(userName) {
 
-    return axios.get(`http://84.201.141.255:8080/api/users/info`, {
+    return axios.get(`http://84.201.156.96:8080/api/users/info`, {
         headers: {
             Authorization: localStorage.getItem('token')
         }
