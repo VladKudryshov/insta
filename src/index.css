@@ -327,6 +327,13 @@ footer {
   position: relative;
   box-sizing: border-box;
   grid-column: 1/3;
+  height: 300px;
+}
+
+.slider img{
+  display: block;
+  margin: 0 auto;
+  width: 40%;
 }
 
 .slider-nav{
@@ -353,15 +360,6 @@ footer {
   padding: 10px;
   background: #ffffff;
 }
-
-
-.slider img{
-  display: block;
-  margin: 0 auto;
-  width: 40em;
-  height: 20em;
-}
-
 
 .small-box{
   padding: 20px;
