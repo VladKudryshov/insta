@@ -104,13 +104,15 @@ class PrimarySearchAppBar extends Component {
                                 </div>
                             </div>
                         </div>
-                        <ul className="categories card">
-                            <li><img src="images/salad-bowl-hand-drawn-food.png" alt=""/></li>
-                            <li><img src="images/lettuce.png" alt=""/></li>
-                            <li><img src="images/apple-and-grapes-on-a-bowl.png" alt=""/></li>
-                            <li><img src="images/strawberry.png" alt=""/></li>
-                            <li><img src="images/plant-with-leaves.png" alt=""/></li>
-                        </ul>
+                       <div  className="categories card">
+                           <ul>
+                               <li><img src="images/salad-bowl-hand-drawn-food.png" alt=""/></li>
+                               <li><img src="images/lettuce.png" alt=""/></li>
+                               <li><img src="images/apple-and-grapes-on-a-bowl.png" alt=""/></li>
+                               <li><img src="images/strawberry.png" alt=""/></li>
+                               <li><img src="images/plant-with-leaves.png" alt=""/></li>
+                           </ul>
+                       </div>
                         <div className="blog-cards">
                             <div className="blog-card card">
                                 <img src="" alt=""/>

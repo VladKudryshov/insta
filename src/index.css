@@ -266,7 +266,6 @@ footer {
   position: relative;
   box-sizing: border-box;
   grid-column: 1/3;
-  padding: 0 350px;
 }
 
 .slider-nav{
@@ -281,7 +280,7 @@ footer {
   width: 20px;
   right: 0;
   padding: 10px;
-  background: #ffffff;
+  background: #f8f8f8;
 }
 
 .slide-arrow-left{
@@ -291,18 +290,19 @@ footer {
   width: 20px;
   left: 0;
   padding: 10px;
-  background: #ffffff;
+  background: #f8f8f8;
 }
 
 
 .slider img{
-  padding: 0 !important;
-  width: 800px;
+  display: block;
+  margin: 0 auto;
+  width: 700px;
   height: 300px;
 }
 
 .information{
-  padding: 0 300px;
+  margin: 0 auto;
   box-sizing: border-box;
   grid-column: 1/3;
   display: grid;
@@ -331,16 +331,21 @@ footer {
 
 .categories{
   grid-column: 1/3;
-  padding: 20px 400px;
+}
+
+.categories > ul{
+  display: block;
+  text-align: center;
+  padding: 20px;
 }
 
 
-.categories > li > img{
+.categories > ul > li > img{
   width: 50px;
   padding: 0 50px;
 }
 
-.categories > li{
+.categories > ul > li{
   display: inline-block;
 
 }
