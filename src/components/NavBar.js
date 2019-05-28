@@ -136,6 +136,17 @@ class PrimarySearchAppBar extends Component {
                                 </div>
                                 <a href="#" className="read-more">READ MORE</a>
                             </div>
+                            <div className="blog-card card">
+                                <img src="" alt=""/>
+                                <h2 className="title">wqtwqdsad</h2>
+                                <div className="date"><i className="far fa-calendar-alt mr10"></i>12/21/21 12:12
+                                </div>
+                                <div className="short-content">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                    elit. Amet asperiores consequatur dolore doloribus, labore maxime nobis
+                                    provident quam quo suscipit.
+                                </div>
+                                <a href="#" className="read-more">READ MORE</a>
+                            </div>
                         </div>
                         <Switch>
                             {/*<Route path="/posts" component={ListPostComponent}/>*/}
