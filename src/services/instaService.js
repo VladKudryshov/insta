@@ -51,6 +51,7 @@ function prepareReport(mediaId, userId) {
 }
 
 
+
 function getUser(userName) {
 
     return axios.get(`http://84.201.156.96:8080/api/users/info`, {

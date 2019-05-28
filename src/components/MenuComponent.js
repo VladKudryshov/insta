@@ -21,22 +21,15 @@ class MenuComponent extends Component {
 
     render() {
         return (
-            <Dialog
-                open={this.props.open}
-                onClose={this.props.close}
-                aria-labelledby="form-dialog-title"
-                maxWidth={"xs"}
-            >
-                <DialogTitle id="form-dialog-title">Account</DialogTitle>
-                <DialogContent>
-                    <NavLink to="/settings" >Settings</NavLink>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={this.handleLogout} color="secondary">
-                        Logout
-                    </Button>
-                </DialogActions>
-            </Dialog>
+           this.props.open ?
+               <div className="account-menu card">
+                   <ul className="account-menu-list">
+                       <li><i className="far fa-user mr10"></i><span>Profile</span></li>
+                       <li><i className="far fa-envelope mr10"></i><span>Messages</span></li>
+                       <li><i className="fas fa-cog mr10"></i><span>Settings</span></li>
+                       <li><i className="fas fa-sign-out-alt mr10"></i><span>Logout</span></li>
+                   </ul>
+               </div> : <></>
         );
     }
 }
