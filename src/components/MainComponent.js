@@ -4,6 +4,7 @@ import LoginComponent from "./LoginComponent";
 import MenuComponent from "./MenuComponent";
 import HomeComponent from "./HomeComponent";
 import CatalogComponent from "./CatalogComponent";
+import BasketComponent from "./BasketComponent";
 
 
 class MainComponent extends Component {
@@ -58,7 +59,7 @@ class MainComponent extends Component {
                                 </ul>
                             </div>
                             <ul className="notifications">
-                                <li className="fas fa-shopping-basket hover"></li>
+                                <li className="fas fa-shopping-basket hover"><NavLink exact to="/basket"/></li>
                                 <li className="far fa-bell hover"></li>
                             </ul>
 
@@ -75,6 +76,7 @@ class MainComponent extends Component {
                         <Switch>
                             <Route exact path="/" component={HomeComponent}/>
                             <Route path="/catalog" component={CatalogComponent}/>
+                            <Route path="/basket" component={BasketComponent}/>
                         </Switch>
                         <footer></footer>
                     </div>

@@ -16,7 +16,13 @@ function handleResponse(response) {
     return response.data;
 }
 
+function getProductsByIds(ids) {
+    return axios.post(`http://84.201.156.96:8080/api/products/cart`, ids, {headers: {Authorization: localStorage.getItem('token')}})
+        .then(handleResponse);
+}
+
 
 export const productService = {
-    getProducts
+    getProducts,
+    getProductsByIds
 };
