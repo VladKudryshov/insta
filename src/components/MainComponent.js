@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, NavLink, Route, Switch} from 'react-router-dom';
 import LoginComponent from "./LoginComponent";
 import MenuComponent from "./MenuComponent";
-import SliderComponent from "./SliderComponent";
 import HomeComponent from "./HomeComponent";
 import CatalogComponent from "./CatalogComponent";
 
