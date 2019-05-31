@@ -37,6 +37,17 @@ class MainComponent extends Component {
         return localStorage.getItem('token') === null
     }
 
+    getCountProductsInBasket(){
+        let order = JSON.parse(localStorage.getItem("order"));
+
+       if(order){
+           let length = order.length;
+           let quantity = length > 9 ? '9+' : length;
+           return <span className="not-empty">{quantity}</span> ;
+       }
+        return '';
+    }
+
     render() {
 
         const {loginComponent, menuComponent} = this.state;
@@ -59,8 +70,8 @@ class MainComponent extends Component {
                                 </ul>
                             </div>
                             <ul className="notifications">
-                                <li className="fas fa-shopping-basket hover"><NavLink exact to="/basket"/></li>
-                                <li className="far fa-bell hover"></li>
+                                <li><NavLink exact to="/basket"><i className="fas fa-shopping-basket hover center">{this.getCountProductsInBasket()}</i></NavLink></li>
+                                <li><NavLink exact to="/basket"><i className="far fa-bell "></i></NavLink></li>
                             </ul>
 
                             {this.isAuth()
