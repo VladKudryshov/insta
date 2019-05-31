@@ -236,6 +236,15 @@ ul {
   background: #00ba56;
 }
 
+.horizontal > li:hover> a {
+  color: #feffff;
+}
+
+a{
+  color: #606161;
+  text-decoration: none;
+}
+
 .notifications {
   padding: 10px 0;
   text-align: right;
@@ -345,27 +354,28 @@ footer {
 .products{
   padding: 0 40px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-column-gap: 20px;
   grid-row-gap: 20px;
 }
 
 .product{
-  height: 300px;
   padding: 20px;
   background: #ffffff;
   display: grid;
   grid-template-columns: 1fr 1fr;
   box-shadow: 1px 1px 5px 0.001em #d1d1d1;
+  overflow: hidden;
 }
 
 .product-image{
   grid-column: 1/3;
   text-align: center;
+  height: 100px;
 }
 
 .product-image > img{
-  width: 50%;
+  width: 60%;
 }
 
 .product-title{
