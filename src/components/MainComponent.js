@@ -4,6 +4,7 @@ import LoginComponent from "./LoginComponent";
 import MenuComponent from "./MenuComponent";
 import SliderComponent from "./SliderComponent";
 import HomeComponent from "./HomeComponent";
+import CatalogComponent from "./CatalogComponent";
 
 
 class MainComponent extends Component {
@@ -50,9 +51,8 @@ class MainComponent extends Component {
                             </div>
                             <div className="menu">
                                 <ul className="horizontal">
-                                    {/*<li><NavLink exact to="/posts">Posts</NavLink></li>*/}
-                                    <li>Home</li>
-                                    <li>Catalog</li>
+                                    <li><NavLink exact to="/">Home</NavLink></li>
+                                    <li><NavLink exact to="/catalog">Catalog</NavLink></li>
                                     <li>Blog</li>
                                     <li>Delivery</li>
                                     <li>About us</li>
@@ -74,7 +74,8 @@ class MainComponent extends Component {
                         </header>
 
                         <Switch>
-                            <Route path="/" component={HomeComponent}/>
+                            <Route exact path="/" component={HomeComponent}/>
+                            <Route path="/catalog" component={CatalogComponent}/>
                         </Switch>
                         <footer></footer>
                     </div>
