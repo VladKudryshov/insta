@@ -12,6 +12,7 @@ class MainComponent extends Component {
         loginComponent: false,
         menuComponent: false,
         mobileMoreAnchorEl: null,
+        size: 0
     };
 
     handleOpenLoginComponent = event => {
@@ -37,15 +38,20 @@ class MainComponent extends Component {
         return localStorage.getItem('token') === null
     }
 
-    getCountProductsInBasket(){
-        let order = JSON.parse(localStorage.getItem("order"));
+    componentDidMount(){
+        this.changeSizeBasket();
+        console.log("ad")
+    }
 
-       if(order){
-           let length = order.length;
-           let quantity = length > 9 ? '9+' : length;
-           return <span className="not-empty">{quantity}</span> ;
-       }
-        return '';
+    changeSizeBasket = () => {
+        let order = JSON.parse(localStorage.getItem("order"));
+        this.setState({size: order.length})
+    };
+
+    getCountProductsInBasket = () => {
+        const {size} = this.state;
+        let quantity = size > 9 ? '9+' : size;
+        return <span className="not-empty">{quantity}</span>;
     }
 
     render() {
@@ -70,7 +76,9 @@ class MainComponent extends Component {
                                 </ul>
                             </div>
                             <ul className="notifications">
-                                <li><NavLink exact to="/basket"><i className="fas fa-shopping-basket hover center">{this.getCountProductsInBasket()}</i></NavLink></li>
+                                <li><NavLink exact to="/basket"><i
+                                    className="fas fa-shopping-basket hover center">{this.getCountProductsInBasket()}</i></NavLink>
+                                </li>
                                 <li><NavLink exact to="/basket"><i className="far fa-bell "></i></NavLink></li>
                             </ul>
 
@@ -86,7 +94,7 @@ class MainComponent extends Component {
 
                         <Switch>
                             <Route exact path="/" component={HomeComponent}/>
-                            <Route path="/catalog" component={CatalogComponent}/>
+                            <Route path="/catalog" component={CatalogComponent} changeSizeBasket={this.changeSizeBasket}/>
                             <Route path="/basket" component={BasketComponent}/>
                         </Switch>
                         <footer></footer>

@@ -4,6 +4,7 @@ html, body {
   font-family: "Roboto", sans-serif;
   width: 100%;
   cursor: default;
+  user-select: none;
 }
 
 body {
@@ -384,12 +385,18 @@ footer {
 }
 
 .product{
+  position: relative;
   padding: 20px;
   background: #ffffff;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+
   box-shadow: 1px 1px 5px 0.001em #d1d1d1;
   overflow: hidden;
+  z-index: 1;
+}
+
+.product-content{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .product-image{
@@ -450,8 +457,6 @@ footer {
 .right{
   float: right;
 }
-
-
 
 /*INDEX*/
 
@@ -675,6 +680,16 @@ footer {
   background: #ff5b52;
 }
 
+.primary-c{
+  color: #ff5b52;
+}
+
+.default-c{
+  color: #74ff92;
+}
+
+
+
 .fl-r{
   float: right;
 }
@@ -690,4 +705,20 @@ footer {
 
 .order-action > li:last-child{
   margin: 0;
+}
+
+.quantity{
+  display: grid;
+  grid-template-columns: 20% 1fr 20%;
+  position: absolute;
+  width: 60%;
+  padding: 10px;
+  background: #ffffff;
+  left: 20%;
+  text-align: center;
+  align-items: center;
+}
+
+.quantity-action:hover{
+  cursor: pointer;
 }
