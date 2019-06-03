@@ -379,7 +379,7 @@ footer {
 .products{
   padding: 0 40px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   grid-column-gap: 20px;
   grid-row-gap: 20px;
 }
@@ -685,7 +685,7 @@ footer {
 }
 
 .default-c{
-  color: #74ff92;
+  color: #55ff53;
 }
 
 
@@ -717,6 +717,7 @@ footer {
   left: 20%;
   text-align: center;
   align-items: center;
+  box-shadow: 1px 0px 10px 1px #a5a5a5;
 }
 
 .quantity-action:hover{

@@ -31,8 +31,9 @@ class ProductComponent extends Component {
         const {product: {id}} = this.props;
 
         let order = JSON.parse(localStorage.getItem('order'));
-        let product = order ? order.find(i => i.id === id) : {};
+        let product = order ? order.find(i => i.id === id) : undefined;
         if(product){
+            console.log(product)
             this.setState({quantity: product.quantity, open: true})
         }
 

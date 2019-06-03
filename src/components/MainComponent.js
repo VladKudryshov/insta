@@ -45,14 +45,19 @@ class MainComponent extends Component {
 
     changeSizeBasket = () => {
         let order = JSON.parse(localStorage.getItem("order"));
-        this.setState({size: order.length})
+        if(order){
+            this.setState({size: order.length});
+            return;
+        }
+        this.setState({size: 0});
     };
 
     getCountProductsInBasket = () => {
         const {size} = this.state;
+        if(size < 1) return '';
         let quantity = size > 9 ? '9+' : size;
         return <span className="not-empty">{quantity}</span>;
-    }
+    };
 
     render() {
 
@@ -94,7 +99,7 @@ class MainComponent extends Component {
 
                         <Switch>
                             <Route exact path="/" component={HomeComponent}/>
-                            <Route path="/catalog" component={CatalogComponent} changeSizeBasket={this.changeSizeBasket}/>
+                            <Route path="/catalog" component={CatalogComponent}/>
                             <Route path="/basket" component={BasketComponent}/>
                         </Switch>
                         <footer></footer>
