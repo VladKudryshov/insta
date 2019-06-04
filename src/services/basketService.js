@@ -1,9 +1,10 @@
 import axios from 'axios';
+import {tokenUtils} from "../utils/tokenUtils";
 
 
 function getBasket() {
 
-    return axios.get(`http://84.201.156.96:8080/api/basket`, {headers: {Authorization: localStorage.getItem('token')}})
+    return axios.get(`http://84.201.156.96:8080/api/basket`, {headers: {Authorization: tokenUtils.getToken()}})
         .then(handleResponse)
         .then(basket => {
             // login successful if there's a user in the response
