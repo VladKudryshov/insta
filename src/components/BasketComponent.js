@@ -6,13 +6,8 @@ import {basketService} from "../services/basketService";
 
 class BasketComponent extends Component {
 
+    state = {products: []}
 
-    constructor(props) {
-        super(props);
-        this.state = {products: []};
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-    }
 
     componentDidMount() {
         basketService.getBasket();
@@ -26,30 +21,22 @@ class BasketComponent extends Component {
         }
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
-    }
-
-    handleChange(e) {
-        const {name, value} = e.currentTarget;
-        this.setState({[name]: value});
-    }
-
     getQuantityById = (id) => {
         let item = JSON.parse(localStorage.getItem("order"));
         return item.filter(f => f.id === id).map(f => f.quantity)[0];
     };
 
-    deleteProductByID = (e,id) => {
+    deleteProductByID = (e, id) => {
         e.preventDefault();
         const {products} = this.state;
-        this.setState({products: products.filter(f=>f.id !== id)})
+        this.setState({products: products.filter(f => f.id !== id)})
         let order = JSON.parse(localStorage.getItem('order'));
         let oldItem = order ? order.find(i => i.id === id) : {};
         if (order && oldItem) {
             order.splice(order.indexOf(oldItem), 1);
             localStorage.setItem('order', JSON.stringify(order))
         }
+        this.props.changeBasketSize();
     };
 
     handleClearBasket = (e) => {
@@ -81,7 +68,7 @@ class BasketComponent extends Component {
                         <li>{product.category}</li>
                         <li>{product.price}</li>
                         <li>{this.getQuantityById(product.id)}</li>
-                        <li onClick={(event)=>this.deleteProductByID(event, product.id)} className="tx-l"><i
+                        <li onClick={(event) => this.deleteProductByID(event, product.id)} className="tx-l"><i
                             className="fas fa-trash"></i></li>
                     </ul>)
                 }

@@ -99,7 +99,7 @@ class MainComponent extends Component {
                         <Switch>
                             <Route exact path="/" component={HomeComponent}/>
                             <Route path="/catalog" render={() => <CatalogComponent changeBasketSize={this.changeSizeBasket} />}/>
-                            <Route path="/basket" component={BasketComponent}/>
+                            <Route path="/basket" render={() => <BasketComponent changeBasketSize={this.changeSizeBasket} />}/>
                         </Switch>
                         <footer></footer>
                     </div>
