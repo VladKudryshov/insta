@@ -2,7 +2,6 @@ import React, {Component} from "react";
 
 
 import {productService} from "../services/productService";
-import {basketService} from "../services/basketService";
 
 class BasketComponent extends Component {
 
@@ -10,7 +9,6 @@ class BasketComponent extends Component {
 
 
     componentDidMount() {
-        basketService.getBasket();
         this.setState({isLoading: true});
         let item = JSON.parse(localStorage.getItem("order"));
         if (item && item.length > 0) {

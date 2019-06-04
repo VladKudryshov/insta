@@ -344,14 +344,20 @@ button:hover{
 }
 
 .account-menu-list {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
   font-weight: 300;
 }
 
-.account-menu-list > li {
+.account-menu-link {
+  box-sizing: border-box;
+  width: 100%;
+  display: inline-block;
   padding: 10px 20px;
 }
 
-.account-menu-list > li:hover {
+.account-menu-link:hover {
   cursor: pointer;
   background: #F1F1F1;
 }
@@ -727,4 +733,12 @@ footer {
 
 .quantity-action:hover{
   cursor: pointer;
+}
+
+.active{
+  background: #F1F1F1;
+}
+
+.profile{
+  padding: 20px;
 }

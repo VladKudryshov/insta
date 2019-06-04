@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, NavLink, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Link, NavLink, Route, Switch} from 'react-router-dom';
 import LoginComponent from "./LoginComponent";
 import MenuComponent from "./MenuComponent";
 import HomeComponent from "./HomeComponent";
 import CatalogComponent from "./CatalogComponent";
 import BasketComponent from "./BasketComponent";
+import {basketService} from "../services/basketService";
+import AccountComponent from "./AccountComponent";
 
 
 class MainComponent extends Component {
@@ -38,13 +40,14 @@ class MainComponent extends Component {
         return localStorage.getItem('token') === null
     }
 
-    componentDidMount(){
+    componentDidMount() {
+        basketService.getBasket();
         this.changeSizeBasket();
     }
 
     changeSizeBasket = () => {
         let order = JSON.parse(localStorage.getItem("order"));
-        if(order){
+        if (order) {
             this.setState({size: order.length});
             return;
         }
@@ -53,7 +56,7 @@ class MainComponent extends Component {
 
     getCountProductsInBasket = () => {
         const {size} = this.state;
-        if(size < 1) return '';
+        if (size < 1) return '';
         let quantity = size > 9 ? '9+' : size;
         return <span className="not-empty">{quantity}</span>;
     };
@@ -72,18 +75,18 @@ class MainComponent extends Component {
                             </div>
                             <div className="menu">
                                 <ul className="horizontal">
-                                    <li><NavLink exact to="/">Home</NavLink></li>
-                                    <li><NavLink exact to="/catalog">Catalog</NavLink></li>
+                                    <li><Link to="/">Home</Link></li>
+                                    <li><Link to="/catalog">Catalog</Link></li>
                                     <li>Blog</li>
                                     <li>Delivery</li>
                                     <li>About us</li>
                                 </ul>
                             </div>
                             <ul className="notifications">
-                                <li><NavLink exact to="/basket"><i
-                                    className="fas fa-shopping-basket hover center">{this.getCountProductsInBasket()}</i></NavLink>
+                                <li><Link to="/basket"><i
+                                    className="fas fa-shopping-basket hover center">{this.getCountProductsInBasket()}</i></Link>
                                 </li>
-                                <li><NavLink exact to="/basket"><i className="far fa-bell "></i></NavLink></li>
+                                <li><Link to="/basket"><i className="far fa-bell "></i></Link></li>
                             </ul>
 
                             {this.isAuth()
@@ -98,8 +101,11 @@ class MainComponent extends Component {
 
                         <Switch>
                             <Route exact path="/" component={HomeComponent}/>
-                            <Route path="/catalog" render={() => <CatalogComponent changeBasketSize={this.changeSizeBasket} />}/>
-                            <Route path="/basket" render={() => <BasketComponent changeBasketSize={this.changeSizeBasket} />}/>
+                            <Route path="/catalog"
+                                   render={() => <CatalogComponent changeBasketSize={this.changeSizeBasket}/>}/>
+                            <Route path="/basket"
+                                   render={() => <BasketComponent changeBasketSize={this.changeSizeBasket}/>}/>
+                            <Route path="/account" component={AccountComponent}/>
                         </Switch>
                         <footer></footer>
                     </div>
