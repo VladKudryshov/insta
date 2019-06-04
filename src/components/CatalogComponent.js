@@ -13,6 +13,8 @@ class MainComponent extends Component {
     componentDidMount() {
         productService.getProducts('')
             .then(data => this.setState({products: data['content'], isLoading: false}));
+
+        this.props.changeBasketSize()
     }
 
     handleChange = (val) => {
@@ -33,6 +35,7 @@ class MainComponent extends Component {
             <>
                 <div className="admin-menu">
                     <div className="select-box">
+                        <div className="title">Category</div>
                         <div className="select-box__current" tabIndex="2">
                             <div className="select-box__value">
                                 <input className="select-box__input" type="radio" id="0" value="Fruit" name="Ben"
@@ -64,7 +67,7 @@ class MainComponent extends Component {
                         </ul>
                     </div>
                 </div>
-                <ListProductsComponent products={products}/>
+                <ListProductsComponent products={products} changeBasketSize={this.props.changeBasketSize}/>
             </>
         );
     }

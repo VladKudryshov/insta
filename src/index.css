@@ -561,12 +561,17 @@ footer {
 
 
 .select-box {
+  padding: 20px 0;
   position: relative;
   width: 100%;
   margin: 0 auto;
   font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', 'Calibri', 'Arial', sans-serif;
   font-size: 18px;
   color: #60666d;
+}
+
+.title{
+  text-align: center;
 }
 
 .select-box__current {
@@ -711,13 +716,13 @@ footer {
   display: grid;
   grid-template-columns: 20% 1fr 20%;
   position: absolute;
-  width: 60%;
+  width: 50%;
   padding: 10px;
   background: #ffffff;
-  left: 20%;
+  left: 25%;
   text-align: center;
   align-items: center;
-  box-shadow: 1px 0px 10px 1px #a5a5a5;
+  box-shadow: 1px 0 10px 1px #a5a5a5;
 }
 
 .quantity-action:hover{

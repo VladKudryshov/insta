@@ -2,6 +2,7 @@ import React, {Component} from "react";
 
 
 import {productService} from "../services/productService";
+import {basketService} from "../services/basketService";
 
 class BasketComponent extends Component {
 
@@ -14,12 +15,14 @@ class BasketComponent extends Component {
     }
 
     componentDidMount() {
+        basketService.getBasket();
         this.setState({isLoading: true});
-        let item = localStorage.getItem("order");
-        if (item) {
-            let id = JSON.parse(item).map(it => it.id);
+        let item = JSON.parse(localStorage.getItem("order"));
+        if (item && item.length > 0) {
+            let id = item.map(it => it.id);
             productService.getProductsByIds(id)
                 .then(data => this.setState({products: data}))
+
         }
     }
 
@@ -37,6 +40,18 @@ class BasketComponent extends Component {
         return item.filter(f => f.id === id).map(f => f.quantity)[0];
     };
 
+    deleteProductByID = (e,id) => {
+        e.preventDefault();
+        const {products} = this.state;
+        this.setState({products: products.filter(f=>f.id !== id)})
+        let order = JSON.parse(localStorage.getItem('order'));
+        let oldItem = order ? order.find(i => i.id === id) : {};
+        if (order && oldItem) {
+            order.splice(order.indexOf(oldItem), 1);
+            localStorage.setItem('order', JSON.stringify(order))
+        }
+    };
+
     handleClearBasket = (e) => {
         e.preventDefault();
 
@@ -47,7 +62,7 @@ class BasketComponent extends Component {
     render() {
         const {products} = this.state;
 
-        if(products.length === 0){
+        if (products.length === 0) {
             return <div className="basket-box">Your basket is empty</div>
         }
 
@@ -66,7 +81,8 @@ class BasketComponent extends Component {
                         <li>{product.category}</li>
                         <li>{product.price}</li>
                         <li>{this.getQuantityById(product.id)}</li>
-                        <li className="tx-l"><i className="fas fa-trash"></i></li>
+                        <li onClick={(event)=>this.deleteProductByID(event, product.id)} className="tx-l"><i
+                            className="fas fa-trash"></i></li>
                     </ul>)
                 }
 

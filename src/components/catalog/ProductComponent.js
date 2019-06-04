@@ -20,11 +20,11 @@ class ProductComponent extends Component {
         if (!oldItem && order) {
             order.push(item);
             localStorage.setItem('order', JSON.stringify(order));
+            this.props.changeBasketSize()
             return;
         }
-
         localStorage.setItem('order', JSON.stringify([item]))
-
+        this.props.changeBasketSize()
     };
 
     componentDidMount(){
@@ -33,7 +33,6 @@ class ProductComponent extends Component {
         let order = JSON.parse(localStorage.getItem('order'));
         let product = order ? order.find(i => i.id === id) : undefined;
         if(product){
-            console.log(product)
             this.setState({quantity: product.quantity, open: true})
         }
 
@@ -45,11 +44,11 @@ class ProductComponent extends Component {
         let oldItem = order ? order.find(i => i.id === id) : {};
         if (order && oldItem) {
             oldItem.quantity = quantity;
-            console.log();
             if (quantity < 1) {
                 order.splice(order.indexOf(oldItem), 1);
             }
             localStorage.setItem('order', JSON.stringify(order))
+            this.props.changeBasketSize()
         }
     };
 

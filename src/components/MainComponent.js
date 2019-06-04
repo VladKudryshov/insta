@@ -40,7 +40,6 @@ class MainComponent extends Component {
 
     componentDidMount(){
         this.changeSizeBasket();
-        console.log("ad")
     }
 
     changeSizeBasket = () => {
@@ -99,7 +98,7 @@ class MainComponent extends Component {
 
                         <Switch>
                             <Route exact path="/" component={HomeComponent}/>
-                            <Route path="/catalog" component={CatalogComponent}/>
+                            <Route path="/catalog" render={() => <CatalogComponent changeBasketSize={this.changeSizeBasket} />}/>
                             <Route path="/basket" component={BasketComponent}/>
                         </Switch>
                         <footer></footer>

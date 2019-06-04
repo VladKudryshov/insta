@@ -10,7 +10,7 @@ class ListProductsComponent extends Component {
         const {products} = this.props;
 
         const productList = products.map(product => {
-            return <ProductComponent key={get(product, 'id', '')} product = {product}/>
+            return <ProductComponent key={get(product, 'id', '')} product = {product} changeBasketSize = {this.props.changeBasketSize}/>
         });
 
         return (
