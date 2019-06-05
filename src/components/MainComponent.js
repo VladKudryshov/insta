@@ -7,6 +7,7 @@ import CatalogComponent from "./CatalogComponent";
 import BasketComponent from "./BasketComponent";
 import {basketService} from "../services/basketService";
 import AccountComponent from "./AccountComponent";
+import SimpleBasketContainer from "../containers/SimpleBasketContainer";
 
 
 class MainComponent extends Component {
@@ -40,27 +41,6 @@ class MainComponent extends Component {
         return localStorage.getItem('token') === null
     }
 
-    componentDidMount() {
-        basketService.getBasket();
-        this.changeSizeBasket();
-    }
-
-    changeSizeBasket = () => {
-        let order = JSON.parse(localStorage.getItem("order"));
-        if (order) {
-            this.setState({size: order.length});
-            return;
-        }
-        this.setState({size: 0});
-    };
-
-    getCountProductsInBasket = () => {
-        const {size} = this.state;
-        if (size < 1) return '';
-        let quantity = size > 9 ? '9+' : size;
-        return <span className="not-empty">{quantity}</span>;
-    };
-
     render() {
 
         const {loginComponent, menuComponent} = this.state;
@@ -83,9 +63,7 @@ class MainComponent extends Component {
                                 </ul>
                             </div>
                             <ul className="notifications">
-                                <li><Link to="/basket"><i
-                                    className="fas fa-shopping-basket hover center">{this.getCountProductsInBasket()}</i></Link>
-                                </li>
+                                <SimpleBasketContainer/>
                                 <li><Link to="/basket"><i className="far fa-bell "></i></Link></li>
                             </ul>
 
@@ -102,9 +80,9 @@ class MainComponent extends Component {
                         <Switch>
                             <Route exact path="/" component={HomeComponent}/>
                             <Route path="/catalog"
-                                   render={() => <CatalogComponent changeBasketSize={this.changeSizeBasket}/>}/>
+                                   render={() => <CatalogComponent/>}/>
                             <Route path="/basket"
-                                   render={() => <BasketComponent changeBasketSize={this.changeSizeBasket}/>}/>
+                                   render={() => <BasketComponent/>}/>
                             <Route path="/account" component={AccountComponent}/>
                         </Switch>
                         <footer></footer>

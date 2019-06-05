@@ -13,8 +13,6 @@ class MainComponent extends Component {
     componentDidMount() {
         productService.getProducts('')
             .then(data => this.setState({products: data['content'], isLoading: false}));
-
-        this.props.changeBasketSize()
     }
 
     handleChange = (val) => {

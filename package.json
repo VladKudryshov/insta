@@ -6,14 +6,15 @@
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
     "axios": "^0.18.0",
+    "lodash": "latest",
     "prop-types": "latest",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-redux": "^7.0.3",
+    "react-router": "latest",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
-    "redux": "^4.0.1",
-    "lodash": "latest",
-    "react-router": "latest"
+    "redux": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

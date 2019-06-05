@@ -2,6 +2,9 @@ import React, {Component} from "react";
 
 
 import {productService} from "../services/productService";
+import connect from "react-redux/es/connect/connect";
+import {bindActionCreators} from "redux";
+import {addProductToBasket, changeQuantityProductInBasket} from "../actions/action";
 
 class BasketComponent extends Component {
 
@@ -9,13 +12,13 @@ class BasketComponent extends Component {
 
 
     componentDidMount() {
-        this.setState({isLoading: true});
-        let item = JSON.parse(localStorage.getItem("order"));
-        if (item && item.length > 0) {
-            let id = item.map(it => it.id);
-            productService.getProductsByIds(id)
-                .then(data => this.setState({products: data}))
-
+        const {basket} = this.props;
+        if (basket && basket.length > 0) {
+            let ids = basket.map(it => it.id);
+            productService.getProductsByIds(ids)
+                .then(data => {
+                    this.setState({products: data})
+                })
         }
     }
 
@@ -27,14 +30,10 @@ class BasketComponent extends Component {
     deleteProductByID = (e, id) => {
         e.preventDefault();
         const {products} = this.state;
-        this.setState({products: products.filter(f => f.id !== id)})
-        let order = JSON.parse(localStorage.getItem('order'));
-        let oldItem = order ? order.find(i => i.id === id) : {};
-        if (order && oldItem) {
-            order.splice(order.indexOf(oldItem), 1);
-            localStorage.setItem('order', JSON.stringify(order))
-        }
-        this.props.changeBasketSize();
+        this.setState({products: products.filter((item) => item.id !== id)})
+        const {actions: {changeQuantityProductInBasket}} = this.props;
+        changeQuantityProductInBasket(id, 0);
+
     };
 
     handleClearBasket = (e) => {
@@ -65,9 +64,14 @@ class BasketComponent extends Component {
                         <li>{product.name}</li>
                         <li>{product.category}</li>
                         <li>{product.price}</li>
-                        <li>{this.getQuantityById(product.id)}</li>
-                        <li onClick={(event) => this.deleteProductByID(event, product.id)} className="tx-l"><i
-                            className="fas fa-trash"></i></li>
+
+
+                        <li>
+                            {this.getQuantityById(product.id)}
+                        </li>
+                        <li onClick={(event) => this.deleteProductByID(event, product.id)} className="tx-l">
+                            <i className="fas fa-trash"/>
+                        </li>
                     </ul>)
                 }
 
@@ -88,4 +92,18 @@ class BasketComponent extends Component {
 
 }
 
-export default BasketComponent
+const mapStateToProps = (state) => {
+    const basket = state.basket;
+    return ({
+        basket
+    });
+};
+
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators({
+        changeQuantityProductInBasket
+    }, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(BasketComponent);
+
