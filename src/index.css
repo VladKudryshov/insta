@@ -20,8 +20,29 @@ body {
 }
 
 @media only screen and (max-device-width: 767px) and (min-device-width: 360px){
+
+  .notifications {
+    padding: 10px 0;
+    text-align: right;
+  }
+
+  .notifications > li{
+    z-index: 2;
+    display: inline-block;
+    margin-right: 5px;
+    color: #7b88a5;
+  }
+
   body {
     font-size: 8pt !important;
+  }
+
+  .horizontal > li {
+    display: inline-block;
+    padding: 10px 2px;
+    color: #606161;
+    border-radius: 5px;
+    cursor: pointer;
   }
 
   .categories > ul > li > img{
@@ -74,17 +95,13 @@ body {
     box-sizing: border-box;
     top: 0;
     display: grid;
-    grid-template-columns: 50px 1fr auto;
+    grid-template-columns: 50px auto auto auto;
     grid-template-rows: 30px;
   }
 
-  .menu{
-    display: none;
-  }
-
   .logo img {
-    width: 60px;
-    height: 30px;
+    width: 30px;
+    height: 20px;
   }
 
   .slider-nav{
@@ -114,6 +131,28 @@ body {
 }
 
 @media only screen and (min-width: 840px) {
+  .notifications {
+    padding: 10px 0;
+    text-align: right;
+  }
+
+  .notifications > li{
+    z-index: 2;
+    display: inline-block;
+    margin-right: 15px;
+    color: #7b88a5;
+  }
+
+
+
+  .horizontal > li {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #606161;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
 
   .information{
     margin: 0 auto;
@@ -224,14 +263,6 @@ ul {
   text-align: center;
 }
 
-.horizontal > li {
-  display: inline-block;
-  padding: 10px 20px;
-  color: #606161;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
 .horizontal > li:hover {
   color: #feffff;
   background: #00ba56;
@@ -244,18 +275,6 @@ ul {
 a{
   color: #606161;
   text-decoration: none;
-}
-
-.notifications {
-  padding: 10px 0;
-  text-align: right;
-}
-
-.notifications > li{
-  z-index: 2;
-  display: inline-block;
-  margin-right: 15px;
-  color: #7b88a5;
 }
 
 .hover:hover {
@@ -653,7 +672,7 @@ footer {
 .basket-box > ul > ul {
   margin-bottom: 10px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 100px;
+  grid-template-columns: 25% 25% 20% 20% 10%;
   border-bottom: 1px solid #b7b7b7;
 }
 

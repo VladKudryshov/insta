@@ -57,7 +57,7 @@ class BasketComponent extends Component {
                     <li>Category</li>
                     <li>Price</li>
                     <li>Quantity</li>
-                    <li>Actions</li>
+                    <li></li>
                 </ul>
                 {
                     products.map(product => <ul key={product.id} className=''>
