@@ -1,4 +1,6 @@
-const basket = (state = JSON.parse(localStorage.getItem("order")), action) => {
+import {storageUtils} from "../utils/StorageUtils";
+
+const basket = (state = storageUtils.getOrderStorage(), action) => {
 
     let newState;
     switch (action.type) {
@@ -26,6 +28,9 @@ const basket = (state = JSON.parse(localStorage.getItem("order")), action) => {
             }
             localStorage.setItem("order", JSON.stringify(newState))
             return newState;
+        case 'CLEAR_BASKET':
+            localStorage.removeItem("order");
+            return [];
         case 'SYNC_BASKET':
             return [
                 ...state,
@@ -38,5 +43,7 @@ const basket = (state = JSON.parse(localStorage.getItem("order")), action) => {
             return state
     }
 };
+
+
 
 export default basket

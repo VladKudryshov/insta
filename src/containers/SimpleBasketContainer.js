@@ -9,11 +9,11 @@ class SimpleBasketContainer extends Component {
     render() {
         const {basket} = this.props
         return (
-            <li>
-                <Link to="/basket">
-                    <i className="fas fa-shopping-basket hover center"><span className="not-empty">{basket.length}</span></i>
-                </Link>
-            </li>
+            <Link to="/basket">
+                <i className="fas fa-shopping-basket hover center">{
+                    <span className={basket.length > 0 ? "not-empty" : 'not-empty none'}>{basket.length}</span>
+                }</i>
+            </Link>
         );
     }
 }

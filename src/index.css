@@ -750,6 +750,10 @@ footer {
   box-shadow: 1px 0 10px 1px #a5a5a5;
 }
 
+.none{
+  opacity: 0;
+}
+
 .quantity-action:hover{
   cursor: pointer;
 }

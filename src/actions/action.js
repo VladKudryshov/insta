@@ -10,3 +10,8 @@ export const changeQuantityProductInBasket = (id, quantity) => ({
     quantity: quantity
 })
 
+
+export const clearBasket = () => ({
+    type: 'CLEAR_BASKET'
+})
+

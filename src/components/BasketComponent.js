@@ -4,7 +4,7 @@ import React, {Component} from "react";
 import {productService} from "../services/productService";
 import connect from "react-redux/es/connect/connect";
 import {bindActionCreators} from "redux";
-import {addProductToBasket, changeQuantityProductInBasket} from "../actions/action";
+import {addProductToBasket, changeQuantityProductInBasket, clearBasket} from "../actions/action";
 
 class BasketComponent extends Component {
 
@@ -38,10 +38,10 @@ class BasketComponent extends Component {
 
     handleClearBasket = (e) => {
         e.preventDefault();
-
         this.setState({products: []})
-        return localStorage.removeItem("order");
-    }
+        const {actions: {clearBasket}} = this.props;
+        return clearBasket([]);
+    };
 
     render() {
         const {products} = this.state;
@@ -101,7 +101,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
-        changeQuantityProductInBasket
+        changeQuantityProductInBasket,
+        clearBasket
     }, dispatch),
 });
 

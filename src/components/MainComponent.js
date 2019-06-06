@@ -8,6 +8,7 @@ import BasketComponent from "./BasketComponent";
 import {basketService} from "../services/basketService";
 import AccountComponent from "./AccountComponent";
 import SimpleBasketContainer from "../containers/SimpleBasketContainer";
+import SimpleNotificationContainer from "../containers/SimpleNotificationContainer";
 
 
 class MainComponent extends Component {
@@ -64,7 +65,7 @@ class MainComponent extends Component {
                             </div>
                             <ul className="notifications">
                                 <SimpleBasketContainer/>
-                                <li><Link to="/basket"><i className="far fa-bell "></i></Link></li>
+                                <SimpleNotificationContainer/>
                             </ul>
 
                             {this.isAuth()
