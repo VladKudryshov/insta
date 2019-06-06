@@ -4,49 +4,40 @@ import React, {Component} from "react";
 import {productService} from "../services/productService";
 import connect from "react-redux/es/connect/connect";
 import {bindActionCreators} from "redux";
-import {addProductToBasket, changeQuantityProductInBasket, clearBasket} from "../actions/action";
+import {changeQuantityProductInBasket, saveProducts} from "../actions/action";
 
 class BasketComponent extends Component {
 
-    state = {products: []}
-
 
     componentDidMount() {
-        const {basket} = this.props;
+        const {basket:{basket}, actions: {saveProducts}} = this.props;
         if (basket && basket.length > 0) {
             let ids = basket.map(it => it.id);
             productService.getProductsByIds(ids)
                 .then(data => {
-                    this.setState({products: data})
+                    saveProducts(data)
                 })
         }
     }
 
     getQuantityById = (id) => {
-        let item = JSON.parse(localStorage.getItem("order"));
-        return item.filter(f => f.id === id).map(f => f.quantity)[0];
+        const {basket} = this.props;
+        console.log(basket)
+        return id;
     };
 
     deleteProductByID = (e, id) => {
         e.preventDefault();
-        const {products} = this.state;
-        this.setState({products: products.filter((item) => item.id !== id)})
+        const {basket:{products}} = this.props;
         const {actions: {changeQuantityProductInBasket}} = this.props;
         changeQuantityProductInBasket(id, 0);
 
     };
 
-    handleClearBasket = (e) => {
-        e.preventDefault();
-        this.setState({products: []})
-        const {actions: {clearBasket}} = this.props;
-        return clearBasket([]);
-    };
-
     render() {
-        const {products} = this.state;
-
-        if (products.length === 0) {
+        const {basket, basket: {products}} = this.props;
+        console.log(basket)
+        if (!products || products.length === 0) {
             return <div className="basket-box">Your basket is empty</div>
         }
 
@@ -74,16 +65,6 @@ class BasketComponent extends Component {
                         </li>
                     </ul>)
                 }
-
-            </ul>
-
-            <ul className="order-action fl-r">
-                <li>
-                    <button className="btn primary" onClick={this.handleClearBasket}>Clear basket</button>
-                </li>
-                <li>
-                    <button className="btn netral">Order</button>
-                </li>
             </ul>
         </div>
 
@@ -101,8 +82,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
-        changeQuantityProductInBasket,
-        clearBasket
+        changeQuantityProductInBasket,saveProducts
     }, dispatch),
 });
 

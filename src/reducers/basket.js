@@ -1,49 +1,63 @@
 import {storageUtils} from "../utils/StorageUtils";
 
-const basket = (state = storageUtils.getOrderStorage(), action) => {
+const basket = (state = {
+    basket: storageUtils.getOrderStorage(),
+    products: []
+}, action) => {
 
     let newState;
     switch (action.type) {
         case 'ADD_PRODUCT_TO_BASKET':
-            newState = [
-                ...state,
-                {
-                    id: action.id,
-                    quantity: action.quantity
-                }
-            ];
-            localStorage.setItem("order", JSON.stringify(newState))
+
+            newState = {
+                basket: [
+                    ...state.basket,
+                    {
+                        id: action.id,
+                        quantity: action.quantity
+                    }
+                ]
+            };
+
+            localStorage.setItem("order", JSON.stringify(newState.basket))
 
             return newState;
         case 'CHANGE_QUANTITY_PRODUCT_IN_BASKET':
             if (action.quantity < 1) {
-                newState = state.filter(f => f.id !== action.id);
-            }else{
-                newState = state.map(product => {
+                newState = state.basket.filter(f => f.id !== action.id);
+            } else {
+                console.log(state.basket)
+                newState = state.basket.map(product => {
                     if (product.id === action.id) {
                         return {...product, quantity: action.quantity}
                     }
                     return product
                 });
             }
-            localStorage.setItem("order", JSON.stringify(newState))
-            return newState;
+            localStorage.setItem("order", JSON.stringify(newState.basket))
+            return {
+                basket: newState,
+                products : state.products
+            };
         case 'CLEAR_BASKET':
             localStorage.removeItem("order");
-            return [];
+            return {
+                basket: [],
+                products: []
+            };
         case 'SYNC_BASKET':
-            return [
+
+            return [];
+        case 'PRODUCTS':
+            return {
                 ...state,
-                {
-                    basketSize: basket
-                }
-            ];
+                products: action.products
+            };
 
         default:
             return state
     }
 };
-
 
 
 export default basket

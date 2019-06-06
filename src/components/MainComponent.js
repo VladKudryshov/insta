@@ -1,16 +1,14 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Link, NavLink, Route, Switch} from 'react-router-dom';
-import LoginComponent from "./LoginComponent";
+import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
 import MenuComponent from "./MenuComponent";
 import HomeComponent from "./HomeComponent";
 import CatalogComponent from "./CatalogComponent";
-import BasketComponent from "./BasketComponent";
-import {basketService} from "../services/basketService";
 import AccountComponent from "./AccountComponent";
 import SimpleBasketContainer from "../containers/SimpleBasketContainer";
 import SimpleNotificationContainer from "../containers/SimpleNotificationContainer";
 import MobileMenuContainer from "../containers/MobileMenuContainer";
 import {storageUtils} from "../utils/StorageUtils";
+import OrderStepperComponent from "./OrderStepperComponent";
 
 
 class MainComponent extends Component {
@@ -48,7 +46,7 @@ class MainComponent extends Component {
                             <Route path="/catalog"
                                    render={() => <CatalogComponent/>}/>
                             <Route path="/basket"
-                                   render={() => <BasketComponent/>}/>
+                                   render={() => <OrderStepperComponent/>}/>
                             <Route path="/account" component={AccountComponent}/>
                         </Switch>
                         <footer></footer>

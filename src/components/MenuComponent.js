@@ -22,6 +22,7 @@ class MenuComponent extends Component {
         this.handleClickOutside = this.handleClickOutside.bind(this);
     }
 
+
     handleLoginComponent = () => {
         const {loginComponent} = this.state;
         this.setState({loginComponent: !loginComponent})
@@ -29,10 +30,6 @@ class MenuComponent extends Component {
 
     componentDidMount() {
         document.addEventListener('mousedown', this.handleClickOutside);
-    }
-
-    componentWillUnmount() {
-        document.removeEventListener('mousedown', this.handleClickOutside);
     }
 
     setWrapperRef(node) {
@@ -69,7 +66,7 @@ class MenuComponent extends Component {
                                 <div className="account-menu-list">
                                     <Link to="/account/profile" className="account-menu-link"   onClick={this.handleMenuComponent}><i className="far fa-user mr10"></i>Profile</Link>
                                     <Link to="/account/messages" className="account-menu-link"   onClick={this.handleMenuComponent}><i className="far fa-envelope mr10"></i>Messages</Link>
-                                    <Link to="/account/settings" className="account-menu-link"   onClick={this.handleMenuComponent}><i className="far fa-cog mr10"></i>Settings</Link>
+                                    <Link to="/account/settings" className="account-menu-link"   onClick={this.handleMenuComponent}><i className="fas fa-cog mr10"></i>Settings</Link>
                                     <span onClick={this.handleLogout} className="account-menu-link"><i className="fas fa-sign-out-alt mr10"></i>Logout</span>
                                 </div>
                             </div>

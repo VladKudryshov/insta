@@ -15,3 +15,8 @@ export const clearBasket = () => ({
     type: 'CLEAR_BASKET'
 })
 
+export const saveProducts = (products) => ({
+    type: 'PRODUCTS',
+    products: products
+})
+

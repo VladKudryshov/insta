@@ -32,6 +32,19 @@ function getUserInfo() {
 }
 
 
+function getAddressUser() {
+
+    return axios.get(`http://84.201.156.96:8080/api/address/address`, {headers: {
+            Authorization: localStorage.getItem('token')
+        }})
+        .then(handleResponse)
+        .then(user => {
+            console.log(user)
+            return user;
+        });
+}
+
+
 function handleResponse(response) {
     return response.data;
 }
@@ -47,5 +60,6 @@ const setAccessToken = (response) => {
 export const userService = {
     login,
     getUserInfo,
+    getAddressUser,
     logout
 };

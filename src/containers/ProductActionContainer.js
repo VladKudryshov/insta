@@ -12,7 +12,7 @@ class ProductAction extends Component {
     }
 
     getQuantityProduct() {
-        const {basket, id} = this.props;
+        const {basket:{basket}, id} = this.props;
         let product = basket ? basket.find(i => i.id === id) : undefined;
         return product ? product.quantity : 0
     }

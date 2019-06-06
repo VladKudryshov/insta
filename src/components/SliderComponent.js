@@ -5,30 +5,44 @@ class SliderComponent extends Component {
 
     state = {
         currentPosition: 0,
-        sliderImages: ['/images/slide1.png', '/images/22140.jpg']
+        sliderImages: [
+            'https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg',
+            'https://images.unsplash.com/photo-1535498730771-e735b998cd64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'
+        ]
+    };
+
+
+    componentDidMount() {
+        setInterval(
+            this.nextSlide,
+            3000
+        );
     }
 
     nextSlide = () => {
         const {currentPosition, sliderImages} = this.state;
-        console.log(sliderImages.length)
-        console.log(currentPosition)
         let newPosition = sliderImages.length - 1 <= currentPosition ? 0 : currentPosition + 1;
         this.setState({currentPosition: newPosition})
     };
 
     prevSlide = () => {
         const {currentPosition, sliderImages} = this.state;
-        console.log(currentPosition)
         let newPosition = sliderImages.length - 1 > currentPosition ? sliderImages.length - 1 : currentPosition - 1;
         this.setState({currentPosition: newPosition})
     };
 
-    render() {
+    getCurrentImage = () => {
         const {currentPosition, sliderImages} = this.state;
+        return sliderImages[currentPosition]
+    };
+
+    render() {
+
+        console.log()
         return (
-            <div className="slider">
+            <div className="slider" style={{backgroundImage: 'url(' + this.getCurrentImage() + ')'}}>
                 <i className="fas fa-arrow-left slide-arrow-left" onClick={this.prevSlide}></i>
-                <img src={sliderImages[currentPosition]} alt=""/>
+                {/*{this.getCurrentImage()}*/}
                 <i className="fas fa-arrow-right slide-arrow-right" onClick={this.nextSlide}></i>
             </div>
         );

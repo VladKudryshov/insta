@@ -49,24 +49,23 @@ body {
         color: #ffffff !important;
     }
 
-    .line{
+    .line {
         width: 17px;
         height: 1px;
         background: #000;
         transition: .2s ease-in-out;
     }
 
-    .open-mobile-menu > .line:first-child{
+    .open-mobile-menu > .line:first-child {
         transform: rotate(45deg);
     }
 
-    .open-mobile-menu > .line:last-child{
-        margin: -1px 0 0 0  !important;
+    .open-mobile-menu > .line:last-child {
+        margin: -1px 0 0 0 !important;
         transform: rotate(-45deg);
     }
 
-
-    .line:last-child{
+    .line:last-child {
         margin-top: 3px;
     }
 
@@ -156,8 +155,6 @@ body {
         justify-items: center;
     }
 
-
-
     header {
         padding: 10px 20px;
         position: sticky;
@@ -200,6 +197,26 @@ body {
         box-sizing: border-box;
         grid-column: 1;
         height: 100px;
+        background-size: 300px 100px;
+        background: no-repeat center;
+    }
+
+    .my-node-enter {
+        opacity: 0;
+    }
+
+    .my-node-enter-active {
+        opacity: 1;
+        transition: opacity 200ms;
+    }
+
+    .my-node-exit {
+        opacity: 1;
+    }
+
+    .my-node-exit-active {
+        opacity: 0;
+        transition: opacity 200ms;
     }
 
     .slide-arrow-right {
@@ -426,7 +443,6 @@ a {
     text-align: center;
 }
 
-
 .sing-in:focus {
     outline: none;
 }
@@ -586,9 +602,7 @@ button:hover {
 
 /*INDEX*/
 
-
-
-.slider img {
+.tran {
     display: block;
     margin: 0 auto;
     width: 40%;
@@ -856,4 +870,39 @@ button:hover {
 
 .profile {
     padding: 20px;
+}
+
+.addresses {
+    grid-template-columns: minmax(150px, 1fr) minmax(150px, 1fr) !important;
+
+}
+
+.address {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.seleted {
+    background: #e9e9e9;
+}
+
+.cl2-rw1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+    justify-items: center;
+
+}
+
+.cl12-center {
+    grid-column: 1/3;
+}
+
+.user-info {
+    padding: 20px;
+    width: 50%;
 }
