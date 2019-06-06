@@ -22,7 +22,7 @@ body {
 @media only screen and (max-device-width: 767px) and (min-device-width: 360px){
 
   .basket-box{
-    margin: 20px;
+    margin: 0 10px;
   }
 
   .not-empty{
@@ -73,7 +73,6 @@ body {
     display: grid;
     grid-template-columns: none;
     grid-row-gap: 30px;
-    grid-template-rows: 60px 1fr;
   }
 
   .information{
@@ -160,8 +159,8 @@ body {
 @media only screen and (min-width: 840px) {
 
   .basket-box{
+    margin: 0 20px;
     grid-column: 1/3;
-    margin: 20px;
   }
 
   .notifications {
@@ -690,7 +689,6 @@ button:hover{
 
 
 .basket-box > ul > ul {
-  margin-bottom: 10px;
   display: grid;
   grid-template-columns: 25% 25% 20% 20% 10%;
   border-bottom: 1px solid #b7b7b7;
@@ -707,6 +705,11 @@ button:hover{
 .basket-box > ul > ul > li{
   padding: 20px 20px;
   display: inline-block;
+}
+
+.basket-box > ul > ul > li:last-child{
+  padding: 20px 0;
+  text-align: center;
 }
 
 .tx-l{

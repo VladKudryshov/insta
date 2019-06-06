@@ -31,7 +31,7 @@ class SelectorContainer extends Component {
                     </div>
 
                     <img className="select-box__icon" src="http://cdn.onlinewebfonts.com/svg/img_295694.svg"
-                         alt="Arrow Icon" aria-hidden="true"/>
+                         alt="Arrow Icon" aria-hidden="true" style={{transform: this.state.open ? 'translateY(-50%) rotate(180deg)' : 'translateY(-50%) rotate(0deg)'}}/>
                 </div>
                 <ul className="select-box__list" style={{display: this.state.open ? 'block' : 'none' }}>
                     <li><label className="select-box__option" htmlFor="0"
@@ -47,6 +47,7 @@ class SelectorContainer extends Component {
 
     openSelections = () => {
         const {open} = this.state;
+        console.log(open)
         this.setState({open: !open})
     }
 }
