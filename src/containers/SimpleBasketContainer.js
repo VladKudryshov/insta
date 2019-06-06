@@ -10,7 +10,7 @@ class SimpleBasketContainer extends Component {
         const {basket} = this.props
         return (
             <Link to="/basket">
-                <i className="fas fa-shopping-basket hover center">{
+                <i className="fas fa-shopping-basket hover center p1020">{
                     <span className={basket.length > 0 ? "not-empty" : 'not-empty none'}>{basket.length}</span>
                 }</i>
             </Link>

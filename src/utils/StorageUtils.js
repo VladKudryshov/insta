@@ -10,7 +10,13 @@ function getToken() {
         : ''
 }
 
+function isAuth() {
+    return localStorage.getItem('token') === null
+}
+
+
 export const storageUtils = {
     getToken,
-    getOrderStorage
+    getOrderStorage,
+    isAuth
 };

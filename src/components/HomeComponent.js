@@ -3,34 +3,6 @@ import SliderComponent from "./SliderComponent";
 
 
 class MainComponent extends Component {
-    state = {
-        loginComponent: false,
-        menuComponent: false,
-        mobileMoreAnchorEl: null,
-    };
-
-    handleOpenLoginComponent = event => {
-        const {loginComponent} = this.state;
-        this.setState({loginComponent: !loginComponent})
-    };
-
-    handleOpenMenuComponent = event => {
-        const {menuComponent} = this.state;
-        this.setState({menuComponent: !menuComponent})
-    };
-
-    handleLoginClose = () => {
-        this.setState({loginComponent: false});
-    };
-
-    handleMenuClose = () => {
-        this.setState({menuComponent: false});
-    };
-
-
-    isAuth() {
-        return localStorage.getItem('token') === null
-    }
 
     render() {
 

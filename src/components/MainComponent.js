@@ -9,48 +9,20 @@ import {basketService} from "../services/basketService";
 import AccountComponent from "./AccountComponent";
 import SimpleBasketContainer from "../containers/SimpleBasketContainer";
 import SimpleNotificationContainer from "../containers/SimpleNotificationContainer";
+import MobileMenuContainer from "../containers/MobileMenuContainer";
+import {storageUtils} from "../utils/StorageUtils";
 
 
 class MainComponent extends Component {
-    state = {
-        loginComponent: false,
-        menuComponent: false,
-        mobileMoreAnchorEl: null,
-        size: 0
-    };
-
-    handleOpenLoginComponent = event => {
-        const {loginComponent} = this.state;
-        this.setState({loginComponent: !loginComponent})
-    };
-
-    handleOpenMenuComponent = event => {
-        const {menuComponent} = this.state;
-        this.setState({menuComponent: !menuComponent})
-    };
-
-    handleLoginClose = () => {
-        this.setState({loginComponent: false});
-    };
-
-    handleMenuClose = () => {
-        this.setState({menuComponent: false});
-    };
-
-
-    isAuth() {
-        return localStorage.getItem('token') === null
-    }
 
     render() {
-
-        const {loginComponent, menuComponent} = this.state;
 
         return (
             <>
                 <Router>
                     <div className="wrapper">
                         <header>
+                            <MobileMenuContainer/>
                             <div className="logo">
                                 <img src="/images/logo.png" alt="Logo"/>
                             </div>
@@ -63,19 +35,12 @@ class MainComponent extends Component {
                                     <li>About us</li>
                                 </ul>
                             </div>
-                            <ul className="notifications">
+                            <div className="notifications">
                                 <SimpleBasketContainer/>
-                                <SimpleNotificationContainer/>
-                            </ul>
 
-                            {this.isAuth()
-                                ? <button className="sing-in" onClick={this.handleOpenLoginComponent}>Sign in</button>
-                                : <div className="account"
-                                       onClick={this.handleOpenMenuComponent}>{localStorage.getItem('user')}</div>
-                            }
-
-                            <LoginComponent open={loginComponent} close={this.handleLoginClose}> </LoginComponent>
-                            <MenuComponent open={menuComponent} close={this.handleMenuClose}> </MenuComponent>
+                                {storageUtils.isAuth() ? '' : <SimpleNotificationContainer/>}
+                                <MenuComponent/>
+                            </div>
                         </header>
 
                         <Switch>
