@@ -357,6 +357,8 @@ body {
         box-sizing: border-box;
         grid-column: 1/3;
         height: 300px;
+        background-size: 300px 300px;
+        background: no-repeat center;
     }
 
     header {
