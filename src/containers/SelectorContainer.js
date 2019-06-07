@@ -47,7 +47,6 @@ class SelectorContainer extends Component {
 
     openSelections = () => {
         const {open} = this.state;
-        console.log(open)
         this.setState({open: !open})
     }
 }

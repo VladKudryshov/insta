@@ -26,7 +26,6 @@ const basket = (state = {
             if (action.quantity < 1) {
                 newState = state.basket.filter(f => f.id !== action.id);
             } else {
-                console.log(state.basket)
                 newState = state.basket.map(product => {
                     if (product.id === action.id) {
                         return {...product, quantity: action.quantity}
@@ -34,13 +33,13 @@ const basket = (state = {
                     return product
                 });
             }
-            localStorage.setItem("order", JSON.stringify(newState.basket))
+            localStorage.setItem("order", JSON.stringify(newState))
             return {
-                basket: newState,
-                products : state.products
+                basket: newState ? newState : [],
+                products: state.products
             };
         case 'CLEAR_BASKET':
-            localStorage.removeItem("order");
+            localStorage.removeItem("order")
             return {
                 basket: [],
                 products: []
@@ -52,6 +51,11 @@ const basket = (state = {
             return {
                 ...state,
                 products: action.products
+            };
+        case 'DELETE_PRODUCT':
+            return {
+                ...state,
+                products: state.products.filter(f => f.id !== action.id)
             };
 
         default:

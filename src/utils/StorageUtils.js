@@ -1,6 +1,6 @@
 
 function getOrderStorage(){
-    return JSON.parse(localStorage.getItem("order")) ? JSON.parse(localStorage.getItem("order")) : [];
+    return localStorage.getItem("order") ? JSON.parse(localStorage.getItem("order")) : [];
 }
 
 function getToken() {

@@ -5,7 +5,7 @@ import {storageUtils} from "../utils/StorageUtils";
 
 function getProducts(filter) {
 
-    return axios.get(`http://84.201.156.96:8080/api/products?size=8&category=`+filter, {headers: {Authorization: storageUtils.getToken()}})
+    return axios.get(`http://84.201.156.96:8080/api/products?size=100&category=`+filter, {headers: {Authorization: storageUtils.getToken()}})
         .then(handleResponse)
         .then(products => {
             // login successful if there's a user in the response

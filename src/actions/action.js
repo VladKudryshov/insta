@@ -20,3 +20,8 @@ export const saveProducts = (products) => ({
     products: products
 })
 
+export const deleteProductFromBasket = (id) => ({
+    type: 'DELETE_PRODUCT',
+    id: id
+})
+

@@ -4,10 +4,13 @@ import React, {Component} from "react";
 import {productService} from "../services/productService";
 import connect from "react-redux/es/connect/connect";
 import {bindActionCreators} from "redux";
-import {changeQuantityProductInBasket, saveProducts} from "../actions/action";
+import {changeQuantityProductInBasket, deleteProductFromBasket, saveProducts} from "../actions/action";
 
 class BasketComponent extends Component {
 
+    state = {
+        loading: true
+    };
 
     componentDidMount() {
         const {basket:{basket}, actions: {saveProducts}} = this.props;
@@ -15,30 +18,41 @@ class BasketComponent extends Component {
             let ids = basket.map(it => it.id);
             productService.getProductsByIds(ids)
                 .then(data => {
+                    setTimeout(()=>{this.setState({loading: false})}, 500)
                     saveProducts(data)
                 })
+        }else {
+            setTimeout(()=>{this.setState({loading: false})}, 500)
         }
+
     }
 
     getQuantityById = (id) => {
-        const {basket} = this.props;
-        console.log(basket)
-        return id;
+        const {basket:{basket}} = this.props;
+        let find = basket.find(f=>f.id === id);
+        return find ? find.quantity : 0;
     };
 
     deleteProductByID = (e, id) => {
         e.preventDefault();
-        const {basket:{products}} = this.props;
-        const {actions: {changeQuantityProductInBasket}} = this.props;
+        const {actions: {changeQuantityProductInBasket, deleteProductFromBasket}} = this.props;
         changeQuantityProductInBasket(id, 0);
-
+        deleteProductFromBasket(id);
     };
 
     render() {
         const {basket, basket: {products}} = this.props;
-        console.log(basket)
+        const {loading} = this.state;
+
+        if(loading){
+            return <div className="spinners">
+                <div className="spinner-2"/>
+                <div className="spinner"/>
+            </div>
+        }
+
         if (!products || products.length === 0) {
-            return <div className="basket-box">Your basket is empty</div>
+            return <div className="basket-box tc">Your basket is empty</div>
         }
 
         return <div className="basket-box">
@@ -82,7 +96,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
-        changeQuantityProductInBasket,saveProducts
+        changeQuantityProductInBasket,
+        saveProducts,
+        deleteProductFromBasket,
     }, dispatch),
 });
 

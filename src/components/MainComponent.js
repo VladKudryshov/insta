@@ -22,7 +22,7 @@ class MainComponent extends Component {
                         <header>
                             <MobileMenuContainer/>
                             <div className="logo">
-                                <img src="/images/logo.png" alt="Logo"/>
+                                <Link to="/"><img src="/images/logo.png" alt="Logo"/></Link>
                             </div>
                             <div className="menu">
                                 <ul className="horizontal">

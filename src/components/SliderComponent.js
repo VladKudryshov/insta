@@ -8,16 +8,24 @@ class SliderComponent extends Component {
         sliderImages: [
             'https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg',
             'https://images.unsplash.com/photo-1535498730771-e735b998cd64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'
-        ]
+        ],
+        intervalID: 0
     };
 
 
     componentDidMount() {
-        setInterval(
+        let intervalID = setInterval(
             this.nextSlide,
             3000
         );
+        this.setState({intervalID: intervalID})
     }
+
+    componentWillUnmount(){
+        const {intervalID} = this.state;
+        clearInterval(intervalID);
+    }
+
 
     nextSlide = () => {
         const {currentPosition, sliderImages} = this.state;
