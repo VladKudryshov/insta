@@ -40,7 +40,7 @@ class MainComponent extends Component {
 
         return (
             <>
-                <div className="admin-menu">
+                <div className="">
                     <SelectorContainer change = {this.handleChange}/>
                 </div>
                 {loading

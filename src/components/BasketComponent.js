@@ -13,23 +13,27 @@ class BasketComponent extends Component {
     };
 
     componentDidMount() {
-        const {basket:{basket}, actions: {saveProducts}} = this.props;
+        const {basket: {basket}, actions: {saveProducts}} = this.props;
         if (basket && basket.length > 0) {
             let ids = basket.map(it => it.id);
             productService.getProductsByIds(ids)
                 .then(data => {
-                    setTimeout(()=>{this.setState({loading: false})}, 500)
+                    setTimeout(() => {
+                        this.setState({loading: false})
+                    }, 500)
                     saveProducts(data)
                 })
-        }else {
-            setTimeout(()=>{this.setState({loading: false})}, 500)
+        } else {
+            setTimeout(() => {
+                this.setState({loading: false})
+            }, 500)
         }
 
     }
 
     getQuantityById = (id) => {
-        const {basket:{basket}} = this.props;
-        let find = basket.find(f=>f.id === id);
+        const {basket: {basket}} = this.props;
+        let find = basket.find(f => f.id === id);
         return find ? find.quantity : 0;
     };
 
@@ -40,11 +44,35 @@ class BasketComponent extends Component {
         deleteProductFromBasket(id);
     };
 
+    getPriceWithDiscount = (product) => {
+        return (product.price / 100 * (100 - product.discount)).toFixed(2)
+    };
+
+
+    changeQuantityIntoOrder = (id, quantity) => {
+        const {actions: {changeQuantityProductInBasket, deleteProductFromBasket}} = this.props;
+        console.log(id)
+        changeQuantityProductInBasket(id, quantity);
+        if (quantity < 1) {
+            deleteProductFromBasket(id)
+        }
+    };
+
+    decrease = (id) => {
+        let newValue = this.getQuantityById(id) - 1;
+        this.changeQuantityIntoOrder(id, newValue)
+    };
+
+    increase = (id) => {
+        let newValue = this.getQuantityById(id) + 1;
+        this.changeQuantityIntoOrder(id, newValue)
+    };
+
     render() {
         const {basket, basket: {products}} = this.props;
         const {loading} = this.state;
 
-        if(loading){
+        if (loading) {
             return <div className="spinners">
                 <div className="spinner-2"/>
                 <div className="spinner"/>
@@ -60,20 +88,31 @@ class BasketComponent extends Component {
                 <ul key="-1" className=''>
                     <li>Name</li>
                     <li>Category</li>
+                    <li>Discount</li>
                     <li>Price</li>
                     <li>Quantity</li>
+                    <li>Total Price</li>
                     <li></li>
                 </ul>
                 {
                     products.map(product => <ul key={product.id} className=''>
                         <li>{product.name}</li>
                         <li>{product.category}</li>
-                        <li>{product.price}</li>
-
+                        <li>{product.discount} %</li>
+                        <li>{this.getPriceWithDiscount(product)} BYN</li>
 
                         <li>
-                            {this.getQuantityById(product.id)}
+                            <div className="quantity card">
+                                <div className="quantity-action primary-c" onClick={() => this.decrease(product.id)}>
+                                    <i className="fas fa-minus"></i>
+                                </div>
+                                <span className="quantity-number">{this.getQuantityById(product.id)}</span>
+                                <div className="quantity-action default-c" onClick={() => this.increase(product.id)}>
+                                    <i className="fas fa-plus"></i>
+                                </div>
+                            </div>
                         </li>
+                        <li>{(this.getPriceWithDiscount(product) * this.getQuantityById(product.id)).toFixed(2)} BYN</li>
                         <li onClick={(event) => this.deleteProductByID(event, product.id)} className="tx-l">
                             <i className="fas fa-trash"/>
                         </li>

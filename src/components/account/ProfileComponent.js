@@ -14,16 +14,18 @@ class ProfileComponent extends Component {
             .then(user => this.setState({user: user}))
     }
 
+
+
+
     render() {
 
 
         const {user} = this.state
-
         return (
             <div className="profile card">
                 <div className="user-name">{user.firstName + ' ' + user.secondName}</div>
-                <div className="user-email"></div>
-                <div className="user-password"></div>
+                <div className="user-email">{user.phone}</div>
+                <div className="user-password">{}</div>
             </div>
         );
     }

@@ -23,28 +23,11 @@ class ProductAction extends Component {
         }
     }
 
-    changeQuantityIntoOrder = (quantity) => {
-        const {id, actions: {changeQuantityProductInBasket}} = this.props;
-        changeQuantityProductInBasket(id, quantity);
-        if (quantity < 1) {
-            this.setState({open: false})
-        }
-    };
-
-    decrease = () => {
-        let newValue = this.getQuantityProduct() - 1;
-        this.changeQuantityIntoOrder(newValue)
-    };
-
-    increase = () => {
-        let newValue = this.getQuantityProduct() + 1;
-        this.changeQuantityIntoOrder(newValue)
-    };
-
-    test = (id, quantity) => {
+    test = (id) => {
         const {actions: {addProductToBasket}} = this.props;
-        addProductToBasket(id, ++quantity)
-        this.setState({open: true})
+        const {open} = this.state;
+        addProductToBasket(id, 1)
+        this.setState({open: !open})
     };
 
     render() {
@@ -57,18 +40,8 @@ class ProductAction extends Component {
                 <i className="fas fa-receipt left p14 sml"></i>
 
                 {
-                    open ? <div className="quantity card">
-                            <div className="quantity-action primary-c" onClick={this.decrease}>
-                                <i className="fas fa-minus"></i>
-                            </div>
-                            <span className="quantity-number">{this.getQuantityProduct()}</span>
-                            <div className="quantity-action default-c" onClick={this.increase}>
-                                <i className="fas fa-plus"></i>
-                            </div>
-                        </div>
-                        :
-                        <i className="fas fa-shopping-basket basket p14 sml"
-                           onClick={() => this.test(id, this.getQuantityProduct())}></i>
+                        <i className={!open ? "fas fa-shopping-basket basket p14 sml" : 'fas fa-shopping-basket p14 sml basket-active'}
+                           onClick={() => this.test(id)}></i>
                 }
 
 

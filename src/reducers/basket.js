@@ -9,6 +9,7 @@ const basket = (state = {
     switch (action.type) {
         case 'ADD_PRODUCT_TO_BASKET':
 
+
             newState = {
                 basket: [
                     ...state.basket,
@@ -19,9 +20,21 @@ const basket = (state = {
                 ]
             };
 
-            localStorage.setItem("order", JSON.stringify(newState.basket))
+            let product = state.basket.find(f=>f.id === action.id);
+            //
+            if(product){
+                newState = {
+                    basket: state.basket.filter(f => f.id !== action.id)
+                };
+                console.log(newState)
+            }
 
-            return newState;
+            localStorage.setItem("order", JSON.stringify(newState.basket ? newState.basket : []))
+
+            return {
+                basket: state.basket ? newState.basket : [],
+                products: state.products ? state.products : []
+            };
         case 'CHANGE_QUANTITY_PRODUCT_IN_BASKET':
             if (action.quantity < 1) {
                 newState = state.basket.filter(f => f.id !== action.id);
