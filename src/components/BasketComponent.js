@@ -5,6 +5,7 @@ import {productService} from "../services/productService";
 import connect from "react-redux/es/connect/connect";
 import {bindActionCreators} from "redux";
 import {changeQuantityProductInBasket, deleteProductFromBasket, saveProducts} from "../actions/action";
+import QuantityContainer from "../containers/QuantityContainer";
 
 class BasketComponent extends Component {
 
@@ -34,7 +35,8 @@ class BasketComponent extends Component {
     getQuantityById = (id) => {
         const {basket: {basket}} = this.props;
         let find = basket.find(f => f.id === id);
-        return find ? find.quantity : 0;
+        let number = find ? find.quantity : 0;
+        return Number(Number(number).toFixed(2));
     };
 
     deleteProductByID = (e, id) => {
@@ -50,26 +52,35 @@ class BasketComponent extends Component {
 
 
     changeQuantityIntoOrder = (id, quantity) => {
+        quantity = quantity.toFixed(2);
         const {actions: {changeQuantityProductInBasket, deleteProductFromBasket}} = this.props;
-        console.log(id)
-        changeQuantityProductInBasket(id, quantity);
-        if (quantity < 1) {
+        // changeQuantityProductInBasket(id, quantity);
+        if (quantity === 0) {
             deleteProductFromBasket(id)
         }
     };
 
+    handleOnChangeInput = (e, id) => {
+        const {target: {value}} = e;
+        console.log(Number(value))
+        if(Number(value)){
+            this.changeQuantityIntoOrder(id, Number(value))
+        }
+        e.target.value = 12;
+    }
+
     decrease = (id) => {
-        let newValue = this.getQuantityById(id) - 1;
+        let newValue = this.getQuantityById(id) - 0.01;
         this.changeQuantityIntoOrder(id, newValue)
     };
 
     increase = (id) => {
-        let newValue = this.getQuantityById(id) + 1;
+        let newValue = this.getQuantityById(id) + 0.01;
         this.changeQuantityIntoOrder(id, newValue)
     };
 
     render() {
-        const {basket, basket: {products}} = this.props;
+        const {basket: {products}} = this.props;
         const {loading} = this.state;
 
         if (loading) {
@@ -92,25 +103,17 @@ class BasketComponent extends Component {
                     <li>Price</li>
                     <li>Quantity</li>
                     <li>Total Price</li>
-                    <li></li>
+                    <li/>
                 </ul>
                 {
                     products.map(product => <ul key={product.id} className=''>
                         <li>{product.name}</li>
                         <li>{product.category}</li>
                         <li>{product.discount} %</li>
-                        <li>{this.getPriceWithDiscount(product)} BYN</li>
+                        <li>{this.getPriceWithDiscount(product)} BYN за {product.unitName}</li>
 
                         <li>
-                            <div className="quantity card">
-                                <div className="quantity-action primary-c" onClick={() => this.decrease(product.id)}>
-                                    <i className="fas fa-minus"></i>
-                                </div>
-                                <span className="quantity-number">{this.getQuantityById(product.id)}</span>
-                                <div className="quantity-action default-c" onClick={() => this.increase(product.id)}>
-                                    <i className="fas fa-plus"></i>
-                                </div>
-                            </div>
+                            <QuantityContainer product = {product}/>
                         </li>
                         <li>{(this.getPriceWithDiscount(product) * this.getQuantityById(product.id)).toFixed(2)} BYN</li>
                         <li onClick={(event) => this.deleteProductByID(event, product.id)} className="tx-l">

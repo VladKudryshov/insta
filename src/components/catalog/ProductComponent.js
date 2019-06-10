@@ -16,7 +16,7 @@ class ProductComponent extends Component {
                     <div className="product-price card">
                         <div className="price">{this.props.product.price} BYN</div>
                         <div className="discount">
-                            <div>{this.props.product.discount} %</div>
+                            <div>{this.props.product.discount}%</div>
                         </div>
                         <div
                             className="new-price">{(this.props.product.price / 100 * (100 - this.props.product.discount)).toFixed(2)} BYN

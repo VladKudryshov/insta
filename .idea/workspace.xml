@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/index.css" description="}&#10;" line="886" />
+    <bookmark url="file://$PROJECT_DIR$/src/index.css" description="}&#10;" line="887" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae8d9a26-ea98-41ba-92d7-c003f55a499a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/containers/QuantityContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AccountComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AccountComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/BasketComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BasketComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CatalogComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CatalogComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account/ProfileComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account/ProfileComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/catalog/ProductComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/catalog/ProductComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/ProductActionContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ProductActionContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/reducers/basket.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/basket.js" afterDir="false" />
     </list>
@@ -28,24 +27,25 @@
     <session id="-1463444031">
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="2955" />
-          <entry key="js" value="8410" />
+          <entry key="css" value="3100" />
+          <entry key="js" value="9292" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="2955" />
-          <entry key="JavaScript" value="8410" />
+          <entry key="CSS" value="3100" />
+          <entry key="JavaScript" value="9292" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="MobileMenuContainer" value="1" />
+          <entry key="QuantityContainer" value="1" />
           <entry key="css" value="5" />
           <entry key="jpg" value="1" />
-          <entry key="js" value="77" />
+          <entry key="js" value="78" />
           <entry key="json" value="1" />
           <entry key="png" value="1" />
           <entry key="rnc" value="1" />
@@ -57,8 +57,8 @@
           <entry key="CSS" value="5" />
           <entry key="Image" value="2" />
           <entry key="JSON" value="1" />
-          <entry key="JavaScript" value="77" />
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="JavaScript" value="78" />
+          <entry key="PLAIN_TEXT" value="2" />
           <entry key="RNG Compact" value="1" />
           <entry key="TypeScript" value="2" />
         </counts>
@@ -87,8 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="919" column="1" lean-forward="true" selection-start-line="919" selection-start-column="1" selection-end-line="919" selection-end-column="1" />
+            <state relative-caret-position="-1780">
+              <caret line="953" column="22" selection-start-line="953" selection-start-column="22" selection-end-line="953" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -102,14 +102,35 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/BasketComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="56" column="38" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
+            <state relative-caret-position="485">
+              <caret line="105" column="24" selection-start-line="105" selection-start-column="24" selection-end-line="105" selection-end-column="24" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/containers/QuantityContainer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="86" selection-start-line="14" selection-start-column="86" selection-end-line="14" selection-end-column="86" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/react-text-mask/dist/reactTextMask.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1335">
+              <caret line="1" column="61" selection-start-line="1" selection-start-column="61" selection-end-line="1" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -130,19 +151,7 @@
         <entry file="file://$PROJECT_DIR$/src/components/catalog/ProductComponent.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="21" column="129" selection-start-line="21" selection-start-column="122" selection-end-line="21" selection-end-column="129" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/productService.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+              <caret line="21" column="137" selection-start-line="21" selection-start-column="137" selection-end-line="21" selection-end-column="137" />
             </state>
           </provider>
         </entry>
@@ -150,8 +159,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/reducers/basket.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+            <state relative-caret-position="405">
+              <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -160,19 +169,7 @@
         <entry file="file://$PROJECT_DIR$/src/reducers/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/OrderStepperComponent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -181,7 +178,7 @@
         <entry file="file://$PROJECT_DIR$/src/containers/SelectorContainer.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="615">
-              <caret line="41" column="75" lean-forward="true" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
+              <caret line="41" column="75" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
             </state>
           </provider>
         </entry>
@@ -281,11 +278,13 @@
         <option value="$PROJECT_DIR$/src/components/AccountComponent.js" />
         <option value="$PROJECT_DIR$/src/utils/StorageUtils.js" />
         <option value="$PROJECT_DIR$/src/components/account/ProfileComponent.js" />
-        <option value="$PROJECT_DIR$/src/reducers/basket.js" />
-        <option value="$PROJECT_DIR$/src/components/catalog/ProductComponent.js" />
-        <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/containers/ProductActionContainer.js" />
+        <option value="$PROJECT_DIR$/src/components/catalog/ProductComponent.js" />
+        <option value="$PROJECT_DIR$/src/reducers/basket.js" />
+        <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/components/BasketComponent.js" />
+        <option value="$PROJECT_DIR$/node_modules/react-text-mask/dist/reactTextMask.js" />
+        <option value="$PROJECT_DIR$/src/containers/QuantityContainer.js" />
       </list>
     </option>
   </component>
@@ -321,11 +320,6 @@
             <path>
               <item name="insta" type="b2602c69:ProjectViewProjectNode" />
               <item name="insta" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="insta" type="b2602c69:ProjectViewProjectNode" />
-              <item name="insta" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="insta" type="b2602c69:ProjectViewProjectNode" />
@@ -450,7 +444,7 @@
       <workItem from="1559754310140" duration="57000" />
       <workItem from="1559802515547" duration="33728000" />
       <workItem from="1559912307736" duration="923000" />
-      <workItem from="1560149102332" duration="8997000" />
+      <workItem from="1560149102332" duration="17663000" />
     </task>
     <task id="LOCAL-00001" summary="save">
       <created>1557744051149</created>
@@ -704,17 +698,24 @@
       <option name="project" value="LOCAL" />
       <updated>1559912650637</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="responsetive">
+      <created>1560158394494</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1560158394494</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153724000" />
+    <option name="totallyTimeSpent" value="162390000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18886463" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18886463" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -729,7 +730,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.2656904" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.2656904" />
       <window_info anchor="bottom" id="Messages" order="12" visible="true" weight="0.3294979" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -753,8 +754,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="responsetive" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/icons/Comment.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/icons/Comment.d.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/core/CardMedia/CardMedia.d.ts" />
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor" />
@@ -962,7 +961,7 @@
     <entry file="file://$PROJECT_DIR$/src/containers/SelectorContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
-          <caret line="41" column="75" lean-forward="true" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
+          <caret line="41" column="75" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
         </state>
       </provider>
     </entry>
@@ -976,34 +975,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/basket.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="919" column="1" lean-forward="true" selection-start-line="919" selection-start-column="1" selection-end-line="919" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/catalog/ProductComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="21" column="129" selection-start-line="21" selection-start-column="122" selection-end-line="21" selection-end-column="129" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/ProductActionContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -1011,10 +982,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/basket.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1780">
+          <caret line="953" column="22" selection-start-line="953" selection-start-column="22" selection-end-line="953" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/catalog/ProductComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="21" column="137" selection-start-line="21" selection-start-column="137" selection-end-line="21" selection-end-column="137" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/BasketComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="56" column="38" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
+        <state relative-caret-position="485">
+          <caret line="105" column="24" selection-start-line="105" selection-start-column="24" selection-end-line="105" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-text-mask/dist/reactTextMask.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1335">
+          <caret line="1" column="61" selection-start-line="1" selection-start-column="61" selection-end-line="1" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/QuantityContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="86" selection-start-line="14" selection-start-column="86" selection-end-line="14" selection-end-column="86" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

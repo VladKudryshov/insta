@@ -36,7 +36,7 @@ const basket = (state = {
                 products: state.products ? state.products : []
             };
         case 'CHANGE_QUANTITY_PRODUCT_IN_BASKET':
-            if (action.quantity < 1) {
+            if (action.quantity === 0) {
                 newState = state.basket.filter(f => f.id !== action.id);
             } else {
                 newState = state.basket.map(product => {
