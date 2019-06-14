@@ -5,7 +5,7 @@ function login(login, password) {
     const params = { login, password }
 
 
-    return axios.post(`http://localhost:8081/api/users/login`, params)
+    return axios.post(`http://84.201.156.96:8080/api/users/login`, params)
         .then(setAccessToken)
         .then(handleResponse)
         .then(user => {
