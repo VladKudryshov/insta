@@ -3,7 +3,7 @@ import AccountComponent from "../AccountComponent";
 
 
 const RootAccount = ({ children }) => (
-  <div>
+  <div className="wrapper auto1fr">
     <AccountComponent/>
     {children}
   </div>

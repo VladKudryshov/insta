@@ -24,6 +24,17 @@ async function getUserOrders() {
     return await promise;
 }
 
+async function getOrderById(id) {
+
+    let promise = axios.get(`http://localhost:8081/api/order/`+id, {headers: {Authorization: storageUtils.getToken()}})
+        .then(handleResponse)
+        .then(basket => {
+            return basket;
+        });
+
+    return await promise;
+}
+
 
 function handleResponse(response) {
     return response.data;
@@ -33,5 +44,6 @@ function handleResponse(response) {
 
 export const orderService = {
     createOrder,
-    getUserOrders
+    getUserOrders,
+    getOrderById
 };

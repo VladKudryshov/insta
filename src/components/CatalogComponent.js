@@ -39,7 +39,7 @@ class MainComponent extends Component {
         const {products, loading} = this.state;
 
         return (
-            <>
+            <div className="wrapper auto1fr">
                 <div className="">
                     <SelectorContainer change = {this.handleChange}/>
                 </div>
@@ -49,7 +49,7 @@ class MainComponent extends Component {
                         <div className="spinner"/>
                     </div>
                     : <ListProductsComponent products={products}/>}
-            </>
+            </div>
         );
     }
 }

@@ -272,12 +272,10 @@ body {
     }
 
     .categories {
-        grid-column: 1/3;
     }
 
     .basket-box {
         margin: 0 20px;
-        grid-column: 1/3;
     }
 
     .notifications {
@@ -313,7 +311,6 @@ body {
     .information {
         margin: 0 auto;
         box-sizing: border-box;
-        grid-column: 1/3;
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         grid-row-gap: 40px;
@@ -328,13 +325,11 @@ body {
     }
 
     .container {
-        grid-column: 1/3;
     }
 
     .blog-cards {
         margin: 0 auto;
         box-sizing: border-box;
-        grid-column: 1/3;
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         grid-row-gap: 40px;
@@ -346,7 +341,7 @@ body {
         position: relative;
         width: 100%;
         display: grid;
-        grid-template-columns: 250px 1fr;
+        grid-template-columns: none;
         grid-row-gap: 30px;
         grid-column-gap: 20px;
     }
@@ -355,7 +350,6 @@ body {
         width: 100%;
         position: relative;
         box-sizing: border-box;
-        grid-column: 1/3;
         height: 300px;
         background-size: 300px 300px;
         background: no-repeat center;
@@ -366,7 +360,6 @@ body {
         position: sticky;
         width: 100%;
         grid-row: 1;
-        grid-column: 1/3;
         background: #ffffff;
         z-index: 10;
         box-shadow: 0 2px 4px 0 rgba(43, 43, 43, 0.1);
@@ -377,7 +370,6 @@ body {
     }
 
     .content {
-        grid-column: 2/3;
         position: relative;
         box-sizing: border-box;
     }
@@ -385,7 +377,6 @@ body {
     footer {
         width: 100%;
         height: 200px;
-        grid-column: 1/3;
         background: #272c37;
     }
 
@@ -1154,4 +1145,6 @@ hidden - Defines a hidden border
     }
 }
 
-
+.auto1fr{
+    grid-template-columns: 250px 1fr;
+}

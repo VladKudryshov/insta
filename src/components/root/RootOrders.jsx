@@ -4,7 +4,7 @@ import OrdersComponent from "../account/OrdersComponent";
 
 
 const RootOrders = ({ children }) => (
-    <div className="order">
+    <div className="wrapper auto1fr ">
         <OrdersComponent/>
         {children}
     </div>

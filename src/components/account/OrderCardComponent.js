@@ -5,7 +5,8 @@ import {orderService} from "../../services/orderService";
 
 const OrderCardComponent = (props) => {
 
-        console.log()
+        orderService.getOrderById(props.params.id)
+            .then(order => console.log(order))
         return <div className="order-info card">{props.params.id}</div>
 };
 
