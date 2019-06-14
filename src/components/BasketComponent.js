@@ -51,34 +51,6 @@ class BasketComponent extends Component {
     };
 
 
-    changeQuantityIntoOrder = (id, quantity) => {
-        quantity = quantity.toFixed(2);
-        const {actions: {changeQuantityProductInBasket, deleteProductFromBasket}} = this.props;
-        // changeQuantityProductInBasket(id, quantity);
-        if (quantity === 0) {
-            deleteProductFromBasket(id)
-        }
-    };
-
-    handleOnChangeInput = (e, id) => {
-        const {target: {value}} = e;
-        console.log(Number(value))
-        if(Number(value)){
-            this.changeQuantityIntoOrder(id, Number(value))
-        }
-        e.target.value = 12;
-    }
-
-    decrease = (id) => {
-        let newValue = this.getQuantityById(id) - 0.01;
-        this.changeQuantityIntoOrder(id, newValue)
-    };
-
-    increase = (id) => {
-        let newValue = this.getQuantityById(id) + 0.01;
-        this.changeQuantityIntoOrder(id, newValue)
-    };
-
     render() {
         const {basket: {products}} = this.props;
         const {loading} = this.state;

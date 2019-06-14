@@ -3,5 +3,5 @@ import basket from './basket'
 
 
 export default combineReducers({
-    basket
+    basket,
 })

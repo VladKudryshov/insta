@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ProductComponent from "./ProductComponent";
+import CardProductComponent from "./CardProductComponent";
 import {get} from 'lodash';
 
 class ListProductsComponent extends Component {
@@ -10,7 +10,7 @@ class ListProductsComponent extends Component {
         const {products} = this.props;
 
         const productList = products.map(product => {
-            return <ProductComponent key={get(product, 'id', '')} product = {product}/>
+            return <CardProductComponent key={get(product, 'id', '')} product = {product}/>
         });
 
         return (

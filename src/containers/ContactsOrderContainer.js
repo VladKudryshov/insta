@@ -1,21 +1,16 @@
 import React, {Component} from 'react';
-import {Link} from "react-router-dom";
+import {Link} from "react-router";
 import {userService} from "../services/userService";
 
 class ContactsOrderContainer extends Component {
 
     state = {
-        addresses: [],
         choosedAddress: 0,
-        userInfo: {}
     };
 
 
     componentDidMount(){
-        userService.getAddressUser()
-            .then(addresses => this.setState({addresses: addresses}))
-        userService.getUserInfo()
-            .then(userInfo => this.setState({userInfo: userInfo}))
+
     }
 
     getClassName = (id) => {
@@ -26,8 +21,8 @@ class ContactsOrderContainer extends Component {
 
     render() {
 
-        const {addresses, userInfo} = this.state;
 
+/*
         const address = addresses.map(f=>{
             return <div key={f.street} className={this.getClassName(f.id)} onClick={()=>this.handleChooseAddress(f.id)}>
                 <span>City</span>
@@ -38,9 +33,7 @@ class ContactsOrderContainer extends Component {
                 <span>{f.house}</span>
             </div>
         });
-
-        return (
-            <div className="cl2-rw1">
+         <div className="cl2-rw1">
                 <ul className="cl12-center card user-info address" >
                     <li>firstName</li>
                     <li>{userInfo.firstName}</li>
@@ -50,9 +43,28 @@ class ContactsOrderContainer extends Component {
                     <li>{userInfo.phone}</li>
                 </ul>
                 <div className="cl2-rw1 cl12-center addresses" >
-                    {address}
                 </div>
             </div>
+        */
+
+        return (
+
+           <div className="cl2-rw1 order-contacts">
+               <div className="person">
+                   <h3>Person</h3>
+                   <input type="text" name="userName" placeholder="First name" onChange={this.props.change} defaultValue={this.props.orderContacts.userName}/>
+                   <input type="text" name="userSecondName" placeholder="Second name" onChange={this.props.change} defaultValue={this.props.orderContacts.userSecondName}/>
+                   <input type="tel" name="userPhone" placeholder="Phone" onChange={this.props.change} defaultValue={this.props.orderContacts.userPhone}/>
+               </div>
+
+                <div className="address">
+                    <h3>Address</h3>
+                    <input type="text" name="city" placeholder="City" onChange={this.props.change} defaultValue={this.props.orderContacts.city}/>
+                    <input type="text" name="street" placeholder="Street" onChange={this.props.change} defaultValue={this.props.orderContacts.street}/>
+                    <input type="text" name="house" placeholder="House" onChange={this.props.change} defaultValue={this.props.orderContacts.house}/>
+                    <input type="text" name="flat" placeholder="Flat" onChange={this.props.change} defaultValue={this.props.orderContacts.flat}/>
+                </div>
+           </div>
         );
     }
 

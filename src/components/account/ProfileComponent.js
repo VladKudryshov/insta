@@ -15,8 +15,6 @@ class ProfileComponent extends Component {
     }
 
 
-
-
     render() {
 
 

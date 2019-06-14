@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import {bindActionCreators} from "redux";
 import {changeQuantityProductInBasket, deleteProductFromBasket} from "../actions/action";
 import connect from "react-redux/es/connect/connect";
-import MaskedInput from "react-text-mask";
 
 class QuantityContainer extends Component {
 
@@ -26,14 +25,14 @@ class QuantityContainer extends Component {
     changeQuantityIntoOrder = (id, quantity) => {
         quantity = Number.parseFloat(quantity).toFixed(2);
         const {actions: {changeQuantityProductInBasket, deleteProductFromBasket}} = this.props;
-        changeQuantityProductInBasket(id, quantity);
-        if (quantity === 0) {
+        changeQuantityProductInBasket(id, Number.parseFloat(quantity));
+        if (Number.parseFloat(quantity) === 0) {
             deleteProductFromBasket(id)
         }
     };
 
     format = (number) => {
-        return Number(Number(number).toFixed(2)).toLocaleString(navigator.language, { minimumFractionDigits: 2 });
+        return Number(Number(number).toFixed(2)).toLocaleString(navigator.language, {minimumFractionDigits: 2});
     }
 
     handleOnChangeInput = (e, id) => {
@@ -64,7 +63,7 @@ class QuantityContainer extends Component {
             </div>
             <div className="quantity-number">
                 <input className="" value={value}
-                onChange={(e) => this.handleOnChangeInput(e, product.id)}/>
+                       onChange={(e) => this.handleOnChangeInput(e, product.id)}/>
             </div>
             <div className="quantity-action default-c" onClick={() => this.increase(product.id)}>
                 <i className="fas fa-plus"></i>

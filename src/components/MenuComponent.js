@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {userService} from "../services/userService";
-import {Link, NavLink} from "react-router-dom";
+import {Link, NavLink} from "react-router";
 import {storageUtils} from "../utils/StorageUtils";
 import LoginComponent from "./LoginComponent";
 

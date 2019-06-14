@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import BasketComponent from "./BasketComponent";
 import ContactsOrderContainer from "../containers/ContactsOrderContainer";
-import {bindActionCreators} from "redux";
-import {clearBasket} from "../actions/action";
-import connect from "react-redux/es/connect/connect";
+import {orderService} from "../services/orderService";
 
 class OrderStepperComponent extends Component {
 
@@ -11,10 +9,19 @@ class OrderStepperComponent extends Component {
     state = {
         currentPosition: 1,
         tabs: 2,
-        visibleActions: false
+        visibleActions: false,
+        orderContacts: {
+            userName: "",
+            userSecondName: "",
+            userPhone: "",
+            city: "",
+            street: "",
+            house: "",
+            flat: ""
+        }
     };
 
-    componentDidMount(){
+    componentDidMount() {
         const {basket: {basket}} = this.props;
         basket.length > 0 ? this.setState({visibleActions: true}) : this.setState({visibleActions: false})
     }
@@ -32,24 +39,37 @@ class OrderStepperComponent extends Component {
     };
 
     createOrder = () => {
-        console.log("create oreder")
+        const {basket: {basket},actions:{clearBasket}} = this.props;
+        orderService.createOrder(basket, this.state.orderContacts)
+        clearBasket();
+        this.setState({currentPosition: 1, visibleActions: false})
     };
+
+    handleChangeOrderContacts = (e) => {
+        const {name, value} = e.target;
+        this.setState({orderContacts: {...this.state.orderContacts, [name]: value}})
+    };
+
 
     render() {
         const {currentPosition, tabs, visibleActions} = this.state;
-
         return (
             <div className="container">
-                { currentPosition === 1 ? <BasketComponent /> : <ContactsOrderContainer />}
+                {currentPosition === 1 ? <BasketComponent/> :
+                    <ContactsOrderContainer orderContacts={this.state.orderContacts}
+                                            change={this.handleChangeOrderContacts}/>}
                 {
                     visibleActions ? <ul className="order-action fl-r">
                         <li>
-                            {currentPosition!==1
+                            {currentPosition !== 1
                                 ? <button className="btn netral" onClick={this.prevStep}>Prev</button>
-                                : <button className="btn primary" onClick={this.handleClearBasket}>Clear basket</button>}
+                                :
+                                <button className="btn primary" onClick={this.handleClearBasket}>Clear basket</button>}
                         </li>
                         <li>
-                            {tabs===currentPosition ?<button className="btn netral" onClick={this.createOrder}>Buy</button> : <button className="btn netral" onClick={this.nextStep}>Next</button>}
+                            {tabs === currentPosition ?
+                                <button className="btn netral" onClick={this.createOrder}>Buy</button> :
+                                <button className="btn netral" onClick={this.nextStep}>Next</button>}
                         </li>
                     </ul> : ''
                 }
@@ -57,25 +77,12 @@ class OrderStepperComponent extends Component {
         );
     }
 
-    handleClearBasket = (e) => {
-        e.preventDefault();
+    handleClearBasket =() =>{
         const {actions: {clearBasket}} = this.props;
-        return clearBasket();
-    };
+        clearBasket();
+        this.setState({currentPosition: 1, visibleActions: false})
+    }
 }
 
 
-const mapStateToProps = (state) => {
-    const basket = state.basket;
-    return ({
-        basket
-    });
-};
-
-const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({
-        clearBasket
-    }, dispatch),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(OrderStepperComponent);
+export default OrderStepperComponent;

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ProductAction from '../../containers/ProductActionContainer'
 
 
-class ProductComponent extends Component {
+class CardProductComponent extends Component {
 
     render() {
 
@@ -35,4 +35,4 @@ class ProductComponent extends Component {
 }
 
 
-export default ProductComponent;
+export default CardProductComponent;
