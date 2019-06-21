@@ -4,7 +4,7 @@ import {storageUtils} from "../utils/StorageUtils";
 
 async function createOrder(basketProducts, orderContact) {
 
-    let promise = axios.post(`http://84.201.156.96:8080/api/order`, {basketProducts, orderContact}, {headers: {Authorization: storageUtils.getToken()}})
+    let promise = axios.post(`http://165.22.89.115:8080/api/order`, {basketProducts, orderContact}, {headers: {Authorization: storageUtils.getToken()}})
         .then(handleResponse)
         .then(basket => {
             return basket
@@ -15,7 +15,7 @@ async function createOrder(basketProducts, orderContact) {
 
 async function getUserOrders() {
 
-    let promise = axios.get(`http://84.201.156.96:8080/api/order`, {headers: {Authorization: storageUtils.getToken()}})
+    let promise = axios.get(`http://165.22.89.115:8080/api/order`, {headers: {Authorization: storageUtils.getToken()}})
         .then(handleResponse)
         .then(basket => {
             return basket;
@@ -26,7 +26,7 @@ async function getUserOrders() {
 
 async function getOrderById(id) {
 
-    let promise = axios.get(`http://84.201.156.96:8080/api/order/`+id, {headers: {Authorization: storageUtils.getToken()}})
+    let promise = axios.get(`http://165.22.89.115:8080/api/order/`+id, {headers: {Authorization: storageUtils.getToken()}})
         .then(handleResponse)
         .then(basket => {
             return basket;

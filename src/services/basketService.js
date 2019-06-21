@@ -4,7 +4,7 @@ import {storageUtils} from "../utils/StorageUtils";
 
 async function getBasket() {
 
-    let promise = axios.get(`http://84.201.156.96:8080/api/basket`, {headers: {Authorization: storageUtils.getToken()}})
+    let promise = axios.get(`http://165.22.89.115:8080/api/basket`, {headers: {Authorization: storageUtils.getToken()}})
         .then(handleResponse)
         .then(basket => {
             // login successful if there's a user in the response

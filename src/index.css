@@ -1055,9 +1055,37 @@ button:hover {
     font-size: 12pt;
 }
 
-.order-info{
+
+.order-component{
+    position: relative;
     width: 100%;
+    padding: 20px;
+}
+
+.order-info{
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: none;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+}
+
+.order-info-title{
+   text-align: center;
+}
+
+.order-info-products > ul > li{
     padding: 10px;
+}
+
+.order-info-products > ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    border-bottom: 1px solid #b7b7b7;
+}
+
+.order-info-contacts{
+    padding: 20px;
 }
 
 .order-simple-item{
