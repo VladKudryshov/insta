@@ -11,48 +11,44 @@ class OrderCardComponent extends Component {
         }
     };
 
-    componentDidUpdate(){
+    componentDidMount(){
         orderService.getOrderById(this.props.params.id)
             .then(order => this.setState({order: order}));
-    }
 
-    componentWillUnmount() {
-        this.setState({order: {
-                orderContact: {},
-                productOrder: []
-            }})
+        console.log("test")
     }
-
 
     render() {
-        const {order: {orderContact, productOrder}} = this.state;
+        const {order: {orderContact, productOrder, orderStatus}} = this.state;
+
 
         let products = productOrder.map(product => <ul key={product.id}>
                 <li>{product.name}</li>
-                <li>{product.discount}</li>
-                <li>{product.priceWithDiscount}</li>
-                <li>{product.totalPrice}</li>
+                <li className="tx-l">{product.discount}%</li>
+                <li className="tx-l">{product.priceWithDiscount} BYN</li>
+                <li className="tx-l">{product.totalPrice} BYN</li>
             </ul>
         );
         return (
             <div className="order-component" key={this.props.params.id}>
                 <div className="order-info">
-                    <div className="order-info-title">
-                        Order: {this.props.params.id}
-                    </div>
+                    <ul className="order-info-title card">
+                        <li>Заказ №{this.props.params.id}</li>
+                        <li className="tx-l">Статус: {orderStatus}</li>
+                    </ul>
                     <div className="card cl2-rw1 order-info-contacts">
                         <table className="order-info-person">
                             <tbody>
                             <tr>
-                                <td>First Name:</td>
+                                <td>Имя:</td>
                                 <td>{orderContact.userName}</td>
                             </tr>
                             <tr>
-                                <td>Second Name:</td>
+                                <td>Фамилия:</td>
                                 <td>{orderContact.userSecondName}</td>
                             </tr>
                             <tr>
-                                <td>Phone:</td>
+                                <td>Телефон:</td>
                                 <td>{orderContact.userPhone}</td>
                             </tr>
                             </tbody>
@@ -60,19 +56,19 @@ class OrderCardComponent extends Component {
                         <table className="order-info-address">
                             <tbody>
                             <tr>
-                                <td>City:</td>
+                                <td>Город:</td>
                                 <td>{orderContact.city}</td>
                             </tr>
                             <tr>
-                                <td>Street:</td>
+                                <td>Улица:</td>
                                 <td>{orderContact.street}</td>
                             </tr>
                             <tr>
-                                <td>House:</td>
+                                <td>Дом:</td>
                                 <td>{orderContact.house}</td>
                             </tr>
                             <tr>
-                                <td>Flat:</td>
+                                <td>Квартира:</td>
                                 <td>{orderContact.flat}</td>
                             </tr>
                             </tbody>
@@ -80,10 +76,10 @@ class OrderCardComponent extends Component {
                     </div>
                     <div className="order-info-products card">
                         <ul>
-                            <li>Product NAme</li>
-                            <li>Discount</li>
-                            <li>Price</li>
-                            <li>Total Price</li>
+                            <li>Название</li>
+                            <li className="tx-l">Скидка</li>
+                            <li className="tx-l">Цена со скидкой</li>
+                            <li className="tx-l">Итого</li>
                         </ul>
                         {products}
                     </div>

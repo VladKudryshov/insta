@@ -1059,7 +1059,6 @@ button:hover {
 .order-component{
     position: relative;
     width: 100%;
-    padding: 20px;
 }
 
 .order-info{
@@ -1071,7 +1070,9 @@ button:hover {
 }
 
 .order-info-title{
-   text-align: center;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: auto auto;
 }
 
 .order-info-products > ul > li{
