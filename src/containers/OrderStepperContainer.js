@@ -14,7 +14,6 @@ class OrderStepperContainer extends Component {
 
 }
 
-
 const mapStateToProps = (state) => {
     const basket = state.basket;
     return ({

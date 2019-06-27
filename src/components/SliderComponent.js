@@ -45,8 +45,6 @@ class SliderComponent extends Component {
     };
 
     render() {
-
-        console.log()
         return (
             <div className="slider" style={{backgroundImage: 'url(' + this.getCurrentImage() + ')'}}>
                 <i className="fas fa-arrow-left slide-arrow-left" onClick={this.prevSlide}></i>

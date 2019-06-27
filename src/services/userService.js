@@ -39,7 +39,6 @@ function getAddressUser() {
         }})
         .then(handleResponse)
         .then(user => {
-            console.log(user)
             return user;
         });
 }

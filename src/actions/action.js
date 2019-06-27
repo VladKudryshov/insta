@@ -34,3 +34,14 @@ export const deleteProductFromBasket = (id) => ({
     id: id
 });
 
+
+export const loadDataById = (id) => ({
+    type: 'LOAD_DATA_BY_ID',
+    id,
+});
+
+
+export const saveOrderInfo = (data) => ({
+    type: 'SAVE_ORDER_INFO',
+    data,
+});

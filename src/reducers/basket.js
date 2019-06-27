@@ -26,7 +26,6 @@ const basket = (state = {
                 newState = {
                     basket: state.basket.filter(f => f.id !== action.id)
                 };
-                console.log(newState)
             }
 
             localStorage.setItem("order", JSON.stringify(newState.basket ? newState.basket : []))
