@@ -8,3 +8,11 @@ export const createWrapperReducer = (reducerFunction, reducerName) => (state, ac
 
     return reducerFunction(state, action);
 };
+
+export const getFormatedPrice = (price) => {
+    return price.toFixed(2)
+}
+
+export const getPriceWithDiscount = (obj) => {
+    return (obj.price / 100 * (100 - obj.discount)).toFixed(2)
+}

@@ -24,14 +24,10 @@ export const clearBasket = () => ({
     type: 'CLEAR_BASKET'
 });
 
-export const saveProducts = (products) => ({
-    type: 'PRODUCTS',
-    products: products
-});
 
 export const deleteProductFromBasket = (id) => ({
     type: 'DELETE_PRODUCT',
-    id: id
+    id: id,
 });
 
 
@@ -40,8 +36,21 @@ export const loadDataById = (id) => ({
     id,
 });
 
+export const loadProductsBag = (ids) => ({
+    type: 'LOAD_PRODUCTS_BAG',
+    ids,
+});
+
+
+
+
+export const loadData = (filter) => ({
+    type: 'LOAD_DATA',
+    filter,
+});
+
 
 export const saveOrderInfo = (data) => ({
-    type: 'SAVE_ORDER_INFO',
+    type: 'SAVE_DATA',
     data,
 });

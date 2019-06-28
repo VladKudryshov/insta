@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from "react-router";
 
-class MobileMenuContainer extends Component {
+class MobileMenuComponent extends Component {
 
     state = {
         mobileMenu: false
@@ -23,14 +23,13 @@ class MobileMenuContainer extends Component {
                     <div className="line"/>
                     <div className="line"/>
                 </div>
-                {mobileMenu ? <ul className="mobile-menu-items">
-                        <li><Link to="/" onClick={this.handleMobileMenu}>Home</Link></li>
-                        <li><Link to="/catalog" onClick={this.handleMobileMenu}>Catalog</Link></li>
-                        <li><Link to="/blog" onClick={this.handleMobileMenu}>Blog</Link></li>
-                        <li><Link to="/delivery" onClick={this.handleMobileMenu}>Delivery</Link></li>
-                        <li><Link to="/about" onClick={this.handleMobileMenu}>About us</Link></li>
+                {mobileMenu && <ul className="mobile-menu-items">
+                        <li><Link to="/" onClick={this.handleMobileMenu}>Главная</Link></li>
+                        <li><Link to="/catalog" onClick={this.handleMobileMenu}>Каталог</Link></li>
+                        <li><Link to="/blog" onClick={this.handleMobileMenu}>Блог</Link></li>
+                        <li><Link to="/delivery" onClick={this.handleMobileMenu}>Доставка</Link></li>
+                        <li><Link to="/about" onClick={this.handleMobileMenu}>О нас</Link></li>
                     </ul>
-                    : ''
                 }
             </div>
         );
@@ -39,4 +38,4 @@ class MobileMenuContainer extends Component {
 }
 
 
-export default MobileMenuContainer;
+export default MobileMenuComponent;

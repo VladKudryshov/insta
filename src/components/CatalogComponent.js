@@ -4,20 +4,15 @@ import {productService} from "../services/productService";
 import SelectorContainer from "../containers/SelectorContainer";
 
 
-class MainComponent extends Component {
+class CatalogComponent extends Component {
     state = {
-        test: 'Fruit',
-        products: [],
-        loading: true
-    }
+        test: 'Fruit'
+    };
 
 
     componentDidMount() {
-        productService.getProducts('')
-            .then(data => {
-                this.setState({products: data['content']});
-                setTimeout(()=>{this.setState({loading: false})}, 500)
-            });
+        const {actions: {loadData}} = this.props;
+        loadData('')
     }
 
     handleChange = (val) => {
@@ -33,26 +28,17 @@ class MainComponent extends Component {
             })
     }
 
-
     render() {
-
-        const {products, loading} = this.state;
-
         return (
             <div className="wrapper auto1fr">
                 <div className="">
                     <SelectorContainer change = {this.handleChange}/>
                 </div>
-                {loading
-                    ? <div className="spinners">
-                        <div className="spinner-2"/>
-                        <div className="spinner"/>
-                    </div>
-                    : <ListProductsComponent products={products}/>}
+               <ListProductsComponent {...this.props}/>
             </div>
         );
     }
 }
 
 
-export default MainComponent;
+export default CatalogComponent;

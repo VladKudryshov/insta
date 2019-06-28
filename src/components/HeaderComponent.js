@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 
 import {Link} from 'react-router'
-import MenuComponent from "./MenuComponent";
+import AccountHeaderComponent from "./AccountHeaderComponent";
 import SimpleBasketContainer from "../containers/SimpleBasketContainer";
 import SimpleNotificationContainer from "../containers/SimpleNotificationContainer";
-import MobileMenuContainer from "../containers/MobileMenuContainer";
-import {storageUtils} from "../utils/StorageUtils";
+import MobileMenuComponent from "./menus/MobileMenuComponent";
+import DesktopMenuComponent from "./menus/DesktopMenuComponent";
 
 
 class HeaderComponent extends Component {
@@ -14,24 +14,15 @@ class HeaderComponent extends Component {
 
         return (
             <header>
-                <MobileMenuContainer/>
+                <MobileMenuComponent/>
                 <div className="logo">
                     <Link to="/"><img src="/images/logo.png" alt="Logo"/></Link>
                 </div>
-                <div className="menu">
-                    <ul className="horizontal">
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/catalog">Catalog</Link></li>
-                        <li>Blog</li>
-                        <li>Delivery</li>
-                        <li>About us</li>
-                    </ul>
-                </div>
+               <DesktopMenuComponent/>
                 <div className="notifications">
                     <SimpleBasketContainer/>
-
-                    {storageUtils.isAuth() ? '' : <SimpleNotificationContainer/>}
-                    <MenuComponent/>
+                    <SimpleNotificationContainer/>
+                    <AccountHeaderComponent/>
                 </div>
             </header>
         );

@@ -59,10 +59,11 @@ const basket = (state = {
         case 'SYNC_BASKET':
 
             return [];
-        case 'PRODUCTS':
+        case 'SAVE_DATA':
+            console.log(action)
             return {
                 ...state,
-                products: action.products
+                products: action.data
             };
         case 'DELETE_PRODUCT':
             return {

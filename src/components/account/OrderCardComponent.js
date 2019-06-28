@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {get} from 'lodash';
+import {getRepresentaionStatus} from "../../models/statusMapping";
+import {getFormatedPrice} from "../../utils/other";
 
 class OrderCardComponent extends Component {
 
@@ -8,7 +10,6 @@ class OrderCardComponent extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        // will be true
         const locationChanged = this.props.params !== prevProps.params;
         locationChanged && this.props.actions.loadDataById(this.props.params.id)
     }
@@ -17,12 +18,12 @@ class OrderCardComponent extends Component {
     render() {
         const {order: {orderContact, productOrder, orderStatus}, loader} = this.props;
 
-        console.log(this.props)
         let products = productOrder.map(product => <ul key={product.id}>
                 <li>{product.name}</li>
+                <li>{product.category}</li>
                 <li className="tx-l">{product.discount}%</li>
-                <li className="tx-l">{product.priceWithDiscount} BYN</li>
-                <li className="tx-l">{product.totalPrice} BYN</li>
+                <li className="tx-l">{getFormatedPrice(product.priceWithDiscount)} BYN</li>
+                <li className="tx-l">{getFormatedPrice(product.totalPrice)} BYN</li>
             </ul>
         );
 
@@ -38,7 +39,7 @@ class OrderCardComponent extends Component {
                     <div className="order-info">
                         <ul className="order-info-title card">
                             <li>Заказ №{this.props.params.id}</li>
-                            <li className="tx-l">Статус: {orderStatus}</li>
+                            <li className="tx-l">Статус: {getRepresentaionStatus(orderStatus)}</li>
                         </ul>
                         <div className="card cl2-rw1 order-info-contacts">
                             <table className="order-info-person">
@@ -81,6 +82,7 @@ class OrderCardComponent extends Component {
                         <div className="order-info-products card">
                             <ul>
                                 <li>Название</li>
+                                <li>Категория</li>
                                 <li className="tx-l">Скидка</li>
                                 <li className="tx-l">Цена со скидкой</li>
                                 <li className="tx-l">Итого</li>

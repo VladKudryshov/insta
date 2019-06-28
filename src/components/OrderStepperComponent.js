@@ -9,7 +9,6 @@ class OrderStepperComponent extends Component {
     state = {
         currentPosition: 1,
         tabs: 2,
-        visibleActions: false,
         orderContacts: {
             userName: "",
             userSecondName: "",
@@ -21,10 +20,6 @@ class OrderStepperComponent extends Component {
         }
     };
 
-    componentDidMount() {
-        const {basket: {basket}} = this.props;
-        basket.length > 0 ? this.setState({visibleActions: true}) : this.setState({visibleActions: false})
-    }
 
     nextStep = () => {
         const {currentPosition, tabs} = this.state;
@@ -52,14 +47,15 @@ class OrderStepperComponent extends Component {
 
 
     render() {
-        const {currentPosition, tabs, visibleActions} = this.state;
+        const {currentPosition, tabs} = this.state;
+        const {loader} = this.props;
         return (
             <div className="container">
                 {currentPosition === 1 ? <BasketComponent/> :
                     <ContactsOrderContainer orderContacts={this.state.orderContacts}
                                             change={this.handleChangeOrderContacts}/>}
                 {
-                    visibleActions ? <ul className="order-action fl-r">
+                    !loader && <ul className="order-action fl-r">
                         <li>
                             {currentPosition !== 1
                                 ? <button className="btn netral" onClick={this.prevStep}>Prev</button>
@@ -71,7 +67,7 @@ class OrderStepperComponent extends Component {
                                 <button className="btn netral" onClick={this.createOrder}>Buy</button> :
                                 <button className="btn netral" onClick={this.nextStep}>Next</button>}
                         </li>
-                    </ul> : ''
+                    </ul>
                 }
             </div>
         );

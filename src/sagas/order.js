@@ -1,12 +1,14 @@
 import {takeEvery, put, call} from 'redux-saga/effects';
 import {orderService} from "../services/orderService";
+import {delay} from "redux-saga";
 
 
 function* loadOrderInfo(action) {
     try {
         const {id} = action;
         const data = yield call(orderService.getOrderById, id);
-        yield put({type: 'SAVE_ORDER_INFO', data});
+        yield delay(400);
+        yield put({type: 'SAVE_DATA', data});
     } catch (err) {
         console.log(err)
     }

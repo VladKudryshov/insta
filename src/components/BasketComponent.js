@@ -1,11 +1,10 @@
 import React, {Component} from "react";
-
-
-import {productService} from "../services/productService";
 import connect from "react-redux/es/connect/connect";
 import {bindActionCreators} from "redux";
-import {changeQuantityProductInBasket, deleteProductFromBasket, saveProducts} from "../actions/action";
+import {changeQuantityProductInBasket, deleteProductFromBasket, loadProductsBag, saveProducts} from "../actions/action";
 import QuantityContainer from "../containers/QuantityContainer";
+import {getPriceWithDiscount} from "../utils/other";
+import LoaderContainer from "../containers/LoaderContainer";
 
 class BasketComponent extends Component {
 
@@ -14,22 +13,11 @@ class BasketComponent extends Component {
     };
 
     componentDidMount() {
-        const {basket: {basket}, actions: {saveProducts}} = this.props;
+        const {basket: {basket}, actions: {loadProductsBag}} = this.props;
         if (basket && basket.length > 0) {
             let ids = basket.map(it => it.id);
-            productService.getProductsByIds(ids)
-                .then(data => {
-                    setTimeout(() => {
-                        this.setState({loading: false})
-                    }, 500)
-                    saveProducts(data)
-                })
-        } else {
-            setTimeout(() => {
-                this.setState({loading: false})
-            }, 500)
+            loadProductsBag(ids)
         }
-
     }
 
     getQuantityById = (id) => {
@@ -46,55 +34,49 @@ class BasketComponent extends Component {
         deleteProductFromBasket(id);
     };
 
-    getPriceWithDiscount = (product) => {
-        return (product.price / 100 * (100 - product.discount)).toFixed(2)
-    };
-
 
     render() {
-        const {basket: {products}} = this.props;
-        const {loading} = this.state;
+        const {basket: {products}, loader} = this.props;
 
-        if (loading) {
-            return <div className="spinners">
-                <div className="spinner-2"/>
-                <div className="spinner"/>
-            </div>
-        }
 
-        if (!products || products.length === 0) {
-            return <div className="basket-box tc">Your basket is empty</div>
-        }
+        return (
+            <div>
+                <LoaderContainer/>
 
-        return <div className="basket-box">
-            <ul className=" card">
-                <ul key="-1" className=''>
-                    <li>Name</li>
-                    <li>Category</li>
-                    <li>Discount</li>
-                    <li>Price</li>
-                    <li>Quantity</li>
-                    <li>Total Price</li>
-                    <li/>
-                </ul>
                 {
-                    products.map(product => <ul key={product.id} className=''>
-                        <li>{product.name}</li>
-                        <li>{product.category}</li>
-                        <li>{product.discount} %</li>
-                        <li>{this.getPriceWithDiscount(product)} BYN за {product.unitName}</li>
+                    !loader &&
+                    <div className="basket-box">
+                        <ul className=" card">
+                            <ul key="-1" className=''>
+                                <li>Название</li>
+                                <li>Категория</li>
+                                <li>Скидка</li>
+                                <li>Цена</li>
+                                <li>Количество</li>
+                                <li>Итого</li>
+                                <li/>
+                            </ul>
+                            {
+                                products.map(product => <ul key={product.id} className=''>
+                                    <li>{product.name}</li>
+                                    <li>{product.category}</li>
+                                    <li>{product.discount} %</li>
+                                    <li>{getPriceWithDiscount(product)} BYN за {product.unitName}</li>
 
-                        <li>
-                            <QuantityContainer product = {product}/>
-                        </li>
-                        <li>{(this.getPriceWithDiscount(product) * this.getQuantityById(product.id)).toFixed(2)} BYN</li>
-                        <li onClick={(event) => this.deleteProductByID(event, product.id)} className="tx-l">
-                            <i className="fas fa-trash"/>
-                        </li>
-                    </ul>)
+                                    <li>
+                                        <QuantityContainer product={product}/>
+                                    </li>
+                                    <li>{(getPriceWithDiscount(product) * this.getQuantityById(product.id)).toFixed(2)} BYN</li>
+                                    <li onClick={(event) => this.deleteProductByID(event, product.id)} className="tx-l">
+                                        <i className="fas fa-trash"/>
+                                    </li>
+                                </ul>)
+                            }
+                        </ul>
+                    </div>
                 }
-            </ul>
-        </div>
+            </div>
+        )
 
     }
 
@@ -102,17 +84,18 @@ class BasketComponent extends Component {
 }
 
 const mapStateToProps = (state) => {
-    const basket = state.basket;
+    const {basket, loader} = state;
     return ({
-        basket
+        basket,
+        loader
     });
 };
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
         changeQuantityProductInBasket,
-        saveProducts,
         deleteProductFromBasket,
+        loadProductsBag
     }, dispatch),
 });
 

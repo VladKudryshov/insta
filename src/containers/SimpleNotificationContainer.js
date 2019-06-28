@@ -9,7 +9,7 @@ class SimpleNotificationContainer extends Component {
     render() {
         const {notification} = this.props
         return (
-            <Link to="/basket">
+            <Link to="/notifications">
                 <i className="fas fa-bell hover center">{
                     <span className="not-empty">1</span>
                 }</i>

@@ -6,13 +6,13 @@ import {Provider} from 'react-redux'
 import {browserHistory, IndexRoute, Route, Router} from "react-router";
 import Root from "./components/root/Root";
 import HomeComponent from "./components/HomeComponent";
-import CatalogComponent from "./components/CatalogComponent";
 import ProfileComponent from "./components/account/ProfileComponent";
 import RootAccount from "./components/root/RootAccount";
 import OrderStepperContainer from "./containers/OrderStepperContainer";
 import OrderCard from "./containers/OrderCardContainer";
 import RootOrders from "./components/root/RootOrders";
 import configureStore from "./configureStore";
+import CatalogContainer from "./containers/CatalogContainer";
 
 const store = configureStore();
 
@@ -22,14 +22,14 @@ ReactDOM.render(
             <Route path="/" component={Root}>
                 <IndexRoute component={HomeComponent}/>
                 <Router path="/catalog">
-                    <IndexRoute component={CatalogComponent}/>
+                    <IndexRoute component={CatalogContainer}/>
                 </Router>
                 <Route path="/basket" component={OrderStepperContainer}/>
                 <Router path="/account" component={RootAccount}>
-                    <Route path="/account/profile" component={ProfileComponent}/>
-                    <Router path="/account/orders" component={RootOrders}>
-                        <Route path=":id" component={OrderCard}/>
-                    </Router>
+                    <IndexRoute component={ProfileComponent}/>
+                </Router>
+                <Router path="/orders" component={RootOrders}>
+                    <Route path=":id" component={OrderCard}/>
                 </Router>
             </Route>
         </Router>

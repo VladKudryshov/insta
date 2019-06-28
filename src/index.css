@@ -124,7 +124,7 @@ body {
         font-size: 8pt !important;
     }
 
-    .horizontal > li {
+    .horizontal > a {
         display: inline-block;
         padding: 10px 2px;
         color: #606161;
@@ -300,7 +300,7 @@ body {
         color: #ffffff;
     }
 
-    .horizontal > li {
+    .horizontal > a {
         display: inline-block;
         padding: 10px 20px;
         color: #606161;
@@ -325,6 +325,8 @@ body {
     }
 
     .container {
+        width: 100%;
+        height: max-content;
     }
 
     .blog-cards {
@@ -342,6 +344,7 @@ body {
         width: 100%;
         display: grid;
         grid-template-columns: none;
+        grid-auto-rows: minmax(min-content, max-content);
         grid-row-gap: 30px;
         grid-column-gap: 20px;
     }
@@ -431,14 +434,11 @@ ul {
     text-align: center;
 }
 
-.horizontal > li:hover {
+.horizontal > a:hover {
     color: #feffff;
     background: #00ba56;
 }
 
-.horizontal > li:hover > a {
-    color: #feffff;
-}
 
 a {
     color: #606161;
@@ -508,7 +508,8 @@ button:hover {
     box-sizing: border-box;
     width: 100%;
     text-align: left;
-    display: inline-block;
+    display: grid;
+    grid-template-columns: 40px auto;
     padding: 10px 20px;
 }
 
@@ -1014,7 +1015,7 @@ button:hover {
     background: #e0e0e0;
     opacity: 0.8;
     width: 100%;
-    height: 100%;
+    height: 60px;
 }
 
 .spinner-2 {
@@ -1081,7 +1082,7 @@ button:hover {
 
 .order-info-products > ul {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     border-bottom: 1px solid #b7b7b7;
 }
 
@@ -1117,7 +1118,7 @@ button:hover {
 }
 
 .order-list{
-
+    height: min-content;
 }
 
 

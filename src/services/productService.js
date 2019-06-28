@@ -8,9 +8,7 @@ function getProducts(filter) {
     return axios.get(`http://165.22.89.115:8080/api/products?size=100&category=`+filter, {headers: {Authorization: storageUtils.getToken()}})
         .then(handleResponse)
         .then(products => {
-            // login successful if there's a user in the response
-
-            return products
+            return products['content']
         });
 }
 
