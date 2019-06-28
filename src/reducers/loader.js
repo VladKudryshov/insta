@@ -6,13 +6,14 @@ const order = (state = false, action) => {
         case 'LOAD_PRODUCTS_BAG':
             return true;
 
-        case 'SAVE_DATA':
+        case 'SAVE_ORDER_INFO':
+        case 'SAVE_CATALOG_PRODUCTS':
+        case 'SAVE_PRODUCTS_BAG':
             return false;
 
         default:
             return state
     }
 };
-
 
 export default order

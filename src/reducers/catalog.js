@@ -2,7 +2,7 @@ const catalog = (state = {
     products: []
 }, action) => {
     switch (action.type) {
-        case 'SAVE_DATA': {
+        case 'SAVE_CATALOG_PRODUCTS': {
             return {
                 products: action.data
             }

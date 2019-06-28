@@ -8,7 +8,7 @@ function* loadProductPage(action) {
         const {filter} = action;
         const data = yield call(productService.getProducts, filter);
         yield delay(400);
-        yield put({type: 'SAVE_DATA', data});
+        yield put({type: 'SAVE_CATALOG_PRODUCTS', data});
     } catch (err) {
         console.log(err)
     }

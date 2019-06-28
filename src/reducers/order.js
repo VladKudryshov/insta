@@ -5,7 +5,7 @@ const order = (state = {
 }, action) => {
 
     switch (action.type) {
-        case 'SAVE_DATA': {
+        case 'SAVE_PRODUCTS_BAG': {
             return action.data
         }
 

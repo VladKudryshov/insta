@@ -8,7 +8,7 @@ function* loadProductsBag(action) {
         const {ids} = action;
         const data = yield call(productService.getProductsByIds, ids);
         yield delay(400);
-        yield put({type: 'SAVE_DATA', data});
+        yield put({type: 'SAVE_ORDER_INFO', data});
     } catch (err) {
         console.log(err)
     }

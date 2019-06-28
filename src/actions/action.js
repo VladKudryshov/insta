@@ -43,7 +43,6 @@ export const loadProductsBag = (ids) => ({
 
 
 
-
 export const loadData = (filter) => ({
     type: 'LOAD_DATA',
     filter,
@@ -51,6 +50,16 @@ export const loadData = (filter) => ({
 
 
 export const saveOrderInfo = (data) => ({
-    type: 'SAVE_DATA',
+    type: 'SAVE_ORDER_INFO',
+    data,
+});
+
+export const saveCatalogProducts = (data) => ({
+    type: 'SAVE_CATALOG_PRODUCTS',
+    data,
+});
+
+export const saveProudctsBAG = (data) => ({
+    type: 'SAVE_PRODUCTS_BAG',
     data,
 });
