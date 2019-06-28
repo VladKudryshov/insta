@@ -11,33 +11,12 @@ class AccountHeaderComponent extends Component {
         loginComponent: false
     };
 
-    constructor(props) {
-        super(props);
-
-        this.setWrapperRef = this.setWrapperRef.bind(this);
-        this.handleCloseAccountMenu = this.handleCloseAccountMenu.bind(this);
-    }
-
-
     handleLoginComponent = () => {
         const {loginComponent} = this.state;
         this.setState({loginComponent: !loginComponent})
     };
 
-    componentDidMount() {
-        document.addEventListener('mousedown', this.handleCloseAccountMenu);
-    }
 
-    setWrapperRef(node) {
-        this.wrapperRef = node;
-    }
-
-    handleCloseAccountMenu(event) {
-        const {open} = this.state;
-        if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-            this.setState({open: !open})
-        }
-    }
 
 
     handleAccountMenu = () => {

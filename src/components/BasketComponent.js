@@ -38,13 +38,12 @@ class BasketComponent extends Component {
     render() {
         const {basket: {products}, loader} = this.props;
 
-
+        console.log(products.length>0)
         return (
             <div>
                 <LoaderContainer/>
-
                 {
-                    !loader &&
+                    !loader && products.length>0 &&
                     <div className="basket-box">
                         <ul className=" card">
                             <ul key="-1" className=''>

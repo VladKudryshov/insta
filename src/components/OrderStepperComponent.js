@@ -8,16 +8,7 @@ class OrderStepperComponent extends Component {
 
     state = {
         currentPosition: 1,
-        tabs: 2,
-        orderContacts: {
-            userName: "",
-            userSecondName: "",
-            userPhone: "",
-            city: "",
-            street: "",
-            house: "",
-            flat: ""
-        }
+        tabs: 2
     };
 
 
@@ -46,16 +37,29 @@ class OrderStepperComponent extends Component {
     };
 
 
+    handleClearBasket =() =>{
+        const {actions: {clearBasket}} = this.props;
+        clearBasket();
+        this.setState({currentPosition: 1, visibleActions: false})
+    }
+
     render() {
         const {currentPosition, tabs} = this.state;
-        const {loader} = this.props;
+        const {loader, basket} = this.props;
+
+        console.log(basket)
+
+        let flag = !basket || basket.length === 0;
+        if (flag) {
+            return <div className="basket-box tc">Корзина пуста</div>
+        }
+
         return (
             <div className="container">
-                {currentPosition === 1 ? <BasketComponent/> :
-                    <ContactsOrderContainer orderContacts={this.state.orderContacts}
-                                            change={this.handleChangeOrderContacts}/>}
+
+                {currentPosition === 1 ? <BasketComponent/> : <ContactsOrderContainer change={this.handleChangeOrderContacts}/>}
                 {
-                    !loader && <ul className="order-action fl-r">
+                    !loader && !flag && <ul className="order-action fl-r">
                         <li>
                             {currentPosition !== 1
                                 ? <button className="btn netral" onClick={this.prevStep}>Prev</button>
@@ -73,11 +77,6 @@ class OrderStepperComponent extends Component {
         );
     }
 
-    handleClearBasket =() =>{
-        const {actions: {clearBasket}} = this.props;
-        clearBasket();
-        this.setState({currentPosition: 1, visibleActions: false})
-    }
 }
 
 

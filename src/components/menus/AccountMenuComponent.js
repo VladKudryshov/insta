@@ -6,6 +6,28 @@ import LoginComponent from "../LoginComponent";
 
 class AccountMenuComponent extends Component {
 
+
+    constructor(props) {
+        super(props);
+        this.setWrapperRef = this.setWrapperRef.bind(this);
+        this.handleCloseAccountMenu = this.handleCloseAccountMenu.bind(this);
+    }
+
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleCloseAccountMenu);
+    }
+
+    setWrapperRef(node) {
+        this.wrapperRef = node;
+    }
+
+    handleCloseAccountMenu(event) {
+
+        if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+            this.props.close()
+        }
+    }
+
     handleLogout = () => {
         userService.logout();
     };
