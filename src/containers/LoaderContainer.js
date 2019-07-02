@@ -6,10 +6,12 @@ class LoaderContainer extends Component {
 
     render() {
         return (
-            this.props.loader && <div className="spinners">
-                <div className="spinner-2"/>
-                <div className="spinner"/>
-            </div>
+            this.props.loader
+                ? <div className="spinners">
+                    <div className="spinner-2"/>
+                    <div className="spinner"/>
+                </div>
+                : this.props.children
         );
     }
 

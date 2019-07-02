@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {get} from 'lodash';
 import {getRepresentaionStatus} from "../../models/statusMapping";
 import {getFormatedPrice} from "../../utils/other";
+import LoaderContainer from "../../containers/LoaderContainer";
 
 class OrderCardComponent extends Component {
 
@@ -30,12 +31,7 @@ class OrderCardComponent extends Component {
         return (
             <div className="order-component" key={this.props.params.id}>
 
-                {loader
-                    ? <div className="spinners">
-                        <div className="spinner-2"/>
-                        <div className="spinner"/>
-                    </div>
-                    :
+                <LoaderContainer>
                     <div className="order-info">
                         <ul className="order-info-title card">
                             <li>Заказ №{this.props.params.id}</li>
@@ -89,7 +85,8 @@ class OrderCardComponent extends Component {
                             </ul>
                             {products}
                         </div>
-                    </div>}
+                    </div>
+                </LoaderContainer>
             </div>
         )
     }

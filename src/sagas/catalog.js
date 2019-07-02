@@ -10,7 +10,7 @@ function* loadProductPage(action) {
         yield delay(400);
         yield put({type: 'SAVE_CATALOG_PRODUCTS', data});
     } catch (err) {
-        console.log(err)
+
     }
 }
 

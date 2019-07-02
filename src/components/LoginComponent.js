@@ -34,39 +34,9 @@ class LoginComponent extends Component {
 
     render() {
         return (
-            <Dialog
-                open={this.props.open}
-                onClose={this.props.close}
-                aria-labelledby="form-dialog-title"
-            >
-                <DialogTitle id="form-dialog-title">Вход</DialogTitle>
-                <DialogContent>
-                    <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label="Логин"
-                        type="email"
-                        name="login"
-                        onChange={this.handleChange}
-                    /><br/>
-                    <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label="Пароль"
-                        type="password"
-                        name="password"
-                        onChange={this.handleChange}
-
-                    />
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={this.handleLogin} color="primary">
-                        Войти
-                    </Button>
-                </DialogActions>
-            </Dialog>
+            <div>
+                Регистрация
+            </div>
         );
     }
 }

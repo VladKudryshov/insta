@@ -10,7 +10,7 @@ function* loadProductsBag(action) {
         yield delay(400);
         yield put({type: 'SAVE_ORDER_INFO', data});
     } catch (err) {
-        console.log(err)
+
     }
 }
 

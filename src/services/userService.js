@@ -31,16 +31,12 @@ function getUserInfo() {
         });
 }
 
+function getUserContacts() {
 
-function getAddressUser() {
-
-    return axios.get(`http://165.22.89.115:8080/api/address/address`, {headers: {
+    return axios.get(`http://165.22.89.115:8080/api/users/contacts`, {headers: {
             Authorization: localStorage.getItem('token')
         }})
-        .then(handleResponse)
-        .then(user => {
-            return user;
-        });
+        .then(handleResponse);
 }
 
 
@@ -59,6 +55,6 @@ const setAccessToken = (response) => {
 export const userService = {
     login,
     getUserInfo,
-    getAddressUser,
+    getUserContacts,
     logout
 };

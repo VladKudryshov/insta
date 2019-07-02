@@ -38,43 +38,39 @@ class BasketComponent extends Component {
     render() {
         const {basket: {products}, loader} = this.props;
 
-        console.log(products.length>0)
         return (
-            <div>
-                <LoaderContainer/>
-                {
-                    !loader && products.length>0 &&
-                    <div className="basket-box">
-                        <ul className=" card">
-                            <ul key="-1" className=''>
-                                <li>Название</li>
-                                <li>Категория</li>
-                                <li>Скидка</li>
-                                <li>Цена</li>
-                                <li>Количество</li>
-                                <li>Итого</li>
-                                <li/>
-                            </ul>
-                            {
-                                products.map(product => <ul key={product.id} className=''>
-                                    <li>{product.name}</li>
-                                    <li>{product.category}</li>
-                                    <li>{product.discount} %</li>
-                                    <li>{getPriceWithDiscount(product)} BYN за {product.unitName}</li>
+            <LoaderContainer>
 
-                                    <li>
-                                        <QuantityContainer product={product}/>
-                                    </li>
-                                    <li>{(getPriceWithDiscount(product) * this.getQuantityById(product.id)).toFixed(2)} BYN</li>
-                                    <li onClick={(event) => this.deleteProductByID(event, product.id)} className="tx-l">
-                                        <i className="fas fa-trash"/>
-                                    </li>
-                                </ul>)
-                            }
+                <div className="basket-box">
+                    <ul className=" card">
+                        <ul key="-1" className=''>
+                            <li>Название</li>
+                            <li>Категория</li>
+                            <li>Скидка</li>
+                            <li>Цена</li>
+                            <li>Количество</li>
+                            <li>Итого</li>
+                            <li/>
                         </ul>
-                    </div>
-                }
-            </div>
+                        {
+                            products.map(product => <ul key={product.id} className=''>
+                                <li>{product.name}</li>
+                                <li>{product.category}</li>
+                                <li>{product.discount} %</li>
+                                <li>{getPriceWithDiscount(product)} BYN за {product.unitName}</li>
+
+                                <li>
+                                    <QuantityContainer product={product}/>
+                                </li>
+                                <li>{(getPriceWithDiscount(product) * this.getQuantityById(product.id)).toFixed(2)} BYN</li>
+                                <li onClick={(event) => this.deleteProductByID(event, product.id)} className="tx-l">
+                                    <i className="fas fa-trash"/>
+                                </li>
+                            </ul>)
+                        }
+                    </ul>
+                </div>
+            </LoaderContainer>
         )
 
     }

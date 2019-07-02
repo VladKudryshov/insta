@@ -15,17 +15,13 @@ class ListProductsComponent extends Component {
         });
 
         return (
-            <>
-                <LoaderContainer/>
-                {
-                    !loader &&
-                    <div className="content">
-                        <div className="products">
-                            {productList}
-                        </div>
+            <LoaderContainer>
+                <div className="content">
+                    <div className="products">
+                        {productList}
                     </div>
-                }
-            </>
+                </div>
+            </LoaderContainer>
         );
     }
 }

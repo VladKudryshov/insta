@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import OrderStepperComponent from "../components/OrderStepperComponent";
 import {bindActionCreators} from "redux";
-import {clearBasket} from "../actions/action";
+import {clearBasket, createOrder} from "../actions/action";
 import {connect} from "react-redux";
 
 class OrderStepperContainer extends Component {
@@ -24,6 +24,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
+        createOrder,
         clearBasket
     }, dispatch),
 });

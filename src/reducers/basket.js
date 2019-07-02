@@ -2,7 +2,16 @@ import {storageUtils} from "../utils/StorageUtils";
 
 const basket = (state = {
     basket: storageUtils.getOrderStorage(),
-    products: []
+    products: [],
+    contact: {
+        id: null,
+        userName: null,
+        userPhone: null,
+        city: null,
+        street: null,
+        house: null,
+        flat: null
+    }
 }, action) => {
 
     let newState;
@@ -28,7 +37,7 @@ const basket = (state = {
                 };
             }
 
-            localStorage.setItem("order", JSON.stringify(newState.basket ? newState.basket : []))
+            localStorage.setItem("order", JSON.stringify(newState.basket ? newState.basket : []));
 
             return {
                 basket: state.basket ? newState.basket : [],
@@ -59,11 +68,26 @@ const basket = (state = {
         case 'SYNC_BASKET':
 
             return [];
+
         case 'SAVE_ORDER_INFO':
             return {
                 ...state,
                 products: action.data
             };
+
+        case 'EDIT_CONTACT_ORDER':
+            return {
+                ...state,
+                contact: action.contact
+            };
+
+        case 'CHOOSED_ADDRESS': {
+            return {
+                ...state,
+                contact: action.address
+            }
+        }
+
         case 'DELETE_PRODUCT':
             return {
                 ...state,

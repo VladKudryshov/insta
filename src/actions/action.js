@@ -49,6 +49,33 @@ export const loadData = (filter) => ({
 });
 
 
+export const createOrder = (basket, contact) => ({
+    type: 'CREATE_ORDER',
+    basket,
+    contact
+});
+
+
+export const editContactOrder = (contact) => ({
+    type: 'EDIT_CONTACT_ORDER',
+    contact
+});
+
+export const saveAddresses = (data) => ({
+    type: 'SAVE_ADDRESS',
+    data
+});
+
+export const getAddresses = () => ({
+    type: 'LOAD_ADDRESSES'
+});
+
+
+export const chooseAddress = (address) => ({
+    type: 'CHOOSED_ADDRESS',
+    address
+});
+
 export const saveOrderInfo = (data) => ({
     type: 'SAVE_ORDER_INFO',
     data,

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import BasketComponent from "./BasketComponent";
-import ContactsOrderContainer from "../containers/ContactsOrderContainer";
+import ContactsOrderContainer from "../containers/contacts/ContactsOrderContainer";
 import {orderService} from "../services/orderService";
 
 class OrderStepperComponent extends Component {
@@ -25,9 +25,8 @@ class OrderStepperComponent extends Component {
     };
 
     createOrder = () => {
-        const {basket: {basket},actions:{clearBasket}} = this.props;
-        orderService.createOrder(basket, this.state.orderContacts)
-        clearBasket();
+        const {basket: {basket, contact},actions:{createOrder}} = this.props;
+        createOrder(basket, contact);
         this.setState({currentPosition: 1, visibleActions: false})
     };
 
@@ -47,8 +46,6 @@ class OrderStepperComponent extends Component {
         const {currentPosition, tabs} = this.state;
         const {loader, basket} = this.props;
 
-        console.log(basket)
-
         let flag = !basket || basket.length === 0;
         if (flag) {
             return <div className="basket-box tc">Корзина пуста</div>
@@ -62,14 +59,14 @@ class OrderStepperComponent extends Component {
                     !loader && !flag && <ul className="order-action fl-r">
                         <li>
                             {currentPosition !== 1
-                                ? <button className="btn netral" onClick={this.prevStep}>Prev</button>
+                                ? <button className="btn netral" onClick={this.prevStep}>Назад</button>
                                 :
-                                <button className="btn primary" onClick={this.handleClearBasket}>Clear basket</button>}
+                                <button className="btn netral" onClick={this.handleClearBasket}>Очистить корзину</button>}
                         </li>
                         <li>
                             {tabs === currentPosition ?
-                                <button className="btn netral" onClick={this.createOrder}>Buy</button> :
-                                <button className="btn netral" onClick={this.nextStep}>Next</button>}
+                                <button className="btn primary" onClick={this.createOrder}>Заказать</button> :
+                                <button className="btn primary" onClick={this.nextStep}>Далее</button>}
                         </li>
                     </ul>
                 }

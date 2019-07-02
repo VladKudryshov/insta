@@ -1,6 +1,6 @@
 import React from 'react';
 import AccountComponent from "../AccountComponent";
-import OrdersComponent from "../account/OrdersComponent";
+import OrdersComponent from "../order/OrdersComponent";
 
 
 const RootOrders = ({ children }) => (
