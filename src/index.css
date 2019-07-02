@@ -248,6 +248,12 @@ body {
         background: #ffffff;
     }
 
+    .login-component {
+        width: 90%;
+        margin: 0 auto;
+        padding: 20px 30px;
+    }
+
 }
 
 @media only screen and (min-width: 840px) {
@@ -337,6 +343,12 @@ body {
         grid-row-gap: 40px;
         grid-column-gap: 40px;
         justify-items: center;
+    }
+
+    .login-component {
+        width: 30%;
+        margin: 0 auto;
+        padding: 20px 30px;
     }
 
     .wrapper {
@@ -1298,11 +1310,7 @@ button:focus {
     background: #FFF1F1;
 }
 
-.login-component {
-    width: 30%;
-    margin: 0 auto;
-    padding: 20px 30px;
-}
+
 
 .login-types {
     display: grid;
