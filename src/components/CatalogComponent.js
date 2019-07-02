@@ -24,7 +24,9 @@ class CatalogComponent extends Component {
         productService.getProducts(value)
             .then(data => {
                 this.setState({products: data['content']});
-                setTimeout(()=>{this.setState({loading: false})}, 500)
+                setTimeout(() => {
+                    this.setState({loading: false})
+                }, 500)
             })
     }
 
@@ -32,9 +34,9 @@ class CatalogComponent extends Component {
         return (
             <div className="wrapper auto1fr">
                 <div className="">
-                    <SelectorContainer change = {this.handleChange}/>
+                    <SelectorContainer change={this.handleChange}/>
                 </div>
-               <ListProductsComponent {...this.props}/>
+                <ListProductsComponent {...this.props}/>
             </div>
         );
     }

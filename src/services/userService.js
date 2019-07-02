@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {browserHistory} from "react-router";
 
 
 function login(login, password) {
@@ -11,13 +12,28 @@ function login(login, password) {
         .then(user => {
             // login successful if there's a user in the response
             localStorage.setItem("user", user.email);
-            window.location.reload();
+            browserHistory.push("/")
         });
 }
 
+
+function createUser(login, password) {
+    const params = { email: login, password, role: 'USER' }
+
+
+    return axios.post(`http://165.22.89.115:8080/api/users/registration`, params)
+        .then(handleResponse)
+        .then(user => {
+            // login successful if there's a user in the response
+            this.login(login,password)
+        });
+}
+
+
 function logout() {
     localStorage.removeItem('token');
-    window.location.reload();
+    browserHistory.push("/login");
+    window.location.reload()
 }
 
 function getUserInfo() {
@@ -54,6 +70,7 @@ const setAccessToken = (response) => {
 
 export const userService = {
     login,
+    createUser,
     getUserInfo,
     getUserContacts,
     logout

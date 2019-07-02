@@ -1,44 +1,72 @@
 import React, {Component} from 'react';
-import Dialog from "@material-ui/core/Dialog/Dialog";
-import DialogTitle from "@material-ui/core/DialogTitle/DialogTitle";
-import DialogContent from "@material-ui/core/DialogContent/DialogContent";
-import TextField from "@material-ui/core/TextField/TextField";
-import DialogActions from "@material-ui/core/DialogActions/DialogActions";
-import Button from "@material-ui/core/Button/Button";
 import {userService} from "../services/userService";
 
 class LoginComponent extends Component {
 
+    state = {
+        login: '',
+        password: '',
+        activeState: 'reg'
+    };
 
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            login: '',
-            password: ''
-        };
-        this.handleChange = this.handleChange.bind(this);
-    }
+    handleChange = (e) => {
+        const {name, value} = e.target;
+        this.setState({[name]: value});
+    };
+
+    handleActive = (e) => {
+        const {name} = e.target;
+        this.setState({activeState: name});
+    };
+
+    getActiveState = (e) => {
+        const {activeState} = this.state;
+        if (activeState === e) {
+            return "login-type btn-empty login-type-active"
+        }
+        return "login-type btn-empty"
+    };
+
+    getAction = () => {
+        const {activeState} = this.state;
+        if (activeState === 'reg') {
+            return <button onClick={this.handleReg} className="btn primary">Создать</button>
+        }
+        return <button onClick={this.handleLogin} className="btn primary">Войти</button>
+    };
 
     handleLogin = () => {
         const {login, password} = this.state;
         userService.login(login, password);
-        this.props.close();
-
     };
 
-    handleChange(e) {
-        const {name, value} = e.target;
-        this.setState({[name]: value});
+    handleReg = () => {
+        const {login, password} = this.state;
+        userService.createUser(login, password);
     }
 
     render() {
         return (
-            <div>
-                Регистрация
+            <div className="login-component card">
+                <ul className="login-types">
+                    <button className={this.getActiveState('reg')} name="reg" onClick={this.handleActive}> РЕГИСТРАЦИЯ
+                    </button>
+                    <button className={this.getActiveState('sign-in')} name="sign-in"
+                            onClick={this.handleActive}>ВОЙТИ
+                    </button>
+                </ul>
+                <div className="login-form">
+                    <input type="text" name="login" onChange={this.handleChange} placeholder="Email"/>
+                    <input type="password" name="password" onChange={this.handleChange} placeholder="Пароль"/>
+                </div>
+                {this.getAction()}
             </div>
         );
     }
+
+
+
 }
 
 

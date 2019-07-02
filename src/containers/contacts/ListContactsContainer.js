@@ -5,6 +5,9 @@ class ListContactsContainer extends Component {
     render() {
         const {address: {addresses}, actions: {chooseAddress}} = this.props;
         const listAddress = addresses.map(f => {
+            if (f.default){
+                chooseAddress(f);
+            }
             return (
                 <div className="item" key={f.id}>
                     <div className="next-radio-wrapper">
@@ -28,12 +31,10 @@ class ListContactsContainer extends Component {
                     </div>
                 </div>
             )
-
-
         });
 
         return (
-            this.props.visible && <>
+           <>
                 <div className="list">
                     {listAddress}
                 </div>
@@ -43,10 +44,6 @@ class ListContactsContainer extends Component {
             </>
 
         );
-    }
-
-    handleChooseAddress = (id) => {
-        this.setState({choosedAddress: id})
     }
 }
 

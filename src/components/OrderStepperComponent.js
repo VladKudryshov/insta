@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import BasketComponent from "./BasketComponent";
 import ContactsOrderContainer from "../containers/contacts/ContactsOrderContainer";
-import {orderService} from "../services/orderService";
 
 class OrderStepperComponent extends Component {
 
@@ -25,8 +24,9 @@ class OrderStepperComponent extends Component {
     };
 
     createOrder = () => {
-        const {basket: {basket, contact},actions:{createOrder}} = this.props;
+        const {basket: {basket, contact},actions:{createOrder, clearBasket}} = this.props;
         createOrder(basket, contact);
+        clearBasket();
         this.setState({currentPosition: 1, visibleActions: false})
     };
 
@@ -44,7 +44,7 @@ class OrderStepperComponent extends Component {
 
     render() {
         const {currentPosition, tabs} = this.state;
-        const {loader, basket} = this.props;
+        const {loader, basket: {basket}} = this.props;
 
         let flag = !basket || basket.length === 0;
         if (flag) {

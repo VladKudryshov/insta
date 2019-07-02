@@ -18,7 +18,7 @@ class HeaderComponent extends Component {
                 <div className="logo">
                     <Link to="/"><img src="/images/logo.png" alt="Logo"/></Link>
                 </div>
-               <DesktopMenuComponent/>
+                <DesktopMenuComponent/>
                 <div className="notifications">
                     <SimpleBasketContainer/>
                     <SimpleNotificationContainer/>

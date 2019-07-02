@@ -1,18 +1,11 @@
 import {storageUtils} from "../utils/StorageUtils";
 
-const basket = (state = {
+let defaultState = {
     basket: storageUtils.getOrderStorage(),
     products: [],
-    contact: {
-        id: null,
-        userName: null,
-        userPhone: null,
-        city: null,
-        street: null,
-        house: null,
-        flat: null
-    }
-}, action) => {
+    contact: {}
+};
+const basket = (state = defaultState, action) => {
 
     let newState;
     switch (action.type) {
@@ -40,6 +33,7 @@ const basket = (state = {
             localStorage.setItem("order", JSON.stringify(newState.basket ? newState.basket : []));
 
             return {
+                ...state,
                 basket: state.basket ? newState.basket : [],
                 products: state.products ? state.products : []
             };
@@ -56,18 +50,19 @@ const basket = (state = {
             }
             localStorage.setItem("order", JSON.stringify(newState))
             return {
+                ...state,
                 basket: newState ? newState : [],
                 products: state.products
             };
         case 'CLEAR_BASKET':
             localStorage.removeItem("order")
             return {
-                basket: [],
-                products: []
+                ...defaultState,
+                basket: []
             };
         case 'SYNC_BASKET':
 
-            return [];
+            return defaultState;
 
         case 'SAVE_ORDER_INFO':
             return {

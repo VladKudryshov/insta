@@ -9,42 +9,47 @@ import LoaderContainer from "../LoaderContainer";
 class ContactsOrderContainer extends Component {
 
     state = {
-        visible: true,
-        address: {}
+        visible: true
     };
 
 
     componentDidMount() {
-        const {address:{addresses},actions: {getAddresses}} = this.props
-        console.log(addresses)
+        const {actions: {getAddresses}} = this.props
         getAddresses();
-
     }
 
     handleNewContact = () => {
         const {visible} = this.state
         this.setState({visible: !visible})
         this.props.actions.editContactOrder({})
-
+        console.log("new")
     };
 
     handleEditAddress = (address) => {
-        const {visible} = this.state
+        const {visible} = this.state;
         this.setState({visible: !visible})
+
         this.props.actions.editContactOrder(address)
     };
 
     render() {
-        const {visible, address} = this.state;
+        const {visible} = this.state;
+        const {address: {addresses}} = this.props;
+        console.log( visible )
+        console.log( addresses.length < 1)
         return (
             <div className="order-contacts card">
                 <LoaderContainer>
                     <div className="header-card">Адрес доставки</div>
 
-                    <NewContactContainer {...this.props} visible={!visible} handleContact={this.handleNewContact}
-                                         oldAddress={address}/>
-                    <ListContactsContainer {...this.props} visible={visible} handleContact={this.handleNewContact}
-                                           editAddress={this.handleEditAddress}/>
+                    {
+                        addresses.length > 0 && visible
+                            ?
+                            < ListContactsContainer {...this.props} handleContact={this.handleNewContact}
+                                                                        editAddress={this.handleEditAddress}/>
+                            :
+                            <NewContactContainer {...this.props} handleContact={this.handleNewContact}/>
+                    }
                 </LoaderContainer>
             </div>
         );
@@ -54,10 +59,11 @@ class ContactsOrderContainer extends Component {
 
 
 const mapStateToProps = (state) => {
-    const {basket: {contact}, address} = state;
+    const {basket: {contact}, loader, address} = state;
     return {
         contact,
-        address
+        address,
+        loader
     };
 };
 

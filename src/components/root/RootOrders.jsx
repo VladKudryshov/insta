@@ -1,9 +1,8 @@
 import React from 'react';
-import AccountComponent from "../AccountComponent";
 import OrdersComponent from "../order/OrdersComponent";
 
 
-const RootOrders = ({ children }) => (
+const RootOrders = ({children}) => (
     <div className="wrapper auto1fr ">
         <OrdersComponent/>
         {children}
@@ -12,7 +11,7 @@ const RootOrders = ({ children }) => (
 
 
 RootOrders.defaultProps = {
-  children: null,
+    children: null,
 };
 
 export default RootOrders;

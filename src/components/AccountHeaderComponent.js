@@ -1,23 +1,14 @@
 import React, {Component} from 'react';
-import {NavLink} from "react-router";
+
 import {storageUtils} from "../utils/StorageUtils";
-import LoginComponent from "./LoginComponent";
 import AccountMenuComponent from "./menus/AccountMenuComponent";
+import {Link} from "react-router";
 
 class AccountHeaderComponent extends Component {
 
     state = {
-        open: false,
-        loginComponent: false
+        open: false
     };
-
-    handleLoginComponent = () => {
-        const {loginComponent} = this.state;
-        this.setState({loginComponent: !loginComponent})
-    };
-
-
-
 
     handleAccountMenu = () => {
         const {open} = this.state;
@@ -25,17 +16,16 @@ class AccountHeaderComponent extends Component {
     };
 
     render() {
-        const {open, loginComponent} = this.state;
+        const {open} = this.state;
         return (
             <>
                 {storageUtils.isAuth()
-                    ?
-                    <button className="sing-in" onClick={this.handleLoginComponent}>Sign in</button>
-                    : <div className="account"
+                    ? <div className="account"
                            onClick={this.handleAccountMenu}>{localStorage.getItem('user')}</div>
+                    : <Link className="sing-in" to="login">Войти</Link>
+
                 }
                 <AccountMenuComponent close={this.handleAccountMenu} open={open}/>
-                <LoginComponent open={loginComponent} close={this.handleLoginComponent}> </LoginComponent>
             </>
         );
     }

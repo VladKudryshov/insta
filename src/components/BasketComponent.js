@@ -36,7 +36,7 @@ class BasketComponent extends Component {
 
 
     render() {
-        const {basket: {products}, loader} = this.props;
+        const {basket: {products}} = this.props;
 
         return (
             <LoaderContainer>

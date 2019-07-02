@@ -13,14 +13,16 @@ import OrderCard from "./containers/OrderCardContainer";
 import RootOrders from "./components/root/RootOrders";
 import configureStore from "./configureStore";
 import CatalogContainer from "./containers/CatalogContainer";
+import LoginComponent from "./components/LoginComponent";
 
 const store = configureStore();
 
 ReactDOM.render(
     <Provider store={store}>
         <Router history={browserHistory}>
-            <Route path="/" component={Root}>
-                <IndexRoute component={HomeComponent}/>
+            <Route path="/" component={Root} >
+                <IndexRoute component={HomeComponent} />
+                <Route path="login" component={LoginComponent} />
                 <Router path="/catalog">
                     <IndexRoute component={CatalogContainer}/>
                 </Router>
