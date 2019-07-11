@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ListProductsComponent from "./catalog/ListProductsComponent";
-import {productService} from "../services/productService";
-import SelectorContainer from "../containers/SelectorContainer";
+import {productService} from "../../services/productService";
+import SelectorContainer from "../../containers/SelectorContainer";
 
 
 class CatalogComponent extends Component {

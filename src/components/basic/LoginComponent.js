@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import {userService} from "../services/userService";
+import {userService} from "../../services/userService";
 
 class LoginComponent extends Component {
 
     state = {
         login: '',
         password: '',
-        activeState: 'reg'
+        activeState: 'sign-in'
     };
 
 
@@ -31,9 +31,12 @@ class LoginComponent extends Component {
     getAction = () => {
         const {activeState} = this.state;
         if (activeState === 'reg') {
-            return <button onClick={this.handleReg} className="btn primary">Создать</button>
+            return <button onClick={this.handleReg} className="btn primary right">Создать</button>
         }
-        return <button onClick={this.handleLogin} className="btn primary">Войти</button>
+        return <div>
+            <button onClick={this.handleLogin} className="btn primary right">Войти</button>
+            <button onClick={this.handleLogin} className="btn-empty right mr10">Забыли пароль</button>
+        </div>
     };
 
     handleLogin = () => {
@@ -49,13 +52,13 @@ class LoginComponent extends Component {
     render() {
         return (
             <div className="login-component card">
-                <ul className="login-types">
+                <div className="login-types">
                     <button className={this.getActiveState('reg')} name="reg" onClick={this.handleActive}> РЕГИСТРАЦИЯ
                     </button>
                     <button className={this.getActiveState('sign-in')} name="sign-in"
                             onClick={this.handleActive}>ВОЙТИ
                     </button>
-                </ul>
+                </div>
                 <div className="login-form">
                     <input type="text" name="login" onChange={this.handleChange} placeholder="Email"/>
                     <input type="password" name="password" onChange={this.handleChange} placeholder="Пароль"/>

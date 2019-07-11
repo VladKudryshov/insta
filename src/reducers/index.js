@@ -4,6 +4,7 @@ import order from "./order";
 import loader from "./loader";
 import catalog from "./catalog";
 import address from "./address";
+import blog from "./blog";
 
 
 export default combineReducers({
@@ -11,5 +12,6 @@ export default combineReducers({
     order,
     catalog,
     loader,
-    address
+    address,
+    blog
 })

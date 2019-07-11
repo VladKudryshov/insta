@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import CardProductComponent from "./CardProductComponent";
 import {get} from 'lodash';
-import LoaderContainer from "../../containers/LoaderContainer";
+import LoaderContainer from "../../../containers/LoaderContainer";
 
 class ListProductsComponent extends Component {
 

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {userService} from "../../services/userService";
+import {userService} from "../../../services/userService";
 import {Link, NavLink} from "react-router";
-import {storageUtils} from "../../utils/StorageUtils";
+import {storageUtils} from "../../../utils/StorageUtils";
 import LoginComponent from "../LoginComponent";
 
 class AccountMenuComponent extends Component {

@@ -8,9 +8,9 @@ class MainComponent extends Component {
 
         return (
             <>
-
                 <SliderComponent/>
                 <div className="information">
+
                     <div className="card small-box">
                         <div className="some-img">
                             <img src="images/vegetables-hand-drawn-basket.png" alt=""/>

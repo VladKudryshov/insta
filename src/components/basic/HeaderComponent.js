@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 
 import {Link} from 'react-router'
 import AccountHeaderComponent from "./AccountHeaderComponent";
-import SimpleBasketContainer from "../containers/SimpleBasketContainer";
-import SimpleNotificationContainer from "../containers/SimpleNotificationContainer";
+import SimpleBasketContainer from "../../containers/SimpleBasketContainer";
+import SimpleNotificationContainer from "../../containers/SimpleNotificationContainer";
 import MobileMenuComponent from "./menus/MobileMenuComponent";
 import DesktopMenuComponent from "./menus/DesktopMenuComponent";
 

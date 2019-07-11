@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import OrderStepperComponent from "../components/OrderStepperComponent";
+import OrderStepperComponent from "../components/basic/OrderStepperComponent";
 import {bindActionCreators} from "redux";
 import {clearBasket, createOrder} from "../actions/action";
 import {connect} from "react-redux";

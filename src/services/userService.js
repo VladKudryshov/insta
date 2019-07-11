@@ -41,10 +41,7 @@ function getUserInfo() {
     return axios.get(`http://165.22.89.115:8080/api/users/info`, {headers: {
             Authorization: localStorage.getItem('token')
         }})
-        .then(handleResponse)
-        .then(user => {
-            return user;
-        });
+        .then(handleResponse);
 }
 
 function getUserContacts() {

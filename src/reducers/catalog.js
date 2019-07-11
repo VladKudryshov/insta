@@ -1,8 +1,10 @@
+import {SAVE_CATALOG_PRODUCTS} from "../actions/action";
+
 const catalog = (state = {
     products: []
 }, action) => {
     switch (action.type) {
-        case 'SAVE_CATALOG_PRODUCTS': {
+        case SAVE_CATALOG_PRODUCTS: {
             return {
                 products: action.data
             }

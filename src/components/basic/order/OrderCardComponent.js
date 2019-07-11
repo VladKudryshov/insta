@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {get} from 'lodash';
-import {getRepresentaionStatus} from "../../models/statusMapping";
-import {getFormatedPrice} from "../../utils/other";
-import LoaderContainer from "../../containers/LoaderContainer";
+import {getRepresentaionStatus} from "../../../models/statusMapping";
+import {getFormatedPrice} from "../../../utils/other";
+import LoaderContainer from "../../../containers/LoaderContainer";
 
 class OrderCardComponent extends Component {
 

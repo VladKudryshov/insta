@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {get} from 'lodash';
-import {userService} from "../../services/userService";
+import {userService} from "../../../services/userService";
 
 class ProfileComponent extends Component {
 
@@ -21,8 +21,12 @@ class ProfileComponent extends Component {
         const {user} = this.state
         return (
             <div className="profile card">
-                <div className="user-name">{user.firstName + ' ' + user.secondName}</div>
-                <div className="user-email">{user.phone}</div>
+                <div className="profile-image"><img src={user.image} alt=""/></div>
+                <div>
+                    <div className="user-name">{user.firstName + ' ' + user.secondName}</div>
+                    <div className="user-contact"><i className="fas fa-phone"/> {user.phone}</div>
+                    <div className="user-contact"><i className="fas fa-at"/> asdasd@mail.ru</div>
+                </div>
                 <div className="user-password">{}</div>
             </div>
         );

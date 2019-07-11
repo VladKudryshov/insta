@@ -1,3 +1,5 @@
+import {SAVE_PRODUCTS_BAG} from "../actions/action";
+
 const order = (state = {
         orderContact: {},
         productOrder: [],
@@ -5,7 +7,7 @@ const order = (state = {
 }, action) => {
 
     switch (action.type) {
-        case 'SAVE_PRODUCTS_BAG': {
+        case SAVE_PRODUCTS_BAG: {
             return action.data
         }
 

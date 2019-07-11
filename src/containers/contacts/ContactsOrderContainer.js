@@ -22,7 +22,6 @@ class ContactsOrderContainer extends Component {
         const {visible} = this.state
         this.setState({visible: !visible})
         this.props.actions.editContactOrder({})
-        console.log("new")
     };
 
     handleEditAddress = (address) => {
@@ -35,8 +34,6 @@ class ContactsOrderContainer extends Component {
     render() {
         const {visible} = this.state;
         const {address: {addresses}} = this.props;
-        console.log( visible )
-        console.log( addresses.length < 1)
         return (
             <div className="order-contacts card">
                 <LoaderContainer>

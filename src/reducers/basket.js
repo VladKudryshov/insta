@@ -1,4 +1,13 @@
 import {storageUtils} from "../utils/StorageUtils";
+import {
+    ADD_PRODUCT_TO_BASKET,
+    CHANGE_QUANTITY_PRODUCT_IN_BASKET,
+    CHOOSED_ADDRESS,
+    CLEAR_BASKET,
+    DELETE_PRODUCT,
+    EDIT_CONTACT_ORDER,
+    SAVE_ORDER_INFO
+} from "../actions/action";
 
 let defaultState = {
     basket: storageUtils.getOrderStorage(),
@@ -9,7 +18,7 @@ const basket = (state = defaultState, action) => {
 
     let newState;
     switch (action.type) {
-        case 'ADD_PRODUCT_TO_BASKET':
+        case ADD_PRODUCT_TO_BASKET:
 
 
             newState = {
@@ -37,7 +46,7 @@ const basket = (state = defaultState, action) => {
                 basket: state.basket ? newState.basket : [],
                 products: state.products ? state.products : []
             };
-        case 'CHANGE_QUANTITY_PRODUCT_IN_BASKET':
+        case CHANGE_QUANTITY_PRODUCT_IN_BASKET:
             if (action.quantity === 0) {
                 newState = state.basket.filter(f => f.id !== action.id);
             } else {
@@ -54,36 +63,33 @@ const basket = (state = defaultState, action) => {
                 basket: newState ? newState : [],
                 products: state.products
             };
-        case 'CLEAR_BASKET':
+        case CLEAR_BASKET:
             localStorage.removeItem("order")
             return {
                 ...defaultState,
                 basket: []
             };
-        case 'SYNC_BASKET':
 
-            return defaultState;
-
-        case 'SAVE_ORDER_INFO':
+        case SAVE_ORDER_INFO:
             return {
                 ...state,
                 products: action.data
             };
 
-        case 'EDIT_CONTACT_ORDER':
+        case EDIT_CONTACT_ORDER:
             return {
                 ...state,
                 contact: action.contact
             };
 
-        case 'CHOOSED_ADDRESS': {
+        case CHOOSED_ADDRESS: {
             return {
                 ...state,
                 contact: action.address
             }
         }
 
-        case 'DELETE_PRODUCT':
+        case DELETE_PRODUCT:
             return {
                 ...state,
                 products: state.products.filter(f => f.id !== action.id)

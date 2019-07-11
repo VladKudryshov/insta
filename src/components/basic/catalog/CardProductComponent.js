@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ProductAction from '../../containers/ProductActionContainer'
+import ProductAction from '../../../containers/ProductActionContainer'
 
 
 class CardProductComponent extends Component {

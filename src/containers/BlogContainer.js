@@ -1,32 +1,32 @@
 import {bindActionCreators} from "redux";
-import {loadData} from "../actions/action";
+import {loadPosts} from "../actions/action";
 import connect from "react-redux/es/connect/connect";
 import React, {Component} from "react";
-import CatalogComponent from "../components/basic/CatalogComponent";
+import BlogComponent from "../components/basic/BlogComponent";
 
 
-class CatalogContainer extends Component {
+class BlogContainer extends Component {
 
     render() {
         return (
-            <CatalogComponent {...this.props}/>
+            <BlogComponent {...this.props}/>
         );
     }
 
 }
 
 const mapStateToProps = (state) => {
-    const {catalog: {products}, loader} = state;
+    const {blog, loader} = state;
     return {
-        products,
+        blog,
         loader
     };
 };
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
-        loadData
+        loadPosts
     }, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CatalogContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(BlogContainer);

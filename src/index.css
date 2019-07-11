@@ -21,6 +21,21 @@ body {
 
 @media only screen and (max-device-width: 767px) and (min-device-width: 360px) {
 
+    .login-component {
+        position: relative;
+        margin: 0 auto;
+        padding: 20px 30px;
+    }
+
+    .login-form{
+        margin: 30px auto;
+        position: relative;
+        display: grid;
+        grid-template-columns: none;
+        grid-row-gap: 20px;
+    }
+
+
     .account-menu {
         padding: 10px 0;
         position: absolute;
@@ -113,11 +128,10 @@ body {
         text-align: right;
     }
 
-    .notifications > li {
+    .notifications > a {
         z-index: 2;
         display: inline-block;
         margin-right: 5px;
-        color: #7b88a5;
     }
 
     body {
@@ -248,15 +262,21 @@ body {
         background: #ffffff;
     }
 
-    .login-component {
-        width: 90%;
-        margin: 0 auto;
-        padding: 20px 30px;
-    }
+
 
 }
 
 @media only screen and (min-width: 840px) {
+
+    .login-form{
+        width: 50%;
+        margin: 30px auto;
+        position: relative;
+        display: grid;
+        grid-template-columns: none;
+        grid-row-gap: 20px;
+    }
+
 
     .account-menu {
         padding: 10px 0;
@@ -898,6 +918,7 @@ button:hover {
     background: #a9a9a9;
 }
 
+
 .primary {
     color: #ffffff;
     background: #ff5b52;
@@ -966,7 +987,32 @@ button:hover {
 }
 
 .profile {
-    padding: 20px;
+    padding: 20px 30px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-column-gap: 20px;
+}
+
+.profile-image{
+    background: transparent;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #efefef;
+}
+
+.user-name{
+    font-size: 20px;
+}
+
+.user-contact{
+    color: #a99a9b;
+}
+
+.profile-image > img{
+    width: 100%;
 }
 
 .addresses {
@@ -1102,7 +1148,7 @@ button:hover {
     border-bottom: 1px solid #999999;
 }
 
-.order-date {
+.date {
     color: #d6d6d6;
     font-size: 10px;
 }
@@ -1206,7 +1252,7 @@ hidden - Defines a hidden border
 }
 
 .btn-empty {
-    padding: 0;
+    padding: 10px 30px;
     border: 0;
     background: transparent;
     color: #58B0CF;
@@ -1328,14 +1374,6 @@ button:focus {
     color: red;
 }
 
-.login-form{
-    width: 50%;
-    margin: 30px auto;
-    position: relative;
-    display: grid;
-    grid-template-columns: none;
-    grid-row-gap: 20px;
-}
 
 .login-form > input {
     box-sizing: border-box;
@@ -1347,3 +1385,50 @@ button:focus {
 .login-form > input:focus{
     outline: none;
 }
+
+
+.blog-component{
+    margin: 0 auto;
+    width: 50%;
+}
+
+.blog-item{
+    padding: 20px 30px;
+}
+
+.blog-item-smart-actions{
+    padding: 0;
+    margin: 0;
+}
+
+.tag{
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.blog-item-info > li{
+    display: inline-block;
+    margin-right: 30px;
+    font-size: 14px;
+}
+
+.smart-actions > li{
+    display: inline-block;
+    margin-right: 30px;
+    font-size: 14px;
+}
+
+.blog-item-title{
+    font-size: 20px;
+}
+
+.short-content{
+    margin: 20px 0 20px 0;
+    text-align: justify;
+}
+
+.statistic-field{
+    color: #919191;
+}
+
+

@@ -1,10 +1,12 @@
+import {SAVE_ADDRESS} from "../actions/action";
+
 const address = (state = {
     addresses: [],
     address: {}
 }, action) => {
 
     switch (action.type) {
-        case 'SAVE_ADDRESS': {
+        case SAVE_ADDRESS: {
             return {
                 ...state,
                 addresses: action.data

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Root from '../../components/root/Root';
+import Root from '../../components/basic/root/Root';
 
 class RootContainer extends Component {
   render() {

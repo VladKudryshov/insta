@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {get} from 'lodash';
-import {orderService} from "../../services/orderService";
+import {orderService} from "../../../services/orderService";
 import moment from 'moment';
 import {Link} from "react-router";
 
@@ -33,7 +33,7 @@ class OrdersComponent extends Component {
                       activeClassName="active">
                     <li>
                         <div className="order-id">Заказ №{f.id}</div>
-                        <div className="order-date"><i className="far fa-calendar-alt"/> {this.getDate(f.created)}
+                        <div className="date"><i className="far fa-calendar-alt"/> {this.getDate(f.created)}
                         </div>
                     </li>
                     <li className="order-status">{f.status}</li>
