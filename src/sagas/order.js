@@ -1,7 +1,13 @@
-import {takeEvery, put, call} from 'redux-saga/effects';
+import {call, put, takeEvery} from 'redux-saga/effects';
 import {orderService} from "../services/orderService";
-import {delay} from "redux-saga";
-import {CLEAR_BASKET, CREATE_ORDER, LOAD_DATA_BY_ID, SAVE_PRODUCTS_BAG} from "../actions/action";
+import {
+    CLEAR_BASKET,
+    CREATE_ORDER,
+    LOAD_DATA_BY_ID,
+    LOAD_ORDERS,
+    SAVE_ORDERS,
+    SAVE_PRODUCTS_BAG
+} from "../actions/action";
 
 
 function* loadOrderInfo(action) {
@@ -10,6 +16,15 @@ function* loadOrderInfo(action) {
         const data = yield call(orderService.getOrderById, id);
 
         yield put({type: SAVE_PRODUCTS_BAG, data});
+    } catch (err) {
+
+    }
+}
+
+function* loadOrders() {
+    try {
+        const data = yield call(orderService.getOrders);
+        yield put({type: SAVE_ORDERS, data});
     } catch (err) {
 
     }
@@ -29,6 +44,7 @@ function* createOrder(action) {
 function* order() {
     yield takeEvery(LOAD_DATA_BY_ID, loadOrderInfo);
     yield takeEvery(CREATE_ORDER, createOrder);
+    yield takeEvery(LOAD_ORDERS, loadOrders);
 }
 
 export default order;

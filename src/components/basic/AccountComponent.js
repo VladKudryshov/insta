@@ -9,7 +9,7 @@ class AccountComponent extends Component {
         return (
             <div className="card">
                 <div className="account-menu-list">
-                    <Link to="/account" className="account-menu-link" activeClassName="active"><i
+                    <Link to="/account/profile" className="account-menu-link" activeClassName="active"><i
                         className="far fa-user tc"/>Профиль</Link>
                     <Link to="/account/address" className="account-menu-link" activeClassName="active"><i
                         className="fas fa-map-marker-alt tc"/>Адреса</Link>

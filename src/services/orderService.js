@@ -24,6 +24,18 @@ async function getUserOrders() {
     return await promise;
 }
 
+async function getOrders() {
+
+    let promise = axios.get(`http://165.22.89.115:8080/api/order/table`, {headers: {Authorization: storageUtils.getToken()}})
+        .then(handleResponse)
+        .then(basket => {
+            return basket;
+        });
+
+    return await promise;
+}
+
+
 async function getOrderById(id) {
 
     let promise = axios.get(`http://165.22.89.115:8080/api/order/`+id, {headers: {Authorization: storageUtils.getToken()}})
@@ -44,6 +56,7 @@ function handleResponse(response) {
 
 export const orderService = {
     createOrder,
+    getOrders,
     getUserOrders,
     getOrderById
 };

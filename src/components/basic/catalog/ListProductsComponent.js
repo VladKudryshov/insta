@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import CardProductComponent from "./CardProductComponent";
 import {get} from 'lodash';
+import CardProductComponent from "./CardProductComponent";
+
 import LoaderContainer from "../../../containers/LoaderContainer";
 
 class ListProductsComponent extends Component {
@@ -8,7 +9,7 @@ class ListProductsComponent extends Component {
 
     render() {
 
-        const {products, loader} = this.props;
+        const {products} = this.props;
 
         const productList = products.map(product => {
             return <CardProductComponent key={get(product, 'id', '')} product={product}/>

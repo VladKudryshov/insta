@@ -1,8 +1,15 @@
 import React, {Component} from 'react';
 import SliderComponent from "./SliderComponent";
+import WidgetPostContainer from "../../containers/blog/WidgetPostContainer";
+import ToolTip from "./tooltip/ToolTip";
+import {Link} from "react-router";
 
 
 class MainComponent extends Component {
+
+    state = {
+        tooltip: 'none'
+    }
 
     render() {
 
@@ -16,9 +23,8 @@ class MainComponent extends Component {
                             <img src="images/vegetables-hand-drawn-basket.png" alt=""/>
                         </div>
                         <div className="short-text">100% Organic</div>
-                        <div className="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Accusantium adipisci
-                            labore mollitia quasi, totam voluptatem?
+                        <div className="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
+                            asperiores consequatur dolore doloribus, labore maxime nobis provident quam quo suscipit.
                         </div>
                     </div>
                     <div className="card small-box">
@@ -26,64 +32,39 @@ class MainComponent extends Component {
                             <img src="images/fast-delivery.png" alt=""/>
                         </div>
                         <div className="short-text">Fast Delivery</div>
-                        <div className="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Accusantium adipisci
-                            labore mollitia quasi, totam voluptatem?
+                        <div className="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
+                            asperiores consequatur dolore doloribus, labore maxime nobis provident quam quo suscipit.
                         </div>
                     </div>
                     <div className="card small-box">
                         <div className="some-img"><img src="images/diet.png" alt=""/></div>
                         <div className="short-text">Healthy</div>
-                        <div className="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Accusantium adipisci
-                            labore mollitia quasi, totam voluptatem?
+                        <div className="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
+                            asperiores consequatur dolore doloribus, labore maxime nobis provident quam quo suscipit.
                         </div>
                     </div>
                 </div>
                 <div className="categories card">
                     <ul>
-                        <li><img src="images/salad-bowl-hand-drawn-food.png" alt=""/></li>
-                        <li><img src="images/lettuce.png" alt=""/></li>
-                        <li><img src="images/apple-and-grapes-on-a-bowl.png" alt=""/></li>
-                        <li><img src="images/strawberry.png" alt=""/></li>
-                        <li><img src="images/plant-with-leaves.png" alt=""/></li>
+
+                        <ToolTip tooltipMessage={"Овощи"}>
+                            <Link to={{ pathname: `/catalog`, query: {category: 'Vegetable'}}} className="iamg hover"><img src="images/salad-bowl-hand-drawn-food.png" alt=""/></Link>
+                        </ToolTip>
+                        <ToolTip tooltipMessage={"Зелень"}>
+                            <Link to="/catalog" className="iamg hover"><img src="images/lettuce.png" alt=""/></Link>
+                        </ToolTip>
+                        <ToolTip tooltipMessage={"Фрукты"}>
+                            <Link to="/catalog" className="iamg hover"><img src="images/apple-and-grapes-on-a-bowl.png"alt=""/></Link>
+                        </ToolTip>
+                        <ToolTip tooltipMessage={"Ягоды"}>
+                            <Link to="/catalog" className="iamg hover"><img src="images/strawberry.png" alt=""/></Link>
+                        </ToolTip>
+                        <ToolTip tooltipMessage={"Рассада"}>
+                            <Link to="/catalog" className="iamg hover"> <img src="images/plant-with-leaves.png" alt=""/></Link>
+                        </ToolTip>
                     </ul>
                 </div>
-                <div className="blog-cards">
-                    <div className="blog-card card">
-                        <img src="" alt=""/>
-                        <h2 className="title">wqtwqdsad</h2>
-                        <div className="date"><i className="far fa-calendar-alt mr10"></i>12/21/21 12:12
-                        </div>
-                        <div className="short-content">Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Amet asperiores consequatur dolore doloribus, labore maxime nobis
-                            provident quam quo suscipit.
-                        </div>
-                        <a href="#" className="read-more">READ MORE</a>
-                    </div>
-                    <div className="blog-card card">
-                        <img src="" alt=""/>
-                        <h2 className="title">wqtwqdsad</h2>
-                        <div className="date"><i className="far fa-calendar-alt mr10"></i>12/21/21 12:12
-                        </div>
-                        <div className="short-content">Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Amet asperiores consequatur dolore doloribus, labore maxime nobis
-                            provident quam quo suscipit.
-                        </div>
-                        <a href="#" className="read-more">READ MORE</a>
-                    </div>
-                    <div className="blog-card card">
-                        <img src="" alt=""/>
-                        <h2 className="title">wqtwqdsad</h2>
-                        <div className="date"><i className="far fa-calendar-alt mr10"></i>12/21/21 12:12
-                        </div>
-                        <div className="short-content">Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Amet asperiores consequatur dolore doloribus, labore maxime nobis
-                            provident quam quo suscipit.
-                        </div>
-                        <a href="#" className="read-more">READ MORE</a>
-                    </div>
-                </div>
+                <WidgetPostContainer/>
             </>
         );
     }
@@ -91,3 +72,4 @@ class MainComponent extends Component {
 
 
 export default MainComponent;
+

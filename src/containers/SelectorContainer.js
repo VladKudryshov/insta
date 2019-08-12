@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 class SelectorContainer extends Component {
 
     state = {
+        defaultCategory: '',
         open: false
     }
 

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import LoaderContainer from "../../containers/LoaderContainer";
+import LoaderContainer from "../../../containers/LoaderContainer";
+import {Link} from "react-router";
 
 class BlogComponent extends Component {
 
@@ -9,7 +10,7 @@ class BlogComponent extends Component {
 
     render() {
 
-        let posts = this.props.blog.map(post => {
+        let posts = this.props.posts.map(post => {
             return (
                 <div className="blog-item card" key={post.id}>
                     <div className="blog-item-title">{post.title}</div>
@@ -33,7 +34,7 @@ class BlogComponent extends Component {
                             <div className="statistic-field"><i className="far fa-comments"/> {post.statistic.comments}
                             </div>
                         </li>
-                        <a className="right">Read more</a>
+                        <Link  to={{ pathname: `/blog/${post.id}`}} className="right">Read more</Link>
                     </ul>
                 </div>
             )

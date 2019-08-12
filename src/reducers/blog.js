@@ -1,11 +1,20 @@
-import {SAVE_POSTS} from "../actions/action";
+import {SAVE_POST, SAVE_POSTS} from "../actions/action";
 
-let defaultState = [];
+let defaultState = {
+    posts: [],
+    post: {
+        statistic: {}
+    }
+};
 const blog = (state = defaultState, action) => {
 
     switch (action.type) {
         case SAVE_POSTS: {
-            return action.data
+            return {...state, posts: action.data}
+        }
+
+        case SAVE_POST: {
+            return {...state, post: action.data}
         }
 
         default:

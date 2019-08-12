@@ -1,8 +1,8 @@
 import {bindActionCreators} from "redux";
-import {loadPosts} from "../actions/action";
+import {loadPosts} from "../../actions/action";
 import connect from "react-redux/es/connect/connect";
 import React, {Component} from "react";
-import BlogComponent from "../components/basic/BlogComponent";
+import BlogComponent from "../../components/basic/blog/BlogComponent";
 
 
 class BlogContainer extends Component {
@@ -16,9 +16,9 @@ class BlogContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-    const {blog, loader} = state;
+    const {blog: {posts}, loader} = state;
     return {
-        blog,
+        posts,
         loader
     };
 };

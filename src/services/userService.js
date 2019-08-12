@@ -12,6 +12,7 @@ function login(login, password) {
         .then(user => {
             // login successful if there's a user in the response
             localStorage.setItem("user", user.email);
+            localStorage.setItem("role", user.role);
             browserHistory.push("/")
         });
 }

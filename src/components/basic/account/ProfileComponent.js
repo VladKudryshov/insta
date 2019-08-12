@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {get} from 'lodash';
 import {userService} from "../../../services/userService";
 
 class ProfileComponent extends Component {

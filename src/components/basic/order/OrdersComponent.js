@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {get} from 'lodash';
+
 import {orderService} from "../../../services/orderService";
 import moment from 'moment';
 import {Link} from "react-router";

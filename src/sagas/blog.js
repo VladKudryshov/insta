@@ -1,10 +1,9 @@
 import {call, put, takeEvery} from 'redux-saga/effects';
-import {delay} from "redux-saga";
 import {blogService} from "../services/blogService";
-import {LOAD_POSTS_DATA, SAVE_POSTS} from "../actions/action";
+import {LOAD_POST, LOAD_POSTS_DATA, SAVE_POST, SAVE_POSTS} from "../actions/action";
 
 
-function* loadOrderInfo() {
+function* loadPosts() {
     try {
         const data = yield call(blogService.getPosts);
 
@@ -14,10 +13,21 @@ function* loadOrderInfo() {
     }
 }
 
+function* loadPost(action) {
+    try {
+        const {id} = action;
+        const data = yield call(blogService.getPost, id);
+
+        yield put({type: SAVE_POST, data});
+    } catch (err) {
+
+    }
+}
 
 
 function* blog() {
-    yield takeEvery(LOAD_POSTS_DATA, loadOrderInfo);
+    yield takeEvery(LOAD_POSTS_DATA, loadPosts);
+    yield takeEvery(LOAD_POST, loadPost);
 }
 
 export default blog;

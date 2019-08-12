@@ -23,7 +23,7 @@ class CardProductComponent extends Component {
                         </div>
                     </div>
                     <div className="product-image"><img
-                        src={this.props.product.image} alt=""/></div>
+                        src={this.props.product.image} alt={this.props.product.name}/></div>
                     <ProductAction id={this.props.product.id}/>
                 </div>
 

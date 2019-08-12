@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import connect from "react-redux/es/connect/connect";
 import {bindActionCreators} from "redux";
-import {changeQuantityProductInBasket, deleteProductFromBasket, loadProductsBag, saveProducts} from "../../actions/action";
+import {changeQuantityProductInBasket, deleteProductFromBasket, loadProductsBag} from "../../actions/action";
 import QuantityContainer from "../../containers/QuantityContainer";
 import {getPriceWithDiscount} from "../../utils/other";
 import LoaderContainer from "../../containers/LoaderContainer";
@@ -41,8 +41,8 @@ class BasketComponent extends Component {
         return (
             <LoaderContainer>
 
-                <div className="basket-box">
-                    <ul className=" card">
+                <div className="basket-box card">
+                    <ul className=" ">
                         <ul key="-1" className=''>
                             <li>Название</li>
                             <li>Категория</li>

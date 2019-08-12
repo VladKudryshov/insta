@@ -13,15 +13,31 @@ export const CHOOSED_ADDRESS = 'CHOOSED_ADDRESS';
 export const SAVE_ADDRESS = 'SAVE_ADDRESS';
 export const SAVE_ORDER_INFO = 'SAVE_ORDER_INFO';
 export const SAVE_CATALOG_PRODUCTS = 'SAVE_CATALOG_PRODUCTS';
+export const SAVE_PRODUCT = 'SAVE_PRODUCT';
 export const SAVE_PRODUCTS_BAG = 'SAVE_PRODUCTS_BAG';
+export const SAVE_ORDERS = 'SAVE_ORDERS';
 export const SAVE_POSTS = 'SAVE_POSTS';
+export const SAVE_POST = 'SAVE_POST';
+
+
+export const ADD_PRODUCT_CATALOG = 'ADD_PRODUCT_CATALOG';
+
+export const CHANGE_PRODUCT_CATALOG = 'CHANGE_PRODUCT_CATALOG';
+
+
+export const REMOVE_CATALOG_PRODUCTS = 'REMOVE_CATALOG_PRODUCTS';
 
 
 export const LOAD_DATA_BY_ID = 'LOAD_DATA_BY_ID';
+export const LOAD_PRODUCT_BY_ID = 'LOAD_PRODUCT_BY_ID';
 export const LOAD_PRODUCTS_BAG = 'LOAD_PRODUCTS_BAG';
 export const LOAD_DATA = 'LOAD_DATA';
 export const LOAD_ADDRESSES = 'LOAD_ADDRESSES';
 export const LOAD_POSTS_DATA = 'LOAD_POSTS_DATA';
+export const LOAD_POST = 'LOAD_POST';
+export const LOAD_ORDERS = 'LOAD_ORDERS';
+export const ERROR = 'ERROR';
+
 
 
 export const clearData = app => ({
@@ -113,17 +129,70 @@ export const saveCatalogProducts = (data) => ({
     data,
 });
 
+export const removeCatalogProduct = (id) => ({
+    type: REMOVE_CATALOG_PRODUCTS,
+    id,
+});
+
 export const saveProudctsBAG = (data) => ({
     type: SAVE_PRODUCTS_BAG,
     data,
 });
 
 
+export const addProductToCatalog = (product) => ({
+    type: ADD_PRODUCT_CATALOG,
+    product,
+});
+
+export const changeCatalogProduct = (name, value) => ({
+    type: CHANGE_PRODUCT_CATALOG,
+    name,
+    value
+});
+
+
+export const saveProduct = (product) => ({
+    type: SAVE_PRODUCT,
+    product,
+});
+
+
+export const getProductById = (id) => ({
+    type: LOAD_PRODUCT_BY_ID,
+    id,
+});
+
+
+export const saveOrders = (data) => ({
+    type: SAVE_ORDERS,
+    data,
+});
+
+
+export const loadOrders = () => ({
+    type: LOAD_ORDERS
+});
+
 export const savePosts = (data) => ({
     type: SAVE_POSTS,
     data
 });
 
+export const savePost = (data) => ({
+    type: SAVE_POST,
+    data
+});
+
 export const loadPosts = () => ({
     type: LOAD_POSTS_DATA
+});
+
+export const loadPost = (id) => ({
+    type: LOAD_POST,
+    id
+});
+
+export const error = () => ({
+    type: ERROR
 });

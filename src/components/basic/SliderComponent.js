@@ -7,7 +7,6 @@ class SliderComponent extends Component {
         currentPosition: 0,
         sliderImages: [
             'https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg',
-            'https://images.unsplash.com/photo-1535498730771-e735b998cd64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'
         ],
         intervalID: 0
     };

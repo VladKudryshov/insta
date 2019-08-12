@@ -1,7 +1,6 @@
 import {call, put, takeEvery} from 'redux-saga/effects';
 import {productService} from "../services/productService";
-import {delay} from "redux-saga";
-import {LOAD_PRODUCTS_BAG, SAVE_ORDER_INFO} from "../actions/action";
+import {ERROR, LOAD_PRODUCTS_BAG, SAVE_ORDER_INFO} from "../actions/action";
 
 
 function* loadProductsBag(action) {
@@ -11,7 +10,7 @@ function* loadProductsBag(action) {
 
         yield put({type: SAVE_ORDER_INFO, data});
     } catch (err) {
-
+        yield put({type: ERROR});
     }
 }
 

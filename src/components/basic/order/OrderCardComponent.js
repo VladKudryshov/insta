@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {get} from 'lodash';
+
 import {getRepresentaionStatus} from "../../../models/statusMapping";
 import {getFormatedPrice} from "../../../utils/other";
 import LoaderContainer from "../../../containers/LoaderContainer";
@@ -17,8 +17,8 @@ class OrderCardComponent extends Component {
 
 
     render() {
-        const {order: {orderContact, productOrder, orderStatus}, loader} = this.props;
-
+        const {order: {orderContact, productOrder, orderStatus}} = this.props;
+        console.log(this.props)
         let products = productOrder.map(product => <ul key={product.id}>
                 <li>{product.name}</li>
                 <li>{product.category}</li>
@@ -32,12 +32,12 @@ class OrderCardComponent extends Component {
             <div className="order-component" key={this.props.params.id}>
 
                 <LoaderContainer>
-                    <div className="order-info">
-                        <ul className="order-info-title card">
+                    <div className="order-info card">
+                        <ul className="order-info-title">
                             <li>Заказ №{this.props.params.id}</li>
                             <li className="tx-l">Статус: {getRepresentaionStatus(orderStatus)}</li>
                         </ul>
-                        <div className="card cl2-rw1 order-info-contacts">
+                        <div className="cl2-rw1 order-info-contacts">
                             <table className="order-info-person">
                                 <tbody>
                                 <tr>
@@ -75,7 +75,7 @@ class OrderCardComponent extends Component {
                                 </tbody>
                             </table>
                         </div>
-                        <div className="order-info-products card">
+                        <div className="order-info-products">
                             <ul>
                                 <li>Название</li>
                                 <li>Категория</li>

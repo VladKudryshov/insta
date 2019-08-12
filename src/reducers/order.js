@@ -1,14 +1,21 @@
-import {SAVE_PRODUCTS_BAG} from "../actions/action";
+import {SAVE_ORDERS, SAVE_PRODUCTS_BAG} from "../actions/action";
 
 const order = (state = {
-        orderContact: {},
-        productOrder: [],
-        orderStatus: ''
+        orders: [],
+        order: {
+            orderContact: {},
+            productOrder: [],
+            orderStatus: ''
+        }
 }, action) => {
 
     switch (action.type) {
         case SAVE_PRODUCTS_BAG: {
-            return action.data
+            return {...state, order: action.data}
+        }
+
+        case SAVE_ORDERS: {
+            return {...state, orders: action.data}
         }
 
 

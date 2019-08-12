@@ -5,7 +5,7 @@ import HeaderComponent from "../HeaderComponent";
 const Root = ({ children }) => (
   <div className="wrapper">
     <HeaderComponent/>
-    {children}
+      {children}
     <footer/>
   </div>
 );

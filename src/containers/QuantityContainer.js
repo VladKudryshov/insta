@@ -57,7 +57,7 @@ class QuantityContainer extends Component {
         const {product} = this.props;
         const {value} = this.state;
 
-        return <div className="quantity card">
+        return <div className="quantity">
             <div className="quantity-action primary-c" onClick={() => this.decrease(product.id)}>
                 <i className="fas fa-minus"></i>
             </div>

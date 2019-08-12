@@ -1,34 +1,30 @@
 import React, {Component} from 'react';
 import ListProductsComponent from "./catalog/ListProductsComponent";
-import {productService} from "../../services/productService";
 import SelectorContainer from "../../containers/SelectorContainer";
 
 
 class CatalogComponent extends Component {
     state = {
-        test: 'Fruit'
+        category: 'Fruit'
     };
 
 
     componentDidMount() {
         const {actions: {loadData}} = this.props;
-        loadData('')
+        let category = this.props.location.query.category;
+        this.setState({category: category})
+        loadData(category);
     }
 
     handleChange = (val) => {
-        this.setState({loading: true})
+        const {actions: {loadData}} = this.props;
         let {target: {value}} = val;
+        console.log(value)
         if (value === 'Empty') {
             value = '';
         }
-        productService.getProducts(value)
-            .then(data => {
-                this.setState({products: data['content']});
-                setTimeout(() => {
-                    this.setState({loading: false})
-                }, 500)
-            })
-    }
+        loadData(value)
+    };
 
     render() {
         return (

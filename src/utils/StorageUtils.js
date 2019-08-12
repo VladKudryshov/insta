@@ -16,6 +16,11 @@ function isAuth() {
     return localStorage.getItem('token') !== null
 }
 
+function isAdmin() {
+    return localStorage.getItem('role') === 'ADMIN'
+}
+
+
 function checkIsAuthenticated() {
     if (localStorage.getItem('token') === null) {
 
@@ -29,5 +34,6 @@ export const storageUtils = {
     getToken,
     getOrderStorage,
     isAuth,
+    isAdmin,
     checkIsAuthenticated
 };

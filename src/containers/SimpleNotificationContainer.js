@@ -8,7 +8,6 @@ import {storageUtils} from "../utils/StorageUtils";
 class SimpleNotificationContainer extends Component {
 
     render() {
-        const {notification} = this.props
         return (
             storageUtils.isAuth() && <Link to="/notifications">
                 <i className="fas fa-bell hover center">{
