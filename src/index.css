@@ -1123,10 +1123,9 @@ button:hover {
 .select-box__current {
     position: relative;
     cursor: pointer;
-    outline: none;
 }
 
-.select-box__current:focus + .select-box__list {
+.select-box__current + .select-box__list {
     display: block;
     animation-name: none;
 }
@@ -1149,21 +1148,10 @@ button:hover {
     transition: 0.2s ease;
 }
 
-.select-box__value {
-    display: flex;
-}
 
-.select-box__input {
-    display: none;
-}
 
-.select-box__input:checked + .select-box__input-text {
-    display: block;
-}
 
 .select-box__input-text {
-    display: none;
-    width: 100%;
     margin: 0;
     padding: 15px;
     background-color: #fff;

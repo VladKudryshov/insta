@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 class SelectorContainer extends Component {
 
     state = {
-        defaultCategory: '',
+        defaultCategory: 'Empty',
         open: false
     }
 
@@ -13,34 +13,18 @@ class SelectorContainer extends Component {
 
         return (
             <div className="select-box">
-                <div className="select-box__current" tabIndex="2" onClick={this.openSelections}>
+                <div className="select-box__current" onClick={this.openSelections}>
                     <div className="select-box__value">
-                        <input className="select-box__input" type="radio" id="0" value="Fruit" name="Fruit"
-                               onChange={this.props.change}/>
-                        <p className="select-box__input-text">Fruit</p>
-                    </div>
-                    <div className="select-box__value">
-                        <input className="select-box__input" type="radio" id="1" value="Vegetable" name="Vegetable"
-                               onChange={this.props.change}/>
-                        <p className="select-box__input-text">Vegetable</p>
-                    </div>
-
-                    <div className="select-box__value">
-                        <input className="select-box__input" type="radio" id="2" value="Empty" name="Empty"
-                               defaultChecked={true} onChange={this.props.change}/>
-                        <p className="select-box__input-text">Empty</p>
+                        <p className="select-box__input-text">{this.state.defaultCategory}</p>
                     </div>
 
                     <img className="select-box__icon" src="http://cdn.onlinewebfonts.com/svg/img_295694.svg"
                          alt="Arrow Icon" aria-hidden="true" style={{transform: this.state.open ? 'translateY(-50%) rotate(180deg)' : 'translateY(-50%) rotate(0deg)'}}/>
                 </div>
                 <ul className="select-box__list" style={{display: this.state.open ? 'block' : 'none' }}>
-                    <li><label className="select-box__option" htmlFor="0"
-                               aria-hidden="aria-hidden">Fruit</label></li>
-                    <li><label className="select-box__option" htmlFor="1"
-                               aria-hidden="aria-hidden">Vegetable</label></li>
-                    <li><label className="select-box__option" htmlFor="2"
-                               aria-hidden="aria-hidden">Empty</label></li>
+                    <li className="select-box__option" onClick={()=>this.changeOption('Empty')}>Empty</li>
+                    <li className="select-box__option" onClick={()=>this.changeOption('Vegetable')}>Vegetable</li>
+                    <li className="select-box__option" onClick={()=>this.changeOption('Fruit')}>Fruit</li>
                 </ul>
             </div>
         );
@@ -49,6 +33,12 @@ class SelectorContainer extends Component {
     openSelections = () => {
         const {open} = this.state;
         this.setState({open: !open})
+    }
+
+    changeOption = (cat) => {
+        this.setState({defaultCategory: cat})
+        this.openSelections();
+
     }
 }
 
