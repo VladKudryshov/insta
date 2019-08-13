@@ -24,7 +24,7 @@ class PostComponent extends Component {
                            <span className="statistic-field">Автор:</span> {post.author}
                        </li>
                    </ul>
-                   <div className="short-content">
+                   <div className="post-content">
                        {post.content}
                    </div>
                    <ul className="smart-actions">

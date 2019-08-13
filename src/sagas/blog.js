@@ -6,7 +6,6 @@ import {LOAD_POST, LOAD_POSTS_DATA, SAVE_POST, SAVE_POSTS} from "../actions/acti
 function* loadPosts() {
     try {
         const data = yield call(blogService.getPosts);
-
         yield put({type: SAVE_POSTS, data});
     } catch (err) {
 

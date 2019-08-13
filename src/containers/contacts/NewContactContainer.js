@@ -20,18 +20,18 @@ class NewContactContainer extends Component {
            <div className="new-contact">
                 <p className="title">Контактная информация</p>
                 <div className="cl2-rw1">
-                    <input type="text" placeholder="Получатель" name="userName" defaultValue={this.state.userName} onChange={this.handleChangeForm}/>
-                    <input type="text" placeholder="Телефон" name="userPhone" defaultValue={this.state.userPhone} onChange={this.handleChangeForm}/>
+                    <input className="p1015" type="text" placeholder="Получатель" name="userName" defaultValue={this.state.userName} onChange={this.handleChangeForm}/>
+                    <input className="p1015" type="text" placeholder="Телефон" name="userPhone" defaultValue={this.state.userPhone} onChange={this.handleChangeForm}/>
                 </div>
                 <p className="title">Адрес</p>
                 <div className="cl2-rw1">
-                    <input type="text" placeholder="Город" name="city" defaultValue={this.state.city} onChange={this.handleChangeForm}/>
-                    <input type="text" placeholder="Улица" name="street" defaultValue={this.state.street} onChange={this.handleChangeForm}/>
-                    <input type="text" placeholder="Дом" name="house" defaultValue={this.state.house} onChange={this.handleChangeForm}/>
-                    <input type="text" placeholder="Квартира" name="flat" defaultValue={this.state.flat} onChange={this.handleChangeForm}/>
+                    <input className="p1015" type="text" placeholder="Город" name="city" defaultValue={this.state.city} onChange={this.handleChangeForm}/>
+                    <input className="p1015" type="text" placeholder="Улица" name="street" defaultValue={this.state.street} onChange={this.handleChangeForm}/>
+                    <input className="p1015" type="text" placeholder="Дом" name="house" defaultValue={this.state.house} onChange={this.handleChangeForm}/>
+                    <input className="p1015" type="text" placeholder="Квартира" name="flat" defaultValue={this.state.flat} onChange={this.handleChangeForm}/>
                 </div>
                 <div className="checkbox">
-                    <input type="checkbox" value="1" id="checkboxFiveInput" name="default"
+                    <input className="p1015" style={{width: '0px'}} type="checkbox" value="1" id="checkboxFiveInput" name="default"
                            defaultChecked={this.state.default} onChange={this.handleChangeForm}/>
                     <label htmlFor="checkboxFiveInput"/>
                     <span className="checkBoxPlho">Сделать адресом по умолчанию</span>

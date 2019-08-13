@@ -164,9 +164,9 @@ body {
         cursor: pointer;
     }
 
-    .categories > ul > li > img {
+    .categories > ul > li > a > img {
         width: 2em;
-        padding: 0 2em;
+        margin: 0 3em;
     }
 
     .wrapper {
@@ -175,25 +175,56 @@ body {
         display: grid;
         grid-template-columns: none !important;
         grid-row-gap: 30px;
+        overflow: hidden;
     }
 
     .information {
-        margin: 0 auto;
-        box-sizing: border-box;
-        display: grid;
-        grid-template-columns: none;
-        grid-row-gap: 20px;
-        justify-items: center;
-    }
-
-    .blog-cards {
-        margin: 0 auto;
         box-sizing: border-box;
         display: grid;
         grid-template-columns: 1fr;
         grid-row-gap: 20px;
+        justify-items: center;
+
+    }
+
+    .small-box {
+        padding: 10px 20px 30px 20px;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .small-box > .description {
+        text-align: justify;
+        color: #8e8e8e;
+        padding: 10px;
+    }
+
+    .small-box > .short-text {
+        color: #444444;
+        padding: 10px;
+    }
+
+    .small-box > .some-img > img {
+        width: 50px;
+    }
+
+    .blog-cards {
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns:  1fr;
+        grid-row-gap: 20px;
         grid-column-gap: 20px;
         justify-items: center;
+    }
+
+
+    .blog-card {
+        padding: 10px 20px 30px 20px;
+        box-sizing: border-box;
+    }
+
+    .short-content {
+        color: #444444;
     }
 
     header {
@@ -282,7 +313,254 @@ body {
 
 }
 
-@media only screen and (min-width: 840px) {
+
+
+
+@media only screen and (min-width: 836px) {
+
+
+
+
+    .information {
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row-gap: 20px;
+        grid-column-gap: 20px;
+        justify-items: center;
+
+    }
+
+
+    .small-box {
+        width: 100%;
+        padding: 10px 20px 30px 20px;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .small-box > .description {
+        text-align: center;
+        color: #8e8e8e;
+    }
+
+    .small-box > .short-text {
+        color: #444444;
+    }
+
+    .small-box > .some-img > img {
+        width: 50px;
+    }
+
+
+    .blog-cards {
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(400px, 1fr));
+        grid-column-gap: 20px;
+        justify-items: center;
+    }
+
+
+    .blog-card {
+        padding: 10px 20px 30px 20px;
+        box-sizing: border-box;
+        height: 290px;
+    }
+
+    .blog-card > div {
+        margin-bottom: 20px;
+    }
+
+
+    header {
+        padding: 10px 20px;
+        position: sticky;
+        width: 100%;
+        grid-row: 1;
+        background: #ffffff;
+        z-index: 10;
+        box-shadow: 0 2px 4px 0 rgba(43, 43, 43, 0.1);
+        box-sizing: border-box;
+        top: 0;
+        display: grid;
+        grid-template-columns: auto 120px 1fr auto;
+    }
+
+
+
+
+
+    btn {
+        padding: 10px 30px;
+        border: 0;
+        border-radius: 5px;
+        font-size: 16px;
+        background: #F2F2F2;
+    }
+
+    td, th {
+        padding: 10px;
+    }
+
+    .table-component td {
+        border-top: 1px solid #f6f6f6;
+    }
+
+    .table-component tr:nth-child(2n+2) {
+        background: #f9f9f9;
+    }
+
+    .login-form {
+        width: 50%;
+        margin: 30px auto;
+        position: relative;
+        display: grid;
+        grid-template-columns: none;
+        grid-row-gap: 20px;
+    }
+
+    .account-menu {
+        padding: 10px 0;
+        position: absolute;
+        width: 180px;
+        top: 60px;
+        right: 30px;
+        float: right;
+    }
+
+    .sing-in {
+        font-size: 12px;
+        border: 0;
+        padding: 10px 20px;
+        background: #00ba56;
+        color: #ffffff;
+        font-weight: 600;
+        border-radius: 5px;
+    }
+
+    .categories {
+    }
+
+    .basket-box {
+        overflow: hidden;
+        margin: 0 20px;
+    }
+
+    .notifications {
+        text-align: right;
+        vertical-align: middle;
+    }
+
+    .p1020 {
+        padding: 10px 0px;
+    }
+
+    .not-empty {
+        z-index: 3;
+        line-height: normal;
+        position: relative;
+        left: -8px;
+        top: -8px;
+        padding: 3px 7px;
+        font-size: 12px;
+        border-radius: 20px;
+        background: #ff7b85;
+        color: #ffffff;
+    }
+
+    .horizontal > a {
+        display: inline-block;
+        padding: 10px 20px;
+        color: #606161;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+
+
+    .categories > ul > li > a > img {
+        width: 2em;
+        margin: 0 3em;
+    }
+
+    .container {
+        width: 100%;
+        height: max-content;
+    }
+
+
+
+    .login-component {
+        width: 30%;
+        margin: 0 auto;
+        padding: 20px 30px;
+    }
+
+    .wrapper {
+        position: relative;
+        width: 100%;
+        display: grid;
+        grid-template-columns: none;
+        grid-auto-rows: minmax(min-content, max-content);
+        grid-row-gap: 30px;
+        grid-column-gap: 20px;
+    }
+
+    .slider {
+        width: 100%;
+        position: relative;
+        box-sizing: border-box;
+        height: 300px;
+        background-size: 300px 300px;
+        background: no-repeat center;
+    }
+
+
+
+    .content {
+        position: relative;
+        box-sizing: border-box;
+    }
+
+    footer {
+        width: 100%;
+        height: 200px;
+        background: #272c37;
+    }
+
+    .logo img {
+        width: 120px;
+        height: 40px;
+    }
+
+    .slider-nav {
+        width: 20px;
+    }
+
+    .slide-arrow-right {
+        clear: both;
+        position: absolute;
+        top: 120px;
+        width: 20px;
+        right: 0;
+        padding: 10px;
+        background: #ffffff;
+    }
+
+    .slide-arrow-left {
+        clear: both;
+        position: absolute;
+        top: 120px;
+        width: 20px;
+        left: 0;
+        padding: 10px;
+        background: #ffffff;
+    }
+
+}
+
+@media only screen and (min-width: 1254px) {
 
     .btn {
         padding: 10px 30px;
@@ -370,17 +648,7 @@ body {
         cursor: pointer;
     }
 
-    .information {
-        width: 70%;
-        margin: 0 auto;
-        box-sizing: border-box;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        grid-row-gap: 40px;
-        grid-column-gap: 40px;
-        justify-items: center;
 
-    }
 
     .categories > ul > li > a > img {
         width: 2em;
@@ -392,14 +660,59 @@ body {
         height: max-content;
     }
 
-    .blog-cards {
-        width: 70%;
-        margin: 0 auto;
+    .information {
         box-sizing: border-box;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        grid-template-rows: none;
-        grid-column-gap: 40px;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        grid-row-gap: 20px;
+        grid-column-gap: 20px;
+        justify-items: center;
+
+    }
+
+    .small-box {
+        padding: 10px 20px 30px 20px;
+        text-align: center;
+        box-sizing: border-box;
+        width: 400px;
+        height: 190px;
+    }
+
+    .small-box > .description {
+        text-align: justify;
+        color: #8e8e8e;
+        padding: 10px;
+    }
+
+    .small-box > .short-text {
+        color: #444444;
+        padding: 10px;
+    }
+
+    .small-box > .some-img > img {
+        width: 50px;
+    }
+
+
+    .blog-cards {
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        grid-row-gap: 20px;
+        grid-column-gap: 20px;
+        justify-items: center;
+    }
+
+
+    .blog-card {
+        padding: 10px 20px 30px 20px;
+        box-sizing: border-box;
+        width: 400px;
+        height: 290px;
+    }
+
+    .blog-card > div {
+        margin-bottom: 20px;
     }
 
     .login-component {
@@ -625,8 +938,8 @@ button:hover {
 }
 
 .product-image > img {
-    width: 150px;
-    height: 150px;
+    width: 90%;
+
 }
 
 .product-title {
@@ -745,27 +1058,6 @@ button:hover {
     height: 100%;
 }
 
-.small-box {
-    padding: 10px 20px 30px 20px;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-.small-box > .description {
-    text-align: justify;
-    color: #8e8e8e;
-    padding: 10px;
-}
-
-.small-box > .short-text {
-    color: #444444;
-    padding: 10px;
-}
-
-.small-box > .some-img > img {
-    width: 50px;
-}
-
 .categories > ul {
     display: block;
     text-align: center;
@@ -776,24 +1068,16 @@ button:hover {
     display: inline-block;
 }
 
-.blog-card {
-    padding: 10px 20px 30px 20px;
-    box-sizing: border-box;
-}
-
-.blog-card > div {
-    margin-bottom: 20px;
-}
-
 .read-more {
     text-decoration: none;
     color: #00ba56;
     float: right;
+    align-self: end;
+    width: 80px;
+    height: 20px;
 }
 
-.short-content {
-    color: #444444;
-}
+
 
 .date {
     color: #8e8e8e;
@@ -989,7 +1273,6 @@ button:hover {
 
 .quantity {
     margin: 0 auto;
-    width: 100px;
     display: grid;
     grid-template-columns: auto 1fr auto;
     grid-column-gap: 5px;
@@ -1193,6 +1476,8 @@ button:hover {
 }
 
 .date {
+    width: 100px;
+    height: 15px;
     color: #d6d6d6;
     font-size: 10px;
 }
@@ -1314,9 +1599,12 @@ button:focus {
 input {
     width: 100%;
     box-sizing: border-box;
-    padding: 10px 15px;
     border-radius: 5px;
     border: 1px solid #CFCFCF;
+}
+
+.p1015{
+    padding: 10px 15px;
 }
 
 .title {
@@ -1464,7 +1752,9 @@ input {
     font-size: 20px;
 }
 
-.short-content {
+
+
+.post-content{
     margin: 20px 0 20px 0;
     text-align: justify;
 }
@@ -1568,4 +1858,50 @@ table {
 
 .iamg:hover + .tooltip {
     display: block;
+}
+
+
+.meter {
+    height: 10px;  /* Can be anything */
+    position: relative;
+    background: #ededed;
+    padding: 10px;
+    box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+}
+
+.meter > span:after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background-image: linear-gradient(
+            -45deg,
+            rgba(255, 255, 255, 1) 25%,
+            transparent 25%,
+            transparent 50%,
+            rgba(255, 255, 255, 1) 50%,
+            rgba(255, 255, 255, 1) 75%,
+            transparent 50%,
+            transparent
+    );
+    z-index: 1;
+    background-size: 10px 10px;
+    animation: move 0.02s linear infinite;
+    overflow: hidden;
+}
+
+@keyframes move {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 50px 50px;
+    }
+}
+
+.meter > span:after, .animate > span > span {
+    animation: move 2s linear infinite;
+}
+
+.animate > span:after {
+    display: none;
 }

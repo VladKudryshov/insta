@@ -15,18 +15,18 @@ class SelectorContainer extends Component {
             <div className="select-box">
                 <div className="select-box__current" tabIndex="2" onClick={this.openSelections}>
                     <div className="select-box__value">
-                        <input className="select-box__input" type="radio" id="0" value="Fruit" name="Ben"
+                        <input className="select-box__input" type="radio" id="0" value="Fruit" name="Fruit"
                                onChange={this.props.change}/>
                         <p className="select-box__input-text">Fruit</p>
                     </div>
                     <div className="select-box__value">
-                        <input className="select-box__input" type="radio" id="1" value="Vegetable" name="Ben"
+                        <input className="select-box__input" type="radio" id="1" value="Vegetable" name="Vegetable"
                                onChange={this.props.change}/>
                         <p className="select-box__input-text">Vegetable</p>
                     </div>
 
                     <div className="select-box__value">
-                        <input className="select-box__input" type="radio" id="2" value="Empty" name="Ben"
+                        <input className="select-box__input" type="radio" id="2" value="Empty" name="Empty"
                                defaultChecked={true} onChange={this.props.change}/>
                         <p className="select-box__input-text">Empty</p>
                     </div>

@@ -13,7 +13,7 @@ class CatalogComponent extends Component {
         const {actions: {loadData}} = this.props;
         let category = this.props.location.query.category;
         this.setState({category: category})
-        loadData(category);
+        loadData(category ? category : '');
     }
 
     handleChange = (val) => {

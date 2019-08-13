@@ -51,16 +51,16 @@ class MainComponent extends Component {
                             <Link to={{ pathname: `/catalog`, query: {category: 'Vegetable'}}} className="iamg hover"><img src="images/salad-bowl-hand-drawn-food.png" alt=""/></Link>
                         </ToolTip>
                         <ToolTip tooltipMessage={"Зелень"}>
-                            <Link to="/catalog" className="iamg hover"><img src="images/lettuce.png" alt=""/></Link>
+                            <Link to={{ pathname: `/catalog`, query: {category: 'Greens'}}} className="iamg hover"><img src="images/lettuce.png" alt=""/></Link>
                         </ToolTip>
                         <ToolTip tooltipMessage={"Фрукты"}>
-                            <Link to="/catalog" className="iamg hover"><img src="images/apple-and-grapes-on-a-bowl.png"alt=""/></Link>
+                            <Link to={{ pathname: `/catalog`, query: {category: 'Fruits'}}} className="iamg hover"><img src="images/apple-and-grapes-on-a-bowl.png"alt=""/></Link>
                         </ToolTip>
                         <ToolTip tooltipMessage={"Ягоды"}>
-                            <Link to="/catalog" className="iamg hover"><img src="images/strawberry.png" alt=""/></Link>
+                            <Link to={{ pathname: `/catalog`, query: {category: 'Berries'}}} className="iamg hover"><img src="images/strawberry.png" alt=""/></Link>
                         </ToolTip>
                         <ToolTip tooltipMessage={"Рассада"}>
-                            <Link to="/catalog" className="iamg hover"> <img src="images/plant-with-leaves.png" alt=""/></Link>
+                            <Link to={{ pathname: `/catalog`, query: {category: 'Seedlings'}}} className="iamg hover"> <img src="images/plant-with-leaves.png" alt=""/></Link>
                         </ToolTip>
                     </ul>
                 </div>

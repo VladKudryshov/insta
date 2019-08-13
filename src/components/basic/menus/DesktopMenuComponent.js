@@ -9,7 +9,7 @@ class DesktopMenuComponent extends Component {
             <div className="menu">
                 <div className="horizontal">
                     <Link to="/">Главная</Link>
-                    <Link to="/catalog">Каталог</Link>
+                    <Link to="/catalog">Продукты</Link>
                     <Link to="/blog">Блог</Link>
                     <Link to="/delivery">Доставка</Link>
                     <Link to="/about">О нас</Link>

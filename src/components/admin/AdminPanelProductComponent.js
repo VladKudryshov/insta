@@ -67,29 +67,29 @@ class AdminPanelProductComponent extends Component {
                         <div className="add-product">
                             <p className="title">Описание</p>
                             <div>
-                                <input type="text" name="name" placeholder="Название"
+                                <input className="p1015" type="text" name="name" placeholder="Название"
                                        onChange={this.changeState} defaultValue={this.props.product.name}/>
-                                <input type="text" name="category" placeholder="Категория" onChange={this.changeState}
+                                <input className="p1015" type="text" name="category" placeholder="Категория" onChange={this.changeState}
                                        defaultValue={this.props.product.category}/>
                             </div>
                             <div>
                                 <p className="title">Цена</p>
                                 <p className="title">Скидка</p>
-                                <input type="number" name="price" placeholder="Цена" onChange={this.changeState} step="0.01"
+                                <input className="p1015" type="number" name="price" placeholder="Цена" onChange={this.changeState} step="0.01"
                                        defaultValue={this.props.product.price}/>
-                                <input type="number" name="discount" placeholder="Скидка" onChange={this.changeState}
+                                <input className="p1015" type="number" name="discount" placeholder="Скидка" onChange={this.changeState}
                                        min="0" max="100" defaultValue={this.props.product.discount}/>
 
                             </div>
                             <p className="title">Единицы измерения</p>
                             <div>
-                                <input type="text" name="unitName" placeholder="Единица измерения"
+                                <input className="p1015" type="text" name="unitName" placeholder="Единица измерения"
                                        onChange={this.changeState} defaultValue={this.props.product.unitName}/>
-                                <input type="number" name="unitNumber" placeholder="Вес" onChange={this.changeState}
+                                <input className="p1015" type="number" name="unitNumber" placeholder="Вес" onChange={this.changeState}
                                        defaultValue={this.props.product.unitNumber}/>
 
                             </div>
-                            <input type="file" name="file" onChange={this.handleChange}/>
+                            <input  className="p1015" type="file" name="file" onChange={this.handleChange}/>
                         </div>
                         <div className="viewer-form">
 
