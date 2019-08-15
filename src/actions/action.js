@@ -26,6 +26,7 @@ export const CHANGE_PRODUCT_CATALOG = 'CHANGE_PRODUCT_CATALOG';
 
 
 export const REMOVE_CATALOG_PRODUCTS = 'REMOVE_CATALOG_PRODUCTS';
+export const REMOVE_POST = 'REMOVE_POST';
 
 
 export const LOAD_DATA_BY_ID = 'LOAD_DATA_BY_ID';
@@ -134,6 +135,12 @@ export const removeCatalogProduct = (id) => ({
     id,
 });
 
+
+export const removePost = (id) => ({
+    type: REMOVE_POST,
+    id,
+});
+
 export const saveProudctsBAG = (data) => ({
     type: SAVE_PRODUCTS_BAG,
     data,
@@ -144,6 +151,7 @@ export const addProductToCatalog = (product) => ({
     type: ADD_PRODUCT_CATALOG,
     product,
 });
+
 
 export const changeCatalogProduct = (name, value) => ({
     type: CHANGE_PRODUCT_CATALOG,

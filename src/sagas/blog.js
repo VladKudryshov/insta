@@ -1,6 +1,6 @@
 import {call, put, takeEvery} from 'redux-saga/effects';
 import {blogService} from "../services/blogService";
-import {LOAD_POST, LOAD_POSTS_DATA, SAVE_POST, SAVE_POSTS} from "../actions/action";
+import {LOAD_POST, LOAD_POSTS_DATA, REMOVE_POST, SAVE_POST, SAVE_POSTS} from "../actions/action";
 
 
 function* loadPosts() {
@@ -23,10 +23,22 @@ function* loadPost(action) {
     }
 }
 
+function* removePost(action) {
+    try {
+        const {id} = action;
+        yield call(blogService.removePostById, id);
+        const data = yield call(blogService.getPosts);
+        yield put({type: SAVE_POSTS, data});
+    } catch (err) {
+
+    }
+}
+
 
 function* blog() {
     yield takeEvery(LOAD_POSTS_DATA, loadPosts);
     yield takeEvery(LOAD_POST, loadPost);
+    yield takeEvery(REMOVE_POST, removePost);
 }
 
 export default blog;

@@ -6,7 +6,7 @@ class SelectorContainer extends Component {
     state = {
         defaultCategory: 'Empty',
         open: false
-    }
+    };
 
 
     render() {
@@ -22,9 +22,13 @@ class SelectorContainer extends Component {
                          alt="Arrow Icon" aria-hidden="true" style={{transform: this.state.open ? 'translateY(-50%) rotate(180deg)' : 'translateY(-50%) rotate(0deg)'}}/>
                 </div>
                 <ul className="select-box__list" style={{display: this.state.open ? 'block' : 'none' }}>
-                    <li className="select-box__option" onClick={()=>this.changeOption('Empty')}>Empty</li>
-                    <li className="select-box__option" onClick={()=>this.changeOption('Vegetable')}>Vegetable</li>
-                    <li className="select-box__option" onClick={()=>this.changeOption('Fruit')}>Fruit</li>
+                    <li className="select-box__option" onClick={()=>this.changeOption('Empty')}>Все</li>
+                    <li className="select-box__option" onClick={()=>this.changeOption('Vegetable')}>Овощи</li>
+                    <li className="select-box__option" onClick={()=>this.changeOption('Greens')}>Зелень</li>
+                    <li className="select-box__option" onClick={()=>this.changeOption('Berries')}>Ягоды</li>
+                    <li className="select-box__option" onClick={()=>this.changeOption('Fruits')}>Фрукты</li>
+                    <li className="select-box__option" onClick={()=>this.changeOption('Seedlings')}>Рассада</li>
+
                 </ul>
             </div>
         );
@@ -38,6 +42,7 @@ class SelectorContainer extends Component {
     changeOption = (cat) => {
         this.setState({defaultCategory: cat})
         this.openSelections();
+        this.props.change(cat)
 
     }
 }

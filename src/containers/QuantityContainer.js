@@ -38,19 +38,23 @@ class QuantityContainer extends Component {
     handleOnChangeInput = (e, id) => {
         const {target: {value}} = e;
         this.setState({value: value})
-        this.changeQuantityIntoOrder(id, Number(value))
+        // this.changeQuantityIntoOrder(id, Number(value))
     }
 
     decrease = (id) => {
-        let newValue = this.getQuantityById(id) - 0.05;
-        this.setState({value: this.format(newValue)})
-        this.changeQuantityIntoOrder(id, newValue)
+        // let newValue = this.getQuantityById(id) - 0.05;
+        let newValue = Number(this.state.value) - 0.05;
+        if(newValue>=0){
+            this.setState({value: this.format(newValue)})
+        }
+        // this.changeQuantityIntoOrder(id, newValue)
     };
 
     increase = (id) => {
-        let newValue = Number(this.getQuantityById(id)) + 0.05;
+        // let newValue = Number(this.getQuantityById(id)) + 0.05;
+        let newValue = Number(this.state.value) + 0.05;
         this.setState({value: this.format(newValue)})
-        this.changeQuantityIntoOrder(id, newValue)
+        // this.changeQuantityIntoOrder(id, newValue)
     };
 
     render() {
@@ -58,14 +62,14 @@ class QuantityContainer extends Component {
         const {value} = this.state;
 
         return <div className="quantity">
-            <div className="quantity-action primary-c" onClick={() => this.decrease(product.id)}>
+            <div className="quantity-action" onClick={() => this.decrease(product.id)}>
                 <i className="fas fa-minus"></i>
             </div>
             <div className="quantity-number">
                 <input className="" value={value}
                        onChange={(e) => this.handleOnChangeInput(e, product.id)}/>
             </div>
-            <div className="quantity-action default-c" onClick={() => this.increase(product.id)}>
+            <div className="quantity-action" onClick={() => this.increase(product.id)}>
                 <i className="fas fa-plus"></i>
             </div>
         </div>

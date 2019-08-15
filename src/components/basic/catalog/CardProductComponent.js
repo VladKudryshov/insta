@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ProductAction from '../../../containers/ProductActionContainer'
+import {Link} from "react-router";
 
 
 class CardProductComponent extends Component {
@@ -10,7 +11,7 @@ class CardProductComponent extends Component {
             <div className="product card">
                 <div className="product-content">
                     <div className="product-title">
-                        <div> {this.props.product.name}</div>
+                        <Link to={{pathname: `/catalog/${this.props.product.id}`}}> {this.props.product.name}</Link>
                         <div className="units">{this.props.product.unitNumber} {this.props.product.unitName}</div>
                     </div>
                     <div className="product-price card">

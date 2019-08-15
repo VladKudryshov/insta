@@ -25,7 +25,7 @@ class WidgetPostComponent extends Component {
                     <h2 className="title">{this.getValueOrProgress(post.title)}</h2>
                     <div className="date">{this.getValueOrProgress(post.date)}
                     </div>
-                    <div className="short-content">{this.getValueOrProgress(post.content)}</div>
+                    <div className="">{this.getValueOrProgress(post.content)}</div>
                     <Link to={{pathname: `/blog/${post.id}`}} className="read-more">{
                         post.id ? 'READ MORE'
                             : this.getValueOrProgress('')

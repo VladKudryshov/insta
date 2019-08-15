@@ -14,6 +14,11 @@ function getPost(id) {
         .then(handleResponse);
 }
 
+function removePostById(id) {
+    return axios.delete(`http://165.22.89.115:8080/api/blog/${id}`, {headers: {Authorization: storageUtils.getToken()}})
+        .then(handleResponse);
+}
+
 function handleResponse(response) {
     return response.data;
 }
@@ -23,5 +28,6 @@ function handleResponse(response) {
 
 export const blogService = {
     getPosts,
-    getPost
+    getPost,
+    removePostById
 };

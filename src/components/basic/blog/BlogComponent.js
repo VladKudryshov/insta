@@ -13,6 +13,10 @@ class BlogComponent extends Component {
         let posts = this.props.posts.map(post => {
             return (
                 <div className="blog-item card" key={post.id}>
+                    <img
+                        className="post-image"
+                        src="https://images11.cosmopolitan.ru/upload/img_cache/45a/45ae29e14b0ef7af5e529c1c1dea7168_ce_740x460x0x0.jpg"
+                        alt=""/>
                     <div className="blog-item-title">{post.title}</div>
                     <ul className="blog-item-info">
                         <li className="date"><i className="far fa-calendar-alt"/> {post.date}</li>

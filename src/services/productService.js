@@ -26,7 +26,7 @@ function getProductById(id) {
 
 
 function addProduct(product) {
-    return axios.post(`http://165.22.89.115:8080/api/products`, product, {headers: {Authorization: storageUtils.getToken()}})
+    return axios.put(`http://165.22.89.115:8080/api/products`, product, {headers: {Authorization: storageUtils.getToken()}})
         .then(handleResponse);
 }
 

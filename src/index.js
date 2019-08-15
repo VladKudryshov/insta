@@ -24,6 +24,8 @@ import AdminStockProductsComponent from "./components/admin/AdminStockProductsCo
 import AdminEmployeesComponent from "./components/admin/AdminEmployeesComponent";
 import AdminOrdersProductsComponent from "./components/admin/AdminOrdersProductsComponent";
 import AdminPanelProductComponent from "./components/admin/AdminPanelProductComponent";
+import AdminPanelBlogComponent from "./components/admin/AdminPanelBlogComponent";
+import ProductContainer from "./containers/ProductContainer";
 
 const store = configureStore();
 
@@ -39,6 +41,7 @@ ReactDOM.render(
                 </Route>
                 <Route path="catalog">
                     <IndexRoute component={CatalogContainer}/>
+                    <Route path=":id" component={ProductContainer}/>
                 </Route>
                 <Route path="basket" component={OrderStepperContainer}/>
                 <Route path="account" component={RootAccount}>
@@ -58,6 +61,7 @@ ReactDOM.render(
                 <Route path="employees" component={AdminEmployeesComponent}/>
                 <Route path="orders" component={AdminOrdersProductsComponent}/>
                 <Route path="orders/:id" component={OrderCard}/>
+                <Route path="blog" component={AdminPanelBlogComponent}/>
             </Router>
         </Router>
     </Provider>,

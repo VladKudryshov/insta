@@ -18,12 +18,10 @@ class CatalogComponent extends Component {
 
     handleChange = (val) => {
         const {actions: {loadData}} = this.props;
-        let {target: {value}} = val;
-        console.log(value)
-        if (value === 'Empty') {
-            value = '';
+        if (val === 'Empty') {
+            val = '';
         }
-        loadData(value)
+        loadData(val)
     };
 
     render() {
