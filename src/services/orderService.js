@@ -36,16 +36,14 @@ async function getOrders() {
 }
 
 
-async function getOrderById(id) {
+async function removeOrderById(id) {
 
-    let promise = axios.get(`http://165.22.89.115:8080/api/order/`+id, {headers: {Authorization: storageUtils.getToken()}})
-        .then(handleResponse)
-        .then(basket => {
-            return basket;
-        });
+    let promise = axios.delete(`http://165.22.89.115:8080/api/order/`+id, {headers: {Authorization: storageUtils.getToken()}})
+        .then(handleResponse);
 
     return await promise;
 }
+
 
 
 function handleResponse(response) {
@@ -58,5 +56,5 @@ export const orderService = {
     createOrder,
     getOrders,
     getUserOrders,
-    getOrderById
+    removeOrderById
 };

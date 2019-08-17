@@ -1,30 +1,57 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from "redux";
-import {loadPosts} from "../../actions/action";
+import {loadData} from "../../actions/action";
 import connect from "react-redux/es/connect/connect";
-import WidgetPostComponent from "../../components/basic/blog/WidgetPostComponent";
+import WidgetPost from "../../components/basic/blog/WidgetPost";
+import {BLOG} from "../../consts/apps";
+import {isArray, isEmpty} from "lodash";
 
 class WidgetPostContainer extends Component {
 
+
+    componentDidMount() {
+        this.props.actions.loadData(BLOG)
+    }
+
+
+    getValueOrProgress = (value) => {
+        return value ? value : <div className="meter">
+            <span style={{width: '25%'}}></span>
+        </div>
+    }
+
     render() {
+        const {post} = this.props;
+        let prePosts = !isArray(post) || isEmpty(post) ? [{}, {}, {}] : post;
+
         return (
-            <WidgetPostComponent {...this.props}/>
+            <div className="blog-cards">
+                {
+                    prePosts.slice(0, 3).map(Vpost => {
+                        return (
+                            <WidgetPost post={Vpost} getValueOrProgress={this.getValueOrProgress}/>
+                        )
+                    })
+
+                }
+            </div>
+
         );
     }
 
 }
 
 const mapStateToProps = (state) => {
-    const {blog: {posts}, loader} = state;
+    const {data: {post}, loader} = state;
     return {
-        posts,
+        post,
         loader
     };
 };
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
-        loadPosts
+        loadData
     }, dispatch),
 });
 

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from "redux";
-import {loadOrders} from "../../actions/action";
+import {loadOrders, removeOrder} from "../../actions/action";
 import connect from "react-redux/es/connect/connect";
 import LoaderContainer from "../../containers/LoaderContainer";
 import {Link} from "react-router";
@@ -11,6 +11,12 @@ class AdminOrdersProductsComponent extends Component {
     componentDidMount(){
         this.props.actions.loadOrders()
     }
+
+
+    remove = (id) => {
+        const {actions: {removeOrder}} = this.props;
+        removeOrder(id);
+    };
 
     render() {
         const {orders} = this.props
@@ -25,8 +31,8 @@ class AdminOrdersProductsComponent extends Component {
                 <td className="txr">{order.cost}</td>
                 <td className="txc">
                     <Link to={{ pathname: `/admin/orders/${order.orderId}`}} > <i className="far fa-eye icon-margin"/> </Link>
-                    <i className="far fa-edit icon-margin" onClick={() => this.editProduct(order.id)}/>
-                    <i className="far fa-trash-alt icon-margin" onClick={() => this.remove(order.id)}/>
+                    <i className="far fa-edit icon-margin" onClick={() => this.editProduct(order.orderId)}/>
+                    <i className="far fa-trash-alt icon-margin" onClick={() => this.remove(order.orderId)}/>
                 </td>
             </tr>
         });
@@ -69,7 +75,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
-        loadOrders
+        loadOrders,
+        removeOrder
     }, dispatch),
 });
 

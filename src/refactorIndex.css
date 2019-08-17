@@ -1173,6 +1173,7 @@ body {
         position: relative;
         width: 100%;
         display: grid;
+        grid-template-columns: none;
         grid-auto-rows: minmax(min-content, max-content);
         grid-row-gap: 30px;
         grid-column-gap: 20px;

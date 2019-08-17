@@ -15,8 +15,8 @@ import {userService as fileService} from "../services/fileService";
 
 function* loadProductPage(action) {
     try {
-        const {filter} = action;
-        const data = yield call(productService.getProducts, filter);
+        const {query} = action;
+        const data = yield call(productService.getProducts, query);
 
         yield put({type: SAVE_CATALOG_PRODUCTS, data});
     } catch (err) {

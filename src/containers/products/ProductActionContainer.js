@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {addProductToBasket, changeQuantityProductInBasket} from '../actions/action'
+import {addProductToBasket, changeQuantityProductInBasket} from '../../actions/action'
 import React, {Component} from "react";
 
 

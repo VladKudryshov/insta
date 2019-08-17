@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import BasketComponent from "./BasketComponent";
-import ContactsOrderContainer from "../../containers/contacts/ContactsOrderContainer";
+import ContactsOrderContainer from "../../../containers/contacts/ContactsOrderContainer";
 
 class OrderStepperComponent extends Component {
 

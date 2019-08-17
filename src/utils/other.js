@@ -16,3 +16,6 @@ export const getFormatedPrice = (price) => {
 export const getPriceWithDiscount = (obj) => {
     return (obj.price / 100 * (100 - obj.discount)).toFixed(2)
 }
+
+
+export const getResponse = response => response.data;

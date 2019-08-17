@@ -11,9 +11,7 @@ function login(login, password) {
         .then(handleResponse)
         .then(user => {
             // login successful if there's a user in the response
-            localStorage.setItem("user", user.email);
-            localStorage.setItem("role", user.role);
-            browserHistory.push("/")
+
         });
 }
 
@@ -39,15 +37,22 @@ function logout() {
 
 function getUserInfo() {
 
-    return axios.get(`http://165.22.89.115:8080/api/users/info`, {headers: {
-            Authorization: localStorage.getItem('token')
-        }})
+    return axios.get(`http://165.22.89.115:8080/api/users/info`, )
         .then(handleResponse);
 }
 
 function getUserContacts() {
 
     return axios.get(`http://165.22.89.115:8080/api/users/contacts`, {headers: {
+            Authorization: localStorage.getItem('token')
+        }})
+        .then(handleResponse);
+}
+
+
+function getUserList() {
+
+    return axios.get(`http://165.22.89.115:8080/api/users`, {headers: {
             Authorization: localStorage.getItem('token')
         }})
         .then(handleResponse);
@@ -71,5 +76,6 @@ export const userService = {
     createUser,
     getUserInfo,
     getUserContacts,
-    logout
+    logout,
+    getUserList
 };

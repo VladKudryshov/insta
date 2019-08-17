@@ -16,8 +16,8 @@ class AdminPanelMenuComponent extends Component {
                         className="far fa-sticky-note tc"/>Заказы</Link>
                     <Link to="/admin/blog" className="account-menu-link" activeClassName="active"><i
                         className="far fa-sticky-note tc"/>Новости</Link>
-                    <Link to="/admin/employees" className="account-menu-link" activeClassName="active"><i
-                        className="fas fa-cog tc"/>Сотрудники</Link>
+                    <Link to="/admin/users" className="account-menu-link" activeClassName="active"><i
+                        className="fas fa-cog tc"/>Пользователи</Link>
                 </div>
             </div>
         );

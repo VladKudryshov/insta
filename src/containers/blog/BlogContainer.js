@@ -1,31 +1,37 @@
 import {bindActionCreators} from "redux";
-import {loadPosts} from "../../actions/action";
+import {loadData} from "../../actions/action";
 import connect from "react-redux/es/connect/connect";
 import React, {Component} from "react";
-import BlogComponent from "../../components/basic/blog/BlogComponent";
+import PostList from "../../components/basic/blog/PostList";
+import {BLOG} from "../../consts/apps";
 
 
 class BlogContainer extends Component {
 
+    componentDidMount() {
+        this.props.actions.loadData(BLOG)
+    }
+
+
     render() {
+        const {post} = this.props
         return (
-            <BlogComponent {...this.props}/>
+            <PostList posts = {post}/>
         );
     }
 
 }
 
 const mapStateToProps = (state) => {
-    const {blog: {posts}, loader} = state;
+    const {data: {post}} = state;
     return {
-        posts,
-        loader
+        post
     };
 };
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
-        loadPosts
+        loadData
     }, dispatch),
 });
 

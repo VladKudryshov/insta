@@ -1,5 +1,5 @@
 import React from 'react';
-import AccountComponent from "../AccountComponent";
+import AccountComponent from "../account/AccountComponent";
 
 
 const RootAccount = ({ children }) => (

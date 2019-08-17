@@ -1,6 +1,6 @@
 import {storageUtils} from "../utils/StorageUtils";
 
-const order = (state = storageUtils.isAuth(), action) => {
+const auth = (state = storageUtils.isAuth(), action) => {
 
     switch (action.type) {
         case LOGIN: {
@@ -14,4 +14,4 @@ const order = (state = storageUtils.isAuth(), action) => {
 };
 
 
-export default order
+export default auth

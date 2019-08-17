@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
-import {storageUtils} from "../../utils/StorageUtils";
-import AccountMenuComponent from "./menus/AccountMenuComponent";
+import {storageUtils} from "../../../utils/StorageUtils";
+import AccountMenuComponent from "../menus/AccountMenuComponent";
 import {Link} from "react-router";
 
 class AccountHeaderComponent extends Component {

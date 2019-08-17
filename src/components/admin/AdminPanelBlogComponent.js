@@ -27,7 +27,6 @@ class AdminPanelBlogComponent extends Component {
     render() {
 
         const {posts} = this.props;
-        console.log(posts)
         let productsView = posts.map(post => {
             return <tr key={post.id}>
                 <td className="txl">{post.title}</td>

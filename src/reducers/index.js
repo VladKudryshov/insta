@@ -5,6 +5,9 @@ import loader from "./loader";
 import catalog from "./catalog";
 import address from "./address";
 import blog from "./blog";
+import user from "./user";
+import filter from "./filter";
+import data from "./data";
 
 
 export default combineReducers({
@@ -13,5 +16,8 @@ export default combineReducers({
     catalog,
     loader,
     address,
-    blog
+    blog,
+    user,
+    filter,
+    data
 })

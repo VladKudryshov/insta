@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderComponent from "../HeaderComponent";
+import HeaderComponent from "../home/HeaderComponent";
 
 
 const Root = ({ children }) => (

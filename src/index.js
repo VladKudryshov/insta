@@ -5,14 +5,14 @@ import './index.css';
 import {Provider} from 'react-redux'
 import {browserHistory, IndexRoute, Route, Router} from "react-router";
 import Root from "./components/basic/root/Root";
-import HomeComponent from "./components/basic/HomeComponent";
+import HomeComponent from "./components/basic/home/HomeComponent";
 import ProfileComponent from "./components/basic/account/ProfileComponent";
 import RootAccount from "./components/basic/root/RootAccount";
-import OrderStepperContainer from "./containers/OrderStepperContainer";
-import OrderCard from "./containers/OrderCardContainer";
+import OrderStepperContainer from "./containers/order/OrderStepperContainer";
+import OrderCard from "./containers/order/OrderCardContainer";
 import RootOrders from "./components/basic/root/RootOrders";
 import configureStore from "./configureStore";
-import CatalogContainer from "./containers/CatalogContainer";
+import CatalogContainer from "./containers/products/CatalogContainer";
 import LoginComponent from "./components/basic/LoginComponent";
 import MessagesComponent from "./components/basic/account/MessagesComponent";
 import BlogContainer from "./containers/blog/BlogContainer";
@@ -25,7 +25,8 @@ import AdminEmployeesComponent from "./components/admin/AdminEmployeesComponent"
 import AdminOrdersProductsComponent from "./components/admin/AdminOrdersProductsComponent";
 import AdminPanelProductComponent from "./components/admin/AdminPanelProductComponent";
 import AdminPanelBlogComponent from "./components/admin/AdminPanelBlogComponent";
-import ProductContainer from "./containers/ProductContainer";
+import ProductContainer from "./containers/products/ProductContainer";
+import AdminPanelUsersComponent from "./components/admin/AdminPanelUsersComponent";
 
 const store = configureStore();
 
@@ -62,6 +63,7 @@ ReactDOM.render(
                 <Route path="orders" component={AdminOrdersProductsComponent}/>
                 <Route path="orders/:id" component={OrderCard}/>
                 <Route path="blog" component={AdminPanelBlogComponent}/>
+                <Route path="users" component={AdminPanelUsersComponent}/>
             </Router>
         </Router>
     </Provider>,

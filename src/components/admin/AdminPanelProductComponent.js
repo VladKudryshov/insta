@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {browserHistory} from "react-router";
-import ProductAction from "../../containers/ProductActionContainer";
+import ProductAction from "../../containers/products/ProductActionContainer";
 import {bindActionCreators} from "redux";
 import {addProductToCatalog, changeCatalogProduct, clearData, getProductById} from "../../actions/action";
 import connect from "react-redux/es/connect/connect";
@@ -40,7 +40,6 @@ class AdminPanelProductComponent extends Component {
     };
 
     save = () => {
-        console.log('ad')
         const {actions: {addProductToCatalog}} = this.props
         addProductToCatalog(this.props.product)
     };

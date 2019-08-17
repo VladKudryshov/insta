@@ -15,7 +15,6 @@ class AdminPanelProductsComponent extends Component {
     }
 
     removeProduct = (id) => {
-        console.log(id);
         const {actions: {removeCatalogProduct}} = this.props;
         removeCatalogProduct(id)
     };

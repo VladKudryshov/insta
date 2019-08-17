@@ -16,7 +16,8 @@
     "react-scripts": "^2.1.1",
     "redux": "^4.0.0",
     "redux-form": "^8.1.0",
-    "redux-saga": "^0.16.2"
+    "redux-saga": "^0.16.2",
+    "proxy-addr": "~2.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -40,6 +41,8 @@
     ]
   },
   "devDependencies": {
-    "redux-devtools-extension": "^2.13.8"
-  }
+    "redux-devtools-extension": "^2.13.8",
+    "eslint-plugin-jsx-a11y": "^6.1.2"
+  },
+  "proxy": "http://165.22.89.115:8080/"
 }

@@ -1,29 +1,36 @@
 import React, {Component} from 'react';
 
-import ProductComponent from "../components/basic/catalog/ProductComponent";
+import FullProduct from "../../components/basic/catalog/FullProduct";
 import {bindActionCreators} from "redux";
-import {getProductById} from "../actions/action";
+import {loadDataById} from "../../actions/action";
 import connect from "react-redux/es/connect/connect";
+import {PRODUCTS} from "../../consts/apps";
 
 class ProductContainer extends Component {
 
+    componentDidMount() {
+        const {actions: {loadDataById}, params: {id}} = this.props;
+        loadDataById(PRODUCTS, id);
+    }
+
     render() {
+        const {products} = this.props;
         return (
-            <ProductComponent {...this.props}/>
+            < FullProduct product={products}/>
         );
     }
 }
 
 const mapStateToProps = (state) => {
-    const {catalog: {product}} = state;
+    const {data: {products}} = state;
     return ({
-        product
+        products
     });
 };
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
-        getProductById,
+        loadDataById,
     }, dispatch),
 });
 

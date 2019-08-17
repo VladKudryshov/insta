@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import SliderComponent from "./SliderComponent";
-import WidgetPostContainer from "../../containers/blog/WidgetPostContainer";
-import ToolTip from "./tooltip/ToolTip";
+import WidgetPostContainer from "../../../containers/blog/WidgetPostContainer";
+import ToolTip from "../tooltip/ToolTip";
 import {Link} from "react-router";
 
 

@@ -1,25 +1,15 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import LoaderContainer from "../../../containers/LoaderContainer";
 import QuantityContainer from "../../../containers/QuantityContainer";
+import * as statusMapping from "../../../models/statusMapping";
 
-class ProductComponent extends Component {
-
-    componentDidMount(){
-        const {params: {id}, actions: {getProductById}} = this.props
-        getProductById(id);
-    }
-
-    render() {
-
-        const {product} = this.props;
-
-        return (
+const FullProduct = ({product}) =>(
             <LoaderContainer>
                <div className="product-view">
                    <div className="product-images"><img  className="card" src={product.image} alt=""/></div>
                    <div className="product-info">
-                       <div className="product-category">{product.category}</div>
+                       <div className="product-category">{statusMapping.getRepresentationCategory(product.category)}</div>
                        <div className="product-title">{product.name}</div>
                        <div>
                            <i className="fas fa-star rating"></i>
@@ -43,10 +33,7 @@ class ProductComponent extends Component {
                    </div>
                </div>
             </LoaderContainer>
-
-        );
-    }
-}
+)
 
 
-export default ProductComponent;
+export default FullProduct;

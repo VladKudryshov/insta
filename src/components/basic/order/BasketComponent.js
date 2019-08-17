@@ -1,10 +1,10 @@
 import React, {Component} from "react";
 import connect from "react-redux/es/connect/connect";
 import {bindActionCreators} from "redux";
-import {changeQuantityProductInBasket, deleteProductFromBasket, loadProductsBag} from "../../actions/action";
-import QuantityContainer from "../../containers/QuantityContainer";
-import {getPriceWithDiscount} from "../../utils/other";
-import LoaderContainer from "../../containers/LoaderContainer";
+import {changeQuantityProductInBasket, deleteProductFromBasket, loadProductsBag} from "../../../actions/action";
+import QuantityContainer from "../../../containers/QuantityContainer";
+import {getPriceWithDiscount} from "../../../utils/other";
+import LoaderContainer from "../../../containers/LoaderContainer";
 
 class BasketComponent extends Component {
 

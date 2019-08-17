@@ -1,3 +1,18 @@
+
+
+export const DELETE_DATA_BY_ID = 'DELETE_DATA_BY_ID';
+export const SAVE_DATA = 'SAVE_DATA';
+export const UPDATE_DATA_BY_ID = 'UPDATE_DATA_BY_ID';
+
+
+
+
+
+
+
+
+export const FILTER = 'FILTER';
+
 export const RECEIVE_DATA = 'RECEIVE_DATA';
 export const CLEAR_DATA = 'CLEAR_DATA';
 export const ADD_PRODUCT_TO_BASKET = 'ADD_PRODUCT_TO_BASKET';
@@ -18,6 +33,7 @@ export const SAVE_PRODUCTS_BAG = 'SAVE_PRODUCTS_BAG';
 export const SAVE_ORDERS = 'SAVE_ORDERS';
 export const SAVE_POSTS = 'SAVE_POSTS';
 export const SAVE_POST = 'SAVE_POST';
+export const SAVE_USERS = 'SAVE_USERS';
 
 
 export const ADD_PRODUCT_CATALOG = 'ADD_PRODUCT_CATALOG';
@@ -27,6 +43,7 @@ export const CHANGE_PRODUCT_CATALOG = 'CHANGE_PRODUCT_CATALOG';
 
 export const REMOVE_CATALOG_PRODUCTS = 'REMOVE_CATALOG_PRODUCTS';
 export const REMOVE_POST = 'REMOVE_POST';
+export const REMOVE_ORDER_BY_ID = 'REMOVE_ORDER_BY_ID';
 
 
 export const LOAD_DATA_BY_ID = 'LOAD_DATA_BY_ID';
@@ -37,10 +54,25 @@ export const LOAD_ADDRESSES = 'LOAD_ADDRESSES';
 export const LOAD_POSTS_DATA = 'LOAD_POSTS_DATA';
 export const LOAD_POST = 'LOAD_POST';
 export const LOAD_ORDERS = 'LOAD_ORDERS';
+export const LOAD_USERS = 'LOAD_USERS';
 export const ERROR = 'ERROR';
 
 
 
+export const loadData = app => ({
+    type: LOAD_DATA,
+    app,
+});
+
+
+
+
+
+
+export const filter = filter => ({
+    type: FILTER,
+    filter,
+});
 export const clearData = app => ({
     type: CLEAR_DATA,
     app,
@@ -70,9 +102,10 @@ export const deleteProductFromBasket = (id) => ({
 });
 
 
-export const loadDataById = (id) => ({
+export const loadDataById = (app, id) => ({
     type: LOAD_DATA_BY_ID,
-    id,
+    app,
+    id
 });
 
 export const loadProductsBag = (ids) => ({
@@ -80,12 +113,6 @@ export const loadProductsBag = (ids) => ({
     ids,
 });
 
-
-
-export const loadData = (filter) => ({
-    type: LOAD_DATA,
-    filter,
-});
 
 
 export const login = () => ({
@@ -97,6 +124,11 @@ export const createOrder = (basket, contact) => ({
     type: CREATE_ORDER,
     basket,
     contact
+});
+
+export const removeOrder = (id) => ({
+    type: REMOVE_ORDER_BY_ID,
+    id
 });
 
 
@@ -203,4 +235,16 @@ export const loadPost = (id) => ({
 
 export const error = () => ({
     type: ERROR
+});
+
+
+
+export const saveUsers = (data) => ({
+    type: SAVE_USERS,
+    data
+});
+
+
+export const loadUsers = () => ({
+    type: LOAD_USERS
 });
