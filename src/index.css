@@ -845,7 +845,6 @@ body {
         overflow: hidden;
         margin: 0 20px 0 0;
         padding: 10px 20px;
-        width: 80%;
         border-radius: .5em;
         float: left;
     }
@@ -1432,3 +1431,97 @@ table {
 }
 
 
+
+
+.Toastify__toast {
+    opacity: 1;
+    font-family: inherit;
+    line-height: 1.42857;
+    padding: 10px;
+}
+
+.Toastify__toast > div > div > h1 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0px 0px 5px;
+    padding: 0px;
+}
+
+.Toastify__toast > div > div > p {
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.Toastify__toast--success {
+    background: #4d5a6c !important;
+}
+
+.Toastify__toast--success > div > div > h1 {
+    color: #ffffff;
+}
+
+.Toastify__toast--success > div > div > p {
+    color: #ffffff;
+    overflow-x:hidden;
+}
+
+.Toastify__toast--error {
+    background-color: rgb(244, 233, 233);
+}
+
+.Toastify__toast--error > div > div > h1 {
+    color: rgb(244, 233, 233);
+}
+
+.Toastify__toast--error > div > div > div {
+    color: rgb(244, 233, 233);
+    word-wrap: break-word;
+}
+
+.Toastify__toast-body {
+    width: 100%;
+    padding: 10px;
+}
+
+.height-400 {
+    height: 400px;
+}
+
+
+
+.chat{
+    width: 500px;
+    height: 350px;
+    background: #ffffff;
+}
+
+.chat-title{
+    width: 100%;
+    background: #272C36;
+    color: #ffffff;
+    padding: 5px;
+}
+
+.chat-messages{
+    overflow-y: scroll;
+    width: 100%;
+    height: 285px;
+}
+
+.msg {
+    padding: 10px 10px;
+
+    display: block;
+    clear: both;
+}
+
+.clear {
+    clear: both;
+}
+
+.chat-actions{
+    display: grid;
+    grid-template-columns: 1fr 150px;
+}

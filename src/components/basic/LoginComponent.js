@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import {userService} from "../../services/userService";
+import {bindActionCreators} from "redux";
+import {changeQuantityProductInBasket, deleteProductFromBasket, login} from "../../actions/action";
+import connect from "react-redux/es/connect/connect";
 
 class LoginComponent extends Component {
 
@@ -41,7 +44,7 @@ class LoginComponent extends Component {
 
     handleLogin = () => {
         const {login, password} = this.state;
-        userService.login(login, password);
+        this.props.actions.login(login, password);
     };
 
     handleReg = () => {
@@ -73,4 +76,10 @@ class LoginComponent extends Component {
 }
 
 
-export default LoginComponent;
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators({
+        login
+    }, dispatch),
+});
+
+export default connect(null, mapDispatchToProps)(LoginComponent);

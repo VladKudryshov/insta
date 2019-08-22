@@ -27,6 +27,8 @@ import AdminPanelProductComponent from "./components/admin/AdminPanelProductComp
 import AdminPanelBlogComponent from "./components/admin/AdminPanelBlogComponent";
 import ProductContainer from "./containers/products/ProductContainer";
 import AdminPanelUsersComponent from "./components/admin/AdminPanelUsersComponent";
+import ChatComponent from "./components/basic/ChatComponent";
+import * as auth from "./utils/auth";
 
 const store = configureStore();
 
@@ -35,7 +37,7 @@ ReactDOM.render(
         <Router history={browserHistory}>
             <Route path="/" component={Root}>
                 <IndexRoute component={HomeComponent}/>
-                <Route path="login" component={LoginComponent}/>
+                <Route path="login" component={LoginComponent} onEnter = {auth.isAuth}/>
                 <Route path="blog">
                     <IndexRoute component={BlogContainer}/>
                     <Route path=":id" component={PostContainer}/>
@@ -45,17 +47,18 @@ ReactDOM.render(
                     <Route path=":id" component={ProductContainer}/>
                 </Route>
                 <Route path="basket" component={OrderStepperContainer}/>
-                <Route path="account" component={RootAccount}>
+                <Route path="chat" component={ChatComponent}/>
+                <Route path="account" component={RootAccount} onEnter={auth.notAuth}>
                     <Route path="profile" component={ProfileComponent}/>
                     <Route path="messages" component={MessagesComponent}/>
                     <Route path="address" component={AddressesComponent}/>
                 </Route>
-                <Route path="orders" component={RootOrders}>
+                <Route path="orders" component={RootOrders} onEnter={auth.notAuth}>
                     <Route path=":id" component={OrderCard}/>
                 </Route>
             </Route>
-            <Router path="/admin" component={RootPanel}>
-                <Route path="catalog" component={AdminPanelProductsComponent}/>
+            <Router path="/admin" component={RootPanel} onEnter={auth.checkIsAdmin}>
+                <Route path="catalog"  component={AdminPanelProductsComponent}/>
                 <Route path="catalog/new" component={AdminPanelProductComponent}/>
                 <Route path="catalog/edit/:id" component={AdminPanelProductComponent}/>
                 <Route path="stock" component={AdminStockProductsComponent}/>

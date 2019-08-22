@@ -56,18 +56,29 @@ export const LOAD_POST = 'LOAD_POST';
 export const LOAD_ORDERS = 'LOAD_ORDERS';
 export const LOAD_USERS = 'LOAD_USERS';
 export const ERROR = 'ERROR';
+export const SHOW_NOTIFICATION = 'SHOW_NOTIFICATION';
 
+
+
+
+export const showNotification = (notificationType, title, message) => ({
+    type: SHOW_NOTIFICATION,
+    notificationType,
+    title,
+    message,
+});
+
+export const login = (login, password) => ({
+    type: LOGIN,
+    login,
+    password
+});
 
 
 export const loadData = app => ({
     type: LOAD_DATA,
     app,
 });
-
-
-
-
-
 
 export const filter = filter => ({
     type: FILTER,
@@ -113,11 +124,6 @@ export const loadProductsBag = (ids) => ({
     ids,
 });
 
-
-
-export const login = () => ({
-    type: LOGIN
-});
 
 
 export const createOrder = (basket, contact) => ({
@@ -233,9 +239,7 @@ export const loadPost = (id) => ({
     id
 });
 
-export const error = () => ({
-    type: ERROR
-});
+
 
 
 

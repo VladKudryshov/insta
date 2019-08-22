@@ -19,3 +19,16 @@ export const getPriceWithDiscount = (obj) => {
 
 
 export const getResponse = response => response.data;
+
+
+export const getHeadersRequest = () => {
+    let token = localStorage.getItem('token');
+    if (token) {
+        return {
+            headers: {
+                Authorization: token
+            }
+        }
+    }
+    return {};
+};
