@@ -40,7 +40,7 @@ ReactDOM.render(
             <Route component={NotFound}/>
             <Route path="/" component={Root}>
                 <IndexRoute component={HomeComponent}/>
-                <Route path="login" component={LoginComponent}/>
+                <Route path="login" component={LoginComponent} onEnter={auth.isAuth}/>
                 <Route path="blog">
                     <IndexRoute component={BlogContainer}/>
                     <Route path=":id" component={PostContainer}/>
@@ -60,7 +60,7 @@ ReactDOM.render(
                     <Route path=":id" component={OrderCard}/>
                 </Route>
             </Route>
-            <Router path="/admin" component={RootPanel} onEnter={auth.checkIsAdmin}>
+            <Router path="/admin" component={RootPanel} onEnter={auth.redirectAdmin}>
                 <Route path="products" component={AdminPanelProductsComponent}/>
                 <Route path="products/new" component={AdminPanelProductComponent}/>
                 <Route path="products/edit/:id" component={AdminPanelProductComponent}/>

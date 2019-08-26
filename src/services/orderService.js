@@ -4,7 +4,7 @@ import {storageUtils} from "../utils/StorageUtils";
 
 async function createOrder(data) {
 
-    let promise = axios.post(`http://localhost:8081/api/order`, data, {headers: {Authorization: storageUtils.getToken()}})
+    let promise = axios.post(`/api/order`, data, {headers: {Authorization: storageUtils.getToken()}})
         .then(handleResponse)
         .then(basket => {
             return basket

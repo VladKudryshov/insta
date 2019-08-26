@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {userService} from "../../../services/userService";
 import {Link} from "react-router";
-import {storageUtils} from "../../../utils/StorageUtils";
+import {checkIsAdmin} from "../../../utils/auth";
 
 class AccountMenu extends Component {
 
@@ -39,8 +39,9 @@ class AccountMenu extends Component {
             <div className="account-menu card" ref={this.setWrapperRef}>
                 <div className="account-menu-list">
                     {
-                        storageUtils.isAdmin() ? <Link to="/admin" className="account-menu-link"
-                              onClick={this.props.close}><i className="far fa-user tc"/>Админ панель</Link> : ''
+                        checkIsAdmin() ? <Link to="/admin" className="account-menu-link"
+                                               onClick={this.props.close}><i className="far fa-user tc"/>Админ
+                            панель</Link> : ''
                     }
                     <Link to="/account" className="account-menu-link"
                           onClick={this.props.close}><i className="far fa-user tc"/>Аккаунт</Link>

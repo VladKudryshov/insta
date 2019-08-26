@@ -3,6 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ae8d9a26-ea98-41ba-92d7-c003f55a499a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/AdminOrdersProductsComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/AdminOrdersProductsComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/basic/menus/AccountMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/basic/menus/AccountMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sagas/basket.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/sagas/basket.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/orderService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/orderService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/auth.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -161,13 +166,6 @@
       <workItem from="1566206877791" duration="17364000" />
       <workItem from="1566286172133" duration="599000" />
       <workItem from="1566458560520" duration="11030000" />
-    </task>
-    <task id="LOCAL-00011" summary="fix css">
-      <created>1559053858967</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1559053858967</updated>
     </task>
     <task id="LOCAL-00012" summary="arrows">
       <created>1559054001514</created>
@@ -505,7 +503,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566854317045</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="new version">
+      <created>1566854816180</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1566854816180</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TodoView">

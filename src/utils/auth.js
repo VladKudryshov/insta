@@ -14,16 +14,22 @@ export const setAuth = (response) => {
 export const checkIsAdmin = () => {
 
     let token = localStorage.getItem("token");
-    if (token && token !== null) {
-        console.log(token)
+    if (token) {
         let headers = decode(token.replace('Bearer ', ''), {header: true});
         if (headers.role && headers.role !== 'ADMIN') {
-            browserHistory.push('/')
+            return false;
         }
     } else {
+        return false;
+    }
+    return true;
+};
+
+export const redirectAdmin = () => {
+    if (!checkIsAdmin()) {
         browserHistory.push('/')
     }
-};
+}
 
 
 export const notAuth = () => {

@@ -7,7 +7,7 @@ function* loadProductsBag(action) {
     try {
         const {ids} = action;
         const data = yield call(productService.getProductsByIds, ids);
-
+        console.log(data)
         yield put({type: SAVE_ORDER_INFO, data});
     } catch (err) {
         yield put({type: ERROR});
