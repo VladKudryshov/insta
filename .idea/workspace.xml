@@ -2,68 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ae8d9a26-ea98-41ba-92d7-c003f55a499a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/NotFound.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/admin/AdminPanelMenu.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/admin/AdminPanelPostComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/admin/TableView.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/admin/actionTable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/basic/account/AccountBlockMenu.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/basic/account/Address.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/basic/blog/FullPost.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/basic/catalog/Product.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/basic/home/Home.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/basic/menus/DesktopMenu.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/address/AddressListContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/contacts/DefaultContentOrder.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/action.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/action.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/AdminOrdersProductsComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/AdminOrdersProductsComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/AdminPanelBlogComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/AdminPanelBlogComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/AdminPanelComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/AdminPanelComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/AdminPanelMenuComponent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/AdminPanelProductComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/AdminPanelProductComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/AdminPanelProductsComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/AdminPanelProductsComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/AdminPanelUsersComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/AdminPanelUsersComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/basic/account/AccountComponent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/basic/account/AccountHeaderComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/basic/account/AccountHeaderComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/basic/account/AddressesComponent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/basic/blog/Post.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/basic/blog/Post.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/basic/blog/PostList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/basic/blog/PostList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/basic/catalog/CardProductComponent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/basic/catalog/ListProducts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/basic/catalog/ListProducts.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/basic/home/HeaderComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/basic/home/HeaderComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/basic/home/HomeComponent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/basic/menus/AccountMenuComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/basic/menus/AccountMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/basic/menus/DesktopMenuComponent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/basic/menus/MobileMenuComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/basic/menus/MobileMenuComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/basic/order/BasketComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/basic/order/BasketComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/basic/order/OrderCardComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/basic/order/OrderCardComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/basic/order/OrderStepperComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/basic/order/OrderStepperComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/basic/root/Root.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/basic/root/Root.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/basic/root/RootAccount.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/basic/root/RootAccount.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/consts/apps.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/consts/apps.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/QuantityContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/QuantityContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/SelectorContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/SelectorContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/blog/PostContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/blog/PostContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/contacts/ListContactsContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/contacts/ListContactsContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/order/OrderCardContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/order/OrderCardContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/basket.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/basket.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/blog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/catalog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/loader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/loader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/refactorIndex.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/refactorIndex.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sagas/blog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sagas/catalog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sagas/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/sagas/data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sagas/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/sagas/order.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sagas/sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/sagas/sagas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/orderService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/orderService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/auth.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,54 +18,6 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>order-info-person</find>
-      <find>Link to={{</find>
-      <find>className=&quot;category-item hover&quot;</find>
-      <find>saveProducts</find>
-      <find>import {get} from 'lodash';</find>
-      <find>Link to=</find>
-      <find>className=&quot;iamg hover&quot;</find>
-      <find>order-contacts</find>
-      <find>LOAD_POST</find>
-      <find>filter</find>
-      <find>response =&gt; response.data</find>
-      <find>console.log</find>
-      <find>get</find>
-      <find>ProductComponent</find>
-      <find>LOAD_DATA</find>
-      <find>delay</find>
-      <find>http://165.22.89.115:8080/api/order/1</find>
-      <find>http://165.22.89.115:8080/api/order/</find>
-      <find>TallBox</find>
-      <find>TalkBox</find>
-      <find>topic</find>
-      <find>localhost</find>
-      <find>localhost:8081</find>
-      <find>SockJsClient</find>
-      <find>exports</find>
-      <find>decode</find>
-      <find>logout</find>
-      <find>action</find>
-      <find>API_ERROR</find>
-      <find>API</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>http://84.201.156.96/</replace>
-      <replace>84.201.156.96</replace>
-      <replace>span</replace>
-      <replace>'react-router'</replace>
-      <replace>react-router</replace>
-      <replace>SAVE_DATA</replace>
-      <replace>px</replace>
-      <replace>AdminOrdersProductsComponent</replace>
-      <replace>state</replace>
-      <replace />
-      <replace>getResponse</replace>
-      <replace>165.22.89.115:8080</replace>
-    </replaceStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -139,12 +31,6 @@
     <exe-path />
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="311" />
-    <option name="y" value="-4" />
-    <option name="width" value="1851" />
-    <option name="height" value="1052" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
@@ -275,27 +161,6 @@
       <workItem from="1566206877791" duration="17364000" />
       <workItem from="1566286172133" duration="599000" />
       <workItem from="1566458560520" duration="11030000" />
-    </task>
-    <task id="LOCAL-00008" summary="added reports">
-      <created>1557843273195</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1557843273195</updated>
-    </task>
-    <task id="LOCAL-00009" summary="added reports">
-      <created>1558012624830</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1558012624830</updated>
-    </task>
-    <task id="LOCAL-00010" summary="home page">
-      <created>1559052670356</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1559052670356</updated>
     </task>
     <task id="LOCAL-00011" summary="fix css">
       <created>1559053858967</created>
@@ -619,7 +484,28 @@
       <option name="project" value="LOCAL" />
       <updated>1566078981290</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="new version">
+      <created>1566853834090</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1566853834092</updated>
+    </task>
+    <task id="LOCAL-00058" summary="new version">
+      <created>1566854172514</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1566854172514</updated>
+    </task>
+    <task id="LOCAL-00059" summary="new version">
+      <created>1566854317045</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1566854317045</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TodoView">

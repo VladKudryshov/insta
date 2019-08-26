@@ -2,9 +2,10 @@ import decode from "jwt-decode";
 import {browserHistory} from 'react-router';
 
 export const setAuth = (response) => {
-    const {headers: {authorization}} = response;
+    const {headers: {authorization}, data: {email}} = response;
     if (authorization) {
         localStorage.setItem("token", authorization);
+        localStorage.setItem("user", email);
     }
     return response;
 };
