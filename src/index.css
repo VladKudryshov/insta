@@ -1524,7 +1524,7 @@ table {
 }
 
 .Toastify__toast--error {
-    background: none;
+    background: rgb(236, 61, 61);
 }
 
 .Toastify__toast--error > div > div > h1 {
