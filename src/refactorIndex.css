@@ -1320,7 +1320,7 @@ a {
     text-align: right;
 }
 
-.netral {
+.non-active {
     color: #ffffff;
     background: #a9a9a9;
 }
@@ -1341,6 +1341,11 @@ a {
 
 .default-c {
     color: #55ff53;
+}
+
+.neutral-c {
+    color: #666EE8;
+    background: #666EE8;
 }
 
 .fl-r {

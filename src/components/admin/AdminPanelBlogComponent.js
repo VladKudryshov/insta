@@ -1,89 +1,126 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from "redux";
-import {loadPosts, removePost} from "../../actions/action";
+import {loadData, removeDataById} from "../../actions/action";
 import connect from "react-redux/es/connect/connect";
 import {Link} from "react-router";
 import LoaderContainer from "../../containers/LoaderContainer";
+import {BLOG} from "../../consts/apps";
+import TableView from "./TableView";
+import {isEmpty} from "lodash"
+import {is} from "redux-saga/utils";
 
 
 class AdminPanelBlogComponent extends Component {
 
-
     componentDidMount() {
-        const {actions: {loadPosts}} = this.props;
-        loadPosts();
+        const {actions: {loadData}} = this.props;
+        loadData(BLOG);
     }
 
     removePost = (id) => {
-        const {actions: {removePost}} = this.props;
-        removePost(id)
+        const {actions: {removeDataById}} = this.props;
+        removeDataById(BLOG, id)
     };
 
-    editProduct = (id) => {
+    editPost = (id) => {
         console.log(id);
     };
 
 
     render() {
 
-        const {posts} = this.props;
-        let productsView = posts.map(post => {
-            return <tr key={post.id}>
-                <td className="txl">{post.title}</td>
-                <td className="txl txtline">{post.content}</td>
-                <td className="txl">{post.date}</td>
-                <td className="txr">{post.tag}</td>
-                <td className="txr">{post.statistic.viewers}</td>
-                <td className="txr">{post.statistic.comments}</td>
-                <td className="txr">
-                    <i className="far fa-eye icon-margin" onClick={() => this.viewProduct(post.id)}/>
-                    <Link to={{ pathname: `/admin/blog/edit/${post.id}`}} > <i className="far fa-edit icon-margin"/> </Link>
-                    <i className="far fa-trash-alt icon-margin" onClick={() => this.removePost(post.id)}/>
+        const headers = {
+            title: {
+                name: "Название",
+                style: {
+                    textAlign: "left"
+                }
+            },
+            author: {
+                name: "Автор",
+                style: {
+                    textAlign: "left"
+                }
+            },
+            content: {
+                name: "Контент",
+                style: {
+                    textAlign: "left"
+                }
+            },
+            date: {
+                name: "Дата",
+                style: {
+                    textAlign: "right"
+                }
+            },
+            tag: {
+                name: "Ярлык",
+                style: {
+                    textAlign: "right"
+                }
+            },
+            views: {
+                name: "Просмотры",
+                style: {
+                    textAlign: 'right'
+                }
+            },
+            comments: {
+                name: "Комментарии",
+                style: {
+                    textAlign: "right"
+                }
+            },
+        };
 
+        const actions = {
+            editAction: this.editPost,
+            removeAction: this.removePost
+        };
 
-                </td>
-            </tr>
-        });
+        const {post} = this.props;
+        let map = [];
+        if (!isEmpty(post)) {
+            map = post.map(f => {
+                return {
+                    title: f.title,
+                    content: f.content,
+                    tag: f.tag,
+                    date: f.date,
+                    author: f.author,
+                    views: f.statistic.viewers,
+                    comments: f.statistic.comments,
+                }
+            });
+        }
 
         return (
             <LoaderContainer>
-                <div className="admin-card panel-products">
-                    <Link to="/admin/catalog/new" className="btn action right">Добавить</Link>
-                    <table className="table-component">
-                        <thead>
-                        <tr>
-                            <th className="txl" style={{width: '20%'}}>Название</th>
-                            <th className="txl" style={{width: '50%'}}>Краткое описание</th>
-                            <th className="txl" style={{width: '10%'}}>Дата</th>
-                            <th className="txr" style={{width: '5%'}}>Ярлык</th>
-                            <th className="txr" style={{width: '10%'}}>Просмотры</th>
-                            <th className="txr" style={{width: '10%'}}>Коментарии</th>
-                            <th className="txr" style={{width: '10%'}}>Действия</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {productsView}
-                        </tbody>
-                    </table>
+                <div className="panel-products">
+                    <Link to="/admin/blog/new" className="btn action" onlyActiveOnIndex>Добавить</Link>
+                    <TableView headers={headers}
+                               data={map}
+                               actions={actions}
+                               columnSize={{gridTemplateColumns: '10% 10% 30% 10% 10% 10% 10% 10%'}}/>
                 </div>
             </LoaderContainer>
         );
     }
 }
 
-
 const mapStateToProps = (state) => {
-    const {blog: {posts}, loader} = state;
+    const {data: {post}, loader} = state;
     return {
-        posts,
+        post,
         loader
     };
 };
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
-        loadPosts,
-        removePost
+        loadData,
+        removeDataById
     }, dispatch),
 });
 

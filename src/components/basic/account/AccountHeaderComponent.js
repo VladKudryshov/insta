@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import {storageUtils} from "../../../utils/StorageUtils";
-import AccountMenuComponent from "../menus/AccountMenuComponent";
+import AccountMenu from "../menus/AccountMenu";
 import {Link} from "react-router";
 
 class AccountHeaderComponent extends Component {
@@ -25,7 +25,7 @@ class AccountHeaderComponent extends Component {
                     : <Link className="sing-in" to="login">Войти</Link>
 
                 }
-                <AccountMenuComponent close={this.handleAccountMenu} open={open}/>
+                <AccountMenu close={this.handleAccountMenu} open={open}/>
             </>
         );
     }

@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-
-import {Link} from 'react-router'
 import AccountHeaderComponent from "../account/AccountHeaderComponent";
 import SimpleBasketContainer from "../../../containers/SimpleBasketContainer";
 import SimpleNotificationContainer from "../../../containers/SimpleNotificationContainer";
 import MobileMenuComponent from "../menus/MobileMenuComponent";
-import DesktopMenuComponent from "../menus/DesktopMenuComponent";
+import DesktopMenu from "../menus/DesktopMenu";
+import Notification from "../../notification/Notifications";
 
 
 class HeaderComponent extends Component {
@@ -13,18 +12,21 @@ class HeaderComponent extends Component {
     render() {
 
         return (
-            <header>
-                <MobileMenuComponent/>
-                <div className="logo">
-                    {/*<Link to="/"><img src="/images/logo.png" alt="Logo"/></Link>*/}
-                </div>
-                <DesktopMenuComponent/>
-                <div className="notifications">
-                    <SimpleBasketContainer/>
-                    <SimpleNotificationContainer/>
-                    <AccountHeaderComponent/>
-                </div>
-            </header>
+            <>
+                <Notification/>
+                <header>
+                    <MobileMenuComponent/>
+                    <div className="logo">
+                        {/*<Link to="/"><img src="/images/logo.png" alt="Logo"/></Link>*/}
+                    </div>
+                    <DesktopMenu/>
+                    <div className="notifications">
+                        <SimpleBasketContainer/>
+                        <SimpleNotificationContainer/>
+                        <AccountHeaderComponent/>
+                    </div>
+                </header>
+            </>
         );
     }
 }

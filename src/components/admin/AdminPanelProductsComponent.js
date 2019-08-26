@@ -4,6 +4,48 @@ import {loadData, removeCatalogProduct} from "../../actions/action";
 import connect from "react-redux/es/connect/connect";
 import {Link} from "react-router";
 import LoaderContainer from "../../containers/LoaderContainer";
+import {PRODUCTS} from "../../consts/apps";
+import {get, values, isEmpty} from "lodash"
+import TableView from "./TableView";
+
+const headers = {
+    id: {
+        name : "#",
+        style: {
+            textAlign: "left"
+        }
+    },
+    name: {
+        name: "Название",
+        style:{
+            textAlign: "left"
+        }
+    },
+    content: {
+        name: "Контент",
+        style:{
+            textAlign: "left"
+        }
+    },
+    category: {
+        name: "Категория",
+        style:{
+            textAlign: "right"
+        }
+    },
+    price: {
+        name: "Цена",
+        style:{
+            textAlign: "right"
+        }
+    },
+    discount: {
+        name: "Скидка",
+        style: {
+            textAlign: 'right'
+        }
+    }
+};
 
 
 class AdminPanelProductsComponent extends Component {
@@ -11,7 +53,7 @@ class AdminPanelProductsComponent extends Component {
 
     componentDidMount() {
         const {actions: {loadData}} = this.props;
-        loadData('');
+        loadData(PRODUCTS);
     }
 
     removeProduct = (id) => {
@@ -20,62 +62,41 @@ class AdminPanelProductsComponent extends Component {
     };
 
     editProduct = (id) => {
-        console.log(id);
     };
 
+    viewProduct = (id) => {
+    };
 
     render() {
 
         const {products} = this.props;
 
-        let productsView = products.map(product => {
-            return <tr key={product.id}>
-                <td className="txl">{product.name}</td>
-                <td className="txl txtline">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, commodi
-                    consequatur cupiditate delectus doloribus, eaque fuga provident quidem quis quisquam quos
-                    reprehenderit totam. Accusamus asperiores at deleniti dolores fugit repellendus.
-                </td>
-                <td className="txl">{product.category}</td>
-                <td className="txr">{product.discount}%</td>
-                <td className="txr">{product.price}</td>
-                <td className="txr">
-                    <i className="far fa-eye icon-margin" onClick={() => this.viewProduct(product.id)}/>
-                    <Link to={{ pathname: `/admin/catalog/edit/${product.id}`}} > <i className="far fa-edit icon-margin"/> </Link>
-                    <i className="far fa-trash-alt icon-margin" onClick={() => this.removeProduct(product.id)}/>
+        let map = [];
+        if(!isEmpty(products)){
+            map = get(products, 'content');
+        }
 
-
-                </td>
-            </tr>
-        });
+        let actions = {
+            viewAction: this.viewProduct,
+            editAction: this.editProduct,
+            removeAction: this.removeProduct
+        };
 
         return (
             <LoaderContainer>
-                <div className="admin-card panel-products">
-                    <Link to="/admin/catalog/new" className="btn action right">Добавить</Link>
-                    <table className="table-component">
-                        <thead>
-                        <tr>
-                            <th className="txl" style={{width: '20%'}}>Название</th>
-                            <th className="txl" style={{width: '50%'}}>Краткое описание</th>
-                            <th className="txl" style={{width: '10%'}}>Категория</th>
-                            <th className="txr" style={{width: '5%'}}>Скидка</th>
-                            <th className="txr" style={{width: '10%'}}>Цена</th>
-                            <th className="txr" style={{width: '10%'}}>Действия</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {productsView}
-                        </tbody>
-                    </table>
+                <div>
+                    <Link to="/admin/products/new" className="btn action" onlyActiveOnIndex>Добавить</Link>
+                    <TableView headers={headers} data={map} actions={actions} columnSize={{gridTemplateColumns: '5% 20% 35% 10% 10% 10% 10%'}}/>
                 </div>
             </LoaderContainer>
+
+
         );
     }
 }
 
-
 const mapStateToProps = (state) => {
-    const {catalog: {products}, loader} = state;
+    const {data: {products}, loader} = state;
     return {
         products,
         loader

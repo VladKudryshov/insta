@@ -3,28 +3,17 @@ import {orderService} from "../services/orderService";
 import {
     CLEAR_BASKET,
     CREATE_ORDER,
-    LOAD_DATA_BY_ID,
-    LOAD_ORDERS, REMOVE_ORDER_BY_ID,
-    SAVE_ORDERS,
-    SAVE_PRODUCTS_BAG
+    LOAD_ALL_ORDERS,
+    REMOVE_ORDER_BY_ID,
+    SAVE_ORDERS, RECEIVE_DATA
 } from "../actions/action";
 
 
-function* loadOrderInfo(action) {
+function* loadOrders(action) {
     try {
-        const {id} = action;
-        const data = yield call(orderService.getOrderById, id);
-
-        yield put({type: SAVE_PRODUCTS_BAG, data});
-    } catch (err) {
-
-    }
-}
-
-function* loadOrders() {
-    try {
+        const {app} = action;
         const data = yield call(orderService.getOrders);
-        yield put({type: SAVE_ORDERS, data});
+        yield put({type: RECEIVE_DATA, data, app});
     } catch (err) {
 
     }
@@ -33,7 +22,7 @@ function* loadOrders() {
 function* createOrder(action) {
     try {
         const {basket, contact} = action;
-        yield call(orderService.createOrder, basket, contact);
+        yield call(orderService.createOrder, {basket, contact});
         yield put({type: CLEAR_BASKET});
     } catch (err) {
 
@@ -53,9 +42,8 @@ function* removeOrder(action) {
 
 
 function* order() {
-    yield takeEvery(LOAD_DATA_BY_ID, loadOrderInfo);
     yield takeEvery(CREATE_ORDER, createOrder);
-    yield takeEvery(LOAD_ORDERS, loadOrders);
+    yield takeEvery(LOAD_ALL_ORDERS, loadOrders);
     yield takeEvery(REMOVE_ORDER_BY_ID, removeOrder);
 }
 

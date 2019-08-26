@@ -2,7 +2,7 @@ import {bindActionCreators} from "redux";
 import {loadDataById, clearData} from "../../actions/action";
 import connect from "react-redux/es/connect/connect";
 import React, {Component} from "react";
-import Post from "../../components/basic/blog/Post";
+import FullPost from "../../components/basic/blog/FullPost";
 import {BLOG} from "../../consts/apps";
 
 
@@ -22,7 +22,7 @@ class PostContainer extends Component {
     render() {
         const {post} = this.props
         return (
-            <Post post = {post}/>
+            <FullPost post = {post}/>
         );
     }
 

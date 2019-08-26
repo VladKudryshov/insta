@@ -1,22 +1,15 @@
 import {call, put, takeEvery} from 'redux-saga/effects';
 
 import {
-    DELETE_DATA_BY_ID,
     ERROR,
     LOAD_DATA,
     LOAD_DATA_BY_ID,
     RECEIVE_DATA,
+    REMOVE_DATA_BY_ID,
     SAVE_DATA,
-    UPDATE_DATA_BY_ID,
 } from '../actions/action';
 
-import {
-    fetchDeleteData,
-    fetchGetData,
-    fetchGetDataById,
-    fetchPostData,
-    fetchPutDataById,
-} from '../api';
+import {fetchDeleteData, fetchGetData, fetchGetDataById, fetchPostData, fetchPutDataById,} from '../api';
 
 function* loadData(action) {
     try {
@@ -74,9 +67,9 @@ function* updateDataById(action) {
 function* data() {
     yield takeEvery(LOAD_DATA, loadData);
     yield takeEvery(LOAD_DATA_BY_ID, loadDataById);
-    yield takeEvery(DELETE_DATA_BY_ID, deleteDataById);
+    yield takeEvery(REMOVE_DATA_BY_ID, deleteDataById);
     yield takeEvery(SAVE_DATA, saveData);
-    yield takeEvery(UPDATE_DATA_BY_ID, updateDataById);
+    // yield takeEvery(UPDATE_DATA_BY_ID, updateDataById);
 }
 
 export default data;

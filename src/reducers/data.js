@@ -1,7 +1,7 @@
 import {createWrapperReducer} from "../utils/other";
 import {combineReducers} from "redux";
-import {BLOG, PRODUCTS} from "../consts/apps";
-import {CLEAR_DATA, RECEIVE_DATA} from "../actions/action";
+import {BLOG, ORDERS, PRODUCTS, USERS} from "../consts/apps";
+import {CHANGE_DATA_OBJECT, CLEAR_DATA, RECEIVE_DATA} from "../actions/action";
 
 const data = (state = [], action) => {
     switch (action.type) {
@@ -9,7 +9,11 @@ const data = (state = [], action) => {
             const {data} = action;
             return data;
         }
-
+        case CHANGE_DATA_OBJECT: {
+            const {name, value} = action;
+            console.log(action)
+            return {...state, [name]: value}
+        }
         case CLEAR_DATA: {
             return [];
         }
@@ -22,4 +26,6 @@ const data = (state = [], action) => {
 export default combineReducers({
     post: createWrapperReducer(data, BLOG),
     products: createWrapperReducer(data, PRODUCTS),
+    orders: createWrapperReducer(data, ORDERS),
+    users: createWrapperReducer(data, USERS),
 });

@@ -3,29 +3,35 @@ import React, {Component} from 'react';
 import {getRepresentationCategory, getRepresentationStatus} from "../../../models/statusMapping";
 import {getFormatedPrice} from "../../../utils/other";
 import LoaderContainer from "../../../containers/LoaderContainer";
+import {get} from 'lodash'
+import {ORDERS} from "../../../consts/apps";
 
 class OrderCardComponent extends Component {
 
     componentDidMount(){
-        this.props.actions.loadDataById(this.props.params.id)
+        console.log(this.props.params.id)
+        this.props.actions.loadDataById(ORDERS, this.props.params.id)
     }
 
     componentDidUpdate(prevProps) {
         const locationChanged = this.props.params !== prevProps.params;
-        locationChanged && this.props.actions.loadDataById(this.props.params.id)
+        locationChanged && this.props.actions.loadDataById(ORDERS, this.props.params.id)
     }
 
 
     render() {
-        const {order: {orderContact, productOrder, orderStatus}} = this.props;
-        let products = productOrder.map(product => <ul key={product.id}>
-                <li>{product.name}</li>
-                <li>{getRepresentationCategory(product.category)}</li>
-                <li className="tx-l">{product.discount}%</li>
-                <li className="tx-l">{getFormatedPrice(product.priceWithDiscount)} BYN</li>
-                <li className="tx-l">{getFormatedPrice(product.totalPrice)} BYN</li>
-            </ul>
-        );
+        const {orders: {orderContact, productOrder, orderStatus}} = this.props;
+        let products = [];
+        if(productOrder){
+            products = productOrder.map(product => <ul key={product.id}>
+                    <li>{product.name}</li>
+                    <li>{getRepresentationCategory(product.category)}</li>
+                    <li className="tx-l">{product.discount}%</li>
+                    <li className="tx-l">{getFormatedPrice(product.priceWithDiscount)} BYN</li>
+                    <li className="tx-l">{getFormatedPrice(product.totalPrice)} BYN</li>
+                </ul>
+            );
+        }
 
         return (
             <div className="order-component" key={this.props.params.id}>
@@ -41,15 +47,15 @@ class OrderCardComponent extends Component {
                                 <tbody>
                                 <tr>
                                     <td>Имя:</td>
-                                    <td>{orderContact.userName}</td>
+                                    <td>{get(orderContact, 'userName')}</td>
                                 </tr>
                                 <tr>
                                     <td>Фамилия:</td>
-                                    <td>{orderContact.userSecondName}</td>
+                                    <td>{get(orderContact, 'userSecondName')}</td>
                                 </tr>
                                 <tr>
                                     <td>Телефон:</td>
-                                    <td>{orderContact.userPhone}</td>
+                                    <td>{get(orderContact, 'userPhone')}</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -57,19 +63,19 @@ class OrderCardComponent extends Component {
                                 <tbody>
                                 <tr>
                                     <td>Город:</td>
-                                    <td>{orderContact.city}</td>
+                                    <td>{get(orderContact, 'city')}</td>
                                 </tr>
                                 <tr>
                                     <td>Улица:</td>
-                                    <td>{orderContact.street}</td>
+                                    <td>{get(orderContact, 'street')}</td>
                                 </tr>
                                 <tr>
                                     <td>Дом:</td>
-                                    <td>{orderContact.house}</td>
+                                    <td>{get(orderContact, 'house')}</td>
                                 </tr>
                                 <tr>
                                     <td>Квартира:</td>
-                                    <td>{orderContact.flat}</td>
+                                    <td>{get(orderContact, 'flat')}</td>
                                 </tr>
                                 </tbody>
                             </table>

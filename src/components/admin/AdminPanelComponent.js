@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import AdminPanelMenuComponent from "./AdminPanelMenuComponent";
+import AdminPanelMenu from "./AdminPanelMenu";
 
 
 class AdminPanelComponent extends Component {
@@ -7,7 +7,7 @@ class AdminPanelComponent extends Component {
     render() {
         return (
             <div>
-                <AdminPanelMenuComponent/>
+                <AdminPanelMenu/>
             </div>
         );
     }

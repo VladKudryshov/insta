@@ -26,9 +26,9 @@ class QuantityContainer extends Component {
         quantity = Number.parseFloat(quantity).toFixed(2);
         const {actions: {changeQuantityProductInBasket, deleteProductFromBasket}} = this.props;
         changeQuantityProductInBasket(id, Number.parseFloat(quantity));
-        if (Number.parseFloat(quantity) === 0) {
+        /*if (Number.parseFloat(quantity) === 0) {
             deleteProductFromBasket(id)
-        }
+        }*/
     };
 
     format = (number) => {
@@ -38,7 +38,7 @@ class QuantityContainer extends Component {
     handleOnChangeInput = (e, id) => {
         const {target: {value}} = e;
         this.setState({value: value})
-        // this.changeQuantityIntoOrder(id, Number(value))
+        this.changeQuantityIntoOrder(id, Number(value))
     }
 
     decrease = (id) => {
@@ -47,30 +47,29 @@ class QuantityContainer extends Component {
         if(newValue>=0){
             this.setState({value: this.format(newValue)})
         }
-        // this.changeQuantityIntoOrder(id, newValue)
+        this.changeQuantityIntoOrder(id, newValue)
     };
 
     increase = (id) => {
-        // let newValue = Number(this.getQuantityById(id)) + 0.05;
-        let newValue = Number(this.state.value) + 0.05;
+        let newValue = Number(this.getQuantityById(id)) + 0.05;
         this.setState({value: this.format(newValue)})
-        // this.changeQuantityIntoOrder(id, newValue)
+        this.changeQuantityIntoOrder(id, newValue)
     };
 
     render() {
         const {product} = this.props;
         const {value} = this.state;
 
-        return <div className="quantity">
+        return <div className="quantity ">
             <div className="quantity-action" onClick={() => this.decrease(product.id)}>
-                <i className="fas fa-minus"></i>
+                <i className="fas fa-minus neutral-c"/>
             </div>
             <div className="quantity-number">
                 <input className="" value={value}
                        onChange={(e) => this.handleOnChangeInput(e, product.id)}/>
             </div>
             <div className="quantity-action" onClick={() => this.increase(product.id)}>
-                <i className="fas fa-plus"></i>
+                <i className="fas fa-plus neutral-c"/>
             </div>
         </div>
 

@@ -16,9 +16,9 @@ class OrderCardContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-    const {order: {order}, loader} = state;
+    const {data: {orders}, loader} = state;
     return {
-        order,
+        orders,
         loader
     };
 };

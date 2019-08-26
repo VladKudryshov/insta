@@ -7,7 +7,7 @@ class OrderStepperComponent extends Component {
 
     state = {
         currentPosition: 1,
-        tabs: 2
+        tabs: 3
     };
 
 
@@ -53,20 +53,33 @@ class OrderStepperComponent extends Component {
 
         return (
             <div className="container">
-
+                <div className="process-order">
+                    <div className={currentPosition===1? 'process-type action' : 'process-type neutral'}><span>
+                        <i className="fas fa-shopping-basket"></i>
+                    </span></div>
+                    <div className={currentPosition===2? 'process-type action' : 'process-type neutral'}><span>
+                        <i className="far fa-address-card"></i>
+                    </span></div>
+                    <div className={currentPosition===3? 'process-type action' : 'process-type neutral'}><span>
+                        <i className="fas fa-credit-card"></i>
+                    </span></div>
+                    <div className={currentPosition===4? 'process-type action' : 'process-type neutral'}><span>
+                        <i className="fas fa-shopping-cart"></i>
+                    </span></div>
+                </div>
                 {currentPosition === 1 ? <BasketComponent/> : <ContactsOrderContainer change={this.handleChangeOrderContacts}/>}
                 {
                     !loader && !flag && <ul className="order-action fl-r">
                         <li>
                             {currentPosition !== 1
-                                ? <button className="btn netral" onClick={this.prevStep}>Назад</button>
+                                ? <button className="btn non-active" onClick={this.prevStep}>Назад</button>
                                 :
-                                <button className="btn netral" onClick={this.handleClearBasket}>Очистить корзину</button>}
+                                <button className="btn non-active" onClick={this.handleClearBasket}>Очистить корзину</button>}
                         </li>
                         <li>
                             {tabs === currentPosition ?
-                                <button className="btn primary" onClick={this.createOrder}>Заказать</button> :
-                                <button className="btn primary" onClick={this.nextStep}>Далее</button>}
+                                <button className="btn neutral" onClick={this.createOrder}>Заказать</button> :
+                                <button className="btn neutral" onClick={this.nextStep}>Далее</button>}
                         </li>
                     </ul>
                 }

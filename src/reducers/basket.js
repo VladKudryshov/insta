@@ -47,16 +47,12 @@ const basket = (state = defaultState, action) => {
                 products: state.products ? state.products : []
             };
         case CHANGE_QUANTITY_PRODUCT_IN_BASKET:
-            if (action.quantity === 0) {
-                newState = state.basket.filter(f => f.id !== action.id);
-            } else {
-                newState = state.basket.map(product => {
-                    if (product.id === action.id) {
-                        return {...product, quantity: action.quantity}
-                    }
-                    return product
-                });
-            }
+            newState = state.basket.map(product => {
+                if (product.id === action.id) {
+                    return {...product, quantity: action.quantity}
+                }
+                return product
+            });
             localStorage.setItem("order", JSON.stringify(newState))
             return {
                 ...state,

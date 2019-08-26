@@ -25,7 +25,7 @@ class MobileMenuComponent extends Component {
                 </div>
                 {mobileMenu && <ul className="mobile-menu-items">
                         <li><Link to="/" onClick={this.handleMobileMenu}>Главная</Link></li>
-                        <li><Link to="/catalog" onClick={this.handleMobileMenu}>Каталог</Link></li>
+                        <li><Link to="/products" onClick={this.handleMobileMenu}>Каталог</Link></li>
                         <li><Link to="/blog" onClick={this.handleMobileMenu}>Блог</Link></li>
                         <li><Link to="/delivery" onClick={this.handleMobileMenu}>Доставка</Link></li>
                         <li><Link to="/about" onClick={this.handleMobileMenu}>О нас</Link></li>

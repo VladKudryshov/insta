@@ -5,6 +5,8 @@ import {changeQuantityProductInBasket, deleteProductFromBasket, loadProductsBag}
 import QuantityContainer from "../../../containers/QuantityContainer";
 import {getPriceWithDiscount} from "../../../utils/other";
 import LoaderContainer from "../../../containers/LoaderContainer";
+import TableView from "../../admin/TableView";
+import {get, isEmpty, reduce} from "lodash";
 
 class BasketComponent extends Component {
 
@@ -38,37 +40,88 @@ class BasketComponent extends Component {
     render() {
         const {basket: {products}} = this.props;
 
+        const headers = {
+            image: {
+                name: ""
+            },
+            name: {
+                name: "Название",
+                style: {
+                    textAlign: "left"
+                }
+            },
+            category: {
+                name: "Категория",
+                style: {
+                    textAlign: "left"
+                }
+            },
+            price: {
+                name: "Цена",
+                style: {
+                    textAlign: "right"
+                }
+            },
+            count: {
+                name: "Количество",
+                style: {
+                    textAlign: 'center'
+                }
+            },
+            discount: {
+                name: "Скидка",
+                style: {
+                    textAlign: 'right'
+                }
+            },
+            total: {
+                name: "Итого",
+                style: {
+                    textAlign: 'right'
+                }
+            }
+        };
+
+        let map = [];
+        if (!isEmpty(products)) {
+            map = products.map(product => {
+                return {
+                    ...product,
+                    image: <img src={product.image} alt="" className="basket-product-image"/>,
+                    total: (getPriceWithDiscount(product) * this.getQuantityById(product.id)).toFixed(2),
+                    count: <QuantityContainer product={product}/>
+                }
+            });
+        }
+
+        let actions = {
+            removeAction: this.deleteProductByID
+        };
+        console.log(products)
+        let total = reduce(products, (prev, curr) => (Number.parseFloat((getPriceWithDiscount(prev) * this.getQuantityById(prev.id)).toFixed(2))
+            + Number.parseFloat((getPriceWithDiscount(curr) * this.getQuantityById(curr.id)).toFixed(2))));
+        let cost = reduce(products, (prev, curr) => prev.price * this.getQuantityById(prev.id) + curr.price * this.getQuantityById(curr.id));
         return (
             <LoaderContainer>
-
-                <div className="basket-box card">
-                    <ul className=" ">
-                        <ul key="-1" className=''>
-                            <li>Название</li>
-                            <li>Категория</li>
-                            <li>Скидка</li>
-                            <li>Цена</li>
-                            <li>Количество</li>
-                            <li>Итого</li>
-                            <li/>
-                        </ul>
-                        {
-                            products.map(product => <ul key={product.id} className=''>
-                                <li>{product.name}</li>
-                                <li>{product.category}</li>
-                                <li>{product.discount} %</li>
-                                <li>{getPriceWithDiscount(product)} BYN за {product.unitName}</li>
-
-                                <li>
-                                    <QuantityContainer product={product}/>
-                                </li>
-                                <li>{(getPriceWithDiscount(product) * this.getQuantityById(product.id)).toFixed(2)} BYN</li>
-                                <li onClick={(event) => this.deleteProductByID(event, product.id)} className="tx-l">
-                                    <i className="fas fa-trash"/>
-                                </li>
-                            </ul>)
-                        }
-                    </ul>
+                <div>
+                    <TableView headers={headers} data={map} actions={actions}
+                               columnSize={{gridTemplateColumns: '8% 32% 21% 8% 10% 5% 8% 10%'}}/>
+                    <table className="order-summary card">
+                        {/*<tbody>*/}
+                        {/*<tr className="cost">*/}
+                        {/*    <td>Стоимость заказа</td>*/}
+                        {/*    <td>{cost ? cost.toFixed(2) : 0} BYN</td>*/}
+                        {/*</tr>*/}
+                        {/*<tr className="discount">*/}
+                        {/*    <td>Скидка</td>*/}
+                        {/*    <td>{(cost - total).toFixed(2)} BYN</td>*/}
+                        {/*</tr>*/}
+                        {/*<tr className="total">*/}
+                        {/*    <td>Итого</td>*/}
+                        {/*    <td>{total ? total.toFixed(2) : 0} BYN</td>*/}
+                        {/*</tr>*/}
+                        {/*</tbody>*/}
+                    </table>
                 </div>
             </LoaderContainer>
         )

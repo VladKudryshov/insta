@@ -3,7 +3,7 @@ import {userService} from "../../../services/userService";
 import {Link} from "react-router";
 import {storageUtils} from "../../../utils/StorageUtils";
 
-class AccountMenuComponent extends Component {
+class AccountMenu extends Component {
 
 
     constructor(props) {
@@ -60,4 +60,4 @@ class AccountMenuComponent extends Component {
 }
 
 
-export default AccountMenuComponent;
+export default AccountMenu;

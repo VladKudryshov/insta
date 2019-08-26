@@ -2,17 +2,19 @@ import React, {Component} from 'react';
 import {browserHistory} from "react-router";
 import ProductAction from "../../containers/products/ProductActionContainer";
 import {bindActionCreators} from "redux";
-import {addProductToCatalog, changeCatalogProduct, clearData, getProductById} from "../../actions/action";
+import {addProductToCatalog, changeDataObject, clearData, getProductById, loadDataById} from "../../actions/action";
 import connect from "react-redux/es/connect/connect";
 import LoaderContainer from "../../containers/LoaderContainer";
+import {PRODUCTS} from "../../consts/apps";
+import Product from "../basic/catalog/Product";
 
 
 class AdminPanelProductComponent extends Component {
 
     componentDidMount() {
-        const {actions: {getProductById}, params: {id}} = this.props
-        if(id){
-            getProductById(id)
+        const {actions: {loadDataById}, params: {id}} = this.props
+        if (id) {
+            loadDataById(PRODUCTS, id)
         }
     }
 
@@ -23,20 +25,21 @@ class AdminPanelProductComponent extends Component {
 
 
     changeState = (e) => {
-        const {actions: {changeCatalogProduct}} = this.props;
+        const {actions: {changeDataObject}} = this.props;
         const {target: {name, value, type}} = e;
-        if(type==='number'){
-            changeCatalogProduct(name, Number(value));
-        }else {
-            changeCatalogProduct(name, value || '');
+        console.log(name)
+        if (type === 'number') {
+            changeDataObject(PRODUCTS, name, Number(value));
+        } else {
+            changeDataObject(PRODUCTS, name, value || '');
         }
 
     };
 
     handleChange = (event) => {
-        const {actions: {changeCatalogProduct}} = this.props
-        changeCatalogProduct('file', event.target.files[0]);
-        changeCatalogProduct('image', URL.createObjectURL(event.target.files[0]));
+        const {actions: {changeDataObject}} = this.props
+        changeDataObject(PRODUCTS, 'file', event.target.files[0]);
+        changeDataObject(PRODUCTS, 'image', URL.createObjectURL(event.target.files[0]));
     };
 
     save = () => {
@@ -54,12 +57,13 @@ class AdminPanelProductComponent extends Component {
     }
 
     render() {
-
+        const {product} = this.props
         return (
             <LoaderContainer>
                 <div className="admin-card panel-products">
                     <div>
-                        <i className="fas fa-chevron-left hover" style={{fontSize: 18, padding: '0 10', color: '#00ba56'}}
+                        <i className="fas fa-chevron-left hover"
+                           style={{fontSize: 18, padding: '0 10', color: '#00ba56'}}
                            onClick={browserHistory.goBack}/>
                     </div>
                     <div className="product-container">
@@ -68,15 +72,18 @@ class AdminPanelProductComponent extends Component {
                             <div>
                                 <input className="p1015" type="text" name="name" placeholder="Название"
                                        onChange={this.changeState} defaultValue={this.props.product.name}/>
-                                <input className="p1015" type="text" name="category" placeholder="Категория" onChange={this.changeState}
+                                <input className="p1015" type="text" name="category" placeholder="Категория"
+                                       onChange={this.changeState}
                                        defaultValue={this.props.product.category}/>
                             </div>
                             <div>
                                 <p className="title">Цена</p>
                                 <p className="title">Скидка</p>
-                                <input className="p1015" type="number" name="price" placeholder="Цена" onChange={this.changeState} step="0.01"
+                                <input className="p1015" type="number" name="price" placeholder="Цена"
+                                       onChange={this.changeState} step="0.01"
                                        defaultValue={this.props.product.price}/>
-                                <input className="p1015" type="number" name="discount" placeholder="Скидка" onChange={this.changeState}
+                                <input className="p1015" type="number" name="discount" placeholder="Скидка"
+                                       onChange={this.changeState}
                                        min="0" max="100" defaultValue={this.props.product.discount}/>
 
                             </div>
@@ -84,36 +91,16 @@ class AdminPanelProductComponent extends Component {
                             <div>
                                 <input className="p1015" type="text" name="unitName" placeholder="Единица измерения"
                                        onChange={this.changeState} defaultValue={this.props.product.unitName}/>
-                                <input className="p1015" type="number" name="unitNumber" placeholder="Вес" onChange={this.changeState}
+                                <input className="p1015" type="number" name="unitNumber" placeholder="Вес"
+                                       onChange={this.changeState}
                                        defaultValue={this.props.product.unitNumber}/>
 
                             </div>
-                            <input  className="p1015" type="file" name="file" onChange={this.handleChange}/>
+                            <input className="p1015" type="file" name="file" onChange={this.handleChange}/>
                         </div>
                         <div className="viewer-form">
 
-                            <div className="product card">
-                                <div className="product-content">
-                                    <div className="product-title">
-                                        <div> {this.props.product.name}</div>
-                                        <div
-                                            className="units">{this.props.product.unitNumber} {this.props.product.unitName}</div>
-                                    </div>
-                                    <div className="product-price card">
-                                        <div className="price">{this.numberFormat(this.props.product.price)} BYN</div>
-                                        <div className="discount">
-                                            <div>{this.props.product.discount}%</div>
-                                        </div>
-                                        <div
-                                            className="new-price">{this.priceWithDiscount()} BYN
-                                        </div>
-                                    </div>
-                                    <div className="product-image"><img
-                                        src={this.props.product.image} alt=""/></div>
-                                    <ProductAction id={this.props.product.id}/>
-                                </div>
-
-                            </div>
+                            <Product product={product} />
 
                         </div>
                         <div>
@@ -128,9 +115,9 @@ class AdminPanelProductComponent extends Component {
 }
 
 const mapStateToProps = (state) => {
-    const {catalog: {product}, loader} = state;
+    const {data: {products}, loader} = state;
     return {
-        product,
+        product: products,
         loader
     };
 };
@@ -138,8 +125,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
         addProductToCatalog,
-        getProductById,
-        changeCatalogProduct,
+        loadDataById,
+        changeDataObject,
         clearData
     }, dispatch),
 });
