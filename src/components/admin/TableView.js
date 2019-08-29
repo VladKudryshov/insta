@@ -12,12 +12,12 @@ const TableView = ({
                    }) => (
     <div className="custom-table" style={tableStyle}>
         <ul className="headers admin-card" style={columnSize}>
-            {keys(headers).map(header => <li key={headers[header].name} style={headers[header].style}>
+            {keys(headers).map(header => <li key={headers[header].name} className="txtline" style={headers[header].style}>
                 <b>{headers[header].name}</b></li>)}
             {!isEmpty(keys(actions)) ? <li className="txc"><b>Действия</b></li> : ''}
         </ul>
         {
-            data.map(row => <ul className="rows admin-card" style={columnSize} key={row.id}>
+            data.map(row => <ul className={row.status === 'PENDING' ? 'rows admin-card' : 'admin-card'} style={columnSize} key={row.id}>
                 {keys(headers).map(cell => <li key={cell} style={headers[cell].style} className="txtline">
                     <span>
                         {row[cell]}

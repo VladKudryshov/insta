@@ -21,7 +21,7 @@ class HeaderComponent extends Component {
                     </div>
                     <DesktopMenu/>
                     <div className="notifications">
-                        <SimpleBasketContainer/>
+                        {/*<SimpleBasketContainer/>*/}
                         <SimpleNotificationContainer/>
                         <AccountHeaderComponent/>
                     </div>

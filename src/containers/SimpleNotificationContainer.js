@@ -1,19 +1,29 @@
 import {connect} from 'react-redux';
 
 import React, {Component} from "react";
-import {Link} from "react-router";
 import {storageUtils} from "../utils/StorageUtils";
+import NotificationWidget from "../components/basic/widgets/NotificationWidget";
 
 
 class SimpleNotificationContainer extends Component {
 
+    state = {
+        open: false
+    };
+
+    handleAccountMenu = () => {
+        const {open} = this.state;
+        this.setState({open: !open})
+    };
+
     render() {
+        const {open} = this.state;
         return (
-            storageUtils.isAuth() && <Link to="/notifications">
-                <i className="fas fa-bell hover center">{
-                    <span className="not-empty">1</span>
-                }</i>
-            </Link>
+            <>
+                {storageUtils.isAuth() &&
+                     <i className="fas fa-bell hover center " onClick={this.handleAccountMenu}>{<span className="not-empty">1</span>}</i>}
+                <NotificationWidget close={this.handleAccountMenu} open={open}/>
+            </>
         );
     }
 }

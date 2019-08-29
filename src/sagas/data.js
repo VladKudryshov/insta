@@ -1,5 +1,5 @@
 import {call, put, takeEvery} from 'redux-saga/effects';
-
+import {delay} from 'redux-saga'
 import {
     ERROR,
     LOAD_DATA,
@@ -15,6 +15,7 @@ function* loadData(action) {
     try {
         const { app } = action;
         const data = yield call(fetchGetData, app);
+        // yield call(delay, 50000);
         yield put({ type: RECEIVE_DATA, data, app });
     } catch (err) {
         yield put({ type: ERROR, err });
