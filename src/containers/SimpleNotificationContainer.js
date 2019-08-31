@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import React, {Component} from "react";
 import {storageUtils} from "../utils/StorageUtils";
 import NotificationWidget from "../components/basic/widgets/NotificationWidget";
+import ToolTip from "../components/basic/tooltip/ToolTip";
 
 
 class SimpleNotificationContainer extends Component {
@@ -20,8 +21,10 @@ class SimpleNotificationContainer extends Component {
         const {open} = this.state;
         return (
             <>
-                {storageUtils.isAuth() &&
-                     <i className="fas fa-bell hover center " onClick={this.handleAccountMenu}>{<span className="not-empty">1</span>}</i>}
+                {
+                    storageUtils.isAuth() &&
+                    <ToolTip tooltipMessage={"Уведомления"}><i className="fas fa-bell hover center p10" onClick={this.handleAccountMenu}/> </ToolTip>
+                }
                 <NotificationWidget close={this.handleAccountMenu} open={open}/>
             </>
         );

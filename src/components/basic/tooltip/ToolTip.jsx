@@ -2,10 +2,10 @@ import React from 'react';
 
 
 const ToolTip = ({children, tooltipMessage}) => (
-    <li className="category">
+    <div className="tooltip-container">
         {children}
         <div className="tooltip">{tooltipMessage}</div>
-    </li>
+    </div>
 );
 
 

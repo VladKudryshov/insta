@@ -16,7 +16,7 @@ class WidgetPostContainer extends Component {
 
     getValueOrProgress = (value) => {
         return value ? value : <div className="meter">
-            <span style={{width: '25%'}}></span>
+            <span style={{width: '100%'}}></span>
         </div>
     }
 

@@ -1,14 +1,10 @@
-
-
 export const DELETE_DATA_BY_ID = 'DELETE_DATA_BY_ID';
 export const SAVE_DATA = 'SAVE_DATA';
+export const SAVE_DATA_WITH_IMAGE = 'SAVE_DATA_WITH_IMAGE';
 export const UPDATE_DATA_BY_ID = 'UPDATE_DATA_BY_ID';
 
 
-
 export const LOAD_ALL_ORDERS = 'LOAD_ALL_ORDERS';
-
-
 
 
 export const FILTER = 'FILTER';
@@ -45,8 +41,6 @@ export const REMOVE_POST = 'REMOVE_POST';
 export const REMOVE_ORDER_BY_ID = 'REMOVE_ORDER_BY_ID';
 
 
-
-
 export const LOAD_PRODUCT_BY_ID = 'LOAD_PRODUCT_BY_ID';
 export const LOAD_PRODUCTS_BAG = 'LOAD_PRODUCTS_BAG';
 export const LOAD_ADDRESSES = 'LOAD_ADDRESSES';
@@ -55,8 +49,6 @@ export const LOAD_POST = 'LOAD_POST';
 export const LOAD_USERS = 'LOAD_USERS';
 export const ERROR = 'ERROR';
 export const SHOW_NOTIFICATION = 'SHOW_NOTIFICATION';
-
-
 
 
 export const showNotification = (notificationType, title, message) => ({
@@ -76,6 +68,19 @@ export const login = (login, password) => ({
 export const loadData = app => ({
     type: LOAD_DATA,
     app,
+});
+
+
+export const saveData = (app, data) => ({
+    type: SAVE_DATA,
+    app,
+    data
+});
+
+export const saveDataWithImage = (app, data) => ({
+    type: SAVE_DATA_WITH_IMAGE,
+    app,
+    data
 });
 
 export const loadDataById = (app, id) => ({
@@ -133,7 +138,6 @@ export const loadProductsBag = (ids) => ({
     type: LOAD_PRODUCTS_BAG,
     ids,
 });
-
 
 
 export const createOrder = (basket, contact) => ({
@@ -221,7 +225,6 @@ export const loadPost = (id) => ({
 export const error = () => ({
     type: ERROR
 });
-
 
 
 export const saveUsers = (data) => ({

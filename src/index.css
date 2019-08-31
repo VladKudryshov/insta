@@ -25,7 +25,7 @@ body {
         padding: 10px 20px;
         background: #ffffff;
         text-align: left;
-       margin-bottom: 10px;
+        margin-bottom: 10px;
     }
 
     .widget-notification > ul > li:last-child {
@@ -45,7 +45,8 @@ body {
         background: #45cacb;
         font-weight: 600;
     }
-    .widget-notification > ul > .view-all > a{
+
+    .widget-notification > ul > .view-all > a {
         color: #ffffff;
     }
 
@@ -960,10 +961,10 @@ body {
     }
 
     .tooltip {
-        left: 30%;
         position: absolute;
         display: none;
         background: #393939;
+        right: 0;
         color: #ffffff;
         border-radius: 1em;
         padding: 5px 10px;
@@ -978,7 +979,16 @@ body {
         display: block;
     }
 
+    i:hover + .tooltip {
+        display: block;
+    }
+
+    a:hover + .tooltip {
+        display: block;
+    }
+
     .meter {
+        overflow: hidden;
         height: 5px; /* Can be anything */
         position: relative;
         background: #ededed;
@@ -994,27 +1004,24 @@ body {
         left: 0;
         bottom: 0;
         right: 0;
-        background-image: linear-gradient(
-                -45deg,
-                rgba(255, 255, 255, 1) 25%,
-                transparent 25%,
-                transparent 50%,
-                rgba(255, 255, 255, 1) 50%,
-                rgba(255, 255, 255, 1) 75%,
-                transparent 50%,
-                transparent
-        );
-        z-index: 1;
-        background-size: 13px 13px;
         overflow: hidden;
+        background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+        background-size: 800px 104px;
+
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+        animation-name: move;
+        animation-timing-function: linear;
     }
 
-    .meter > span:after, .animate > span > span {
-        animation: move 1s linear infinite;
-    }
-
-    .animate > span:after {
-        display: none;
+    @keyframes move {
+        0%{
+            background-position: -468px 0
+        }
+        100%{
+            background-position: 468px 0
+        }
     }
 
     .product-view {
@@ -1131,12 +1138,19 @@ body {
 
     .notifications {
         position: relative;
-        text-align: right;
         vertical-align: middle;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
     }
 
-    .p1020 {
-        padding: 10px 20px;
+    .notifications > .tooltip-container {
+        position: relative;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .p10 {
+        padding: 10px 0;
     }
 
     .not-empty {
@@ -1160,7 +1174,7 @@ body {
         cursor: pointer;
     }
 
-    .categories > ul > li > a > img {
+    .categories > ul > li > div > a > img {
         width: 2em;
         margin: 0 3em;
     }
@@ -1251,7 +1265,6 @@ body {
         padding: 10px 20px;
         position: sticky;
         width: 100%;
-        grid-row: 1;
         background: #ffffff;
         z-index: 10;
         box-shadow: 0 2px 4px 0 rgba(43, 43, 43, 0.1);
@@ -1523,14 +1536,7 @@ table {
     }
 }
 
-@keyframes move {
-    0% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: 50px 50px;
-    }
-}
+
 
 .Toastify {
     position: absolute;

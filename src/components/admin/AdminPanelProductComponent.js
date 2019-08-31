@@ -2,7 +2,12 @@ import React, {Component} from 'react';
 import {browserHistory} from "react-router";
 import ProductAction from "../../containers/products/ProductActionContainer";
 import {bindActionCreators} from "redux";
-import {addProductToCatalog, changeDataObject, clearData, getProductById, loadDataById} from "../../actions/action";
+import {
+    changeDataObject,
+    clearData,
+    loadDataById,
+    saveDataWithImage
+} from "../../actions/action";
 import connect from "react-redux/es/connect/connect";
 import LoaderContainer from "../../containers/LoaderContainer";
 import {PRODUCTS} from "../../consts/apps";
@@ -37,14 +42,14 @@ class AdminPanelProductComponent extends Component {
     };
 
     handleChange = (event) => {
-        const {actions: {changeDataObject}} = this.props
-        changeDataObject(PRODUCTS, 'file', event.target.files[0]);
+        const {actions: {changeDataObject}} = this.props;
         changeDataObject(PRODUCTS, 'image', URL.createObjectURL(event.target.files[0]));
+        changeDataObject(PRODUCTS, 'file', event.target.files[0]);
     };
 
     save = () => {
-        const {actions: {addProductToCatalog}} = this.props
-        addProductToCatalog(this.props.product)
+        const {product, actions: {saveDataWithImage}} = this.props;
+        saveDataWithImage(PRODUCTS, product)
     };
 
     priceWithDiscount = () => {
@@ -124,7 +129,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
-        addProductToCatalog,
+        saveDataWithImage,
         loadDataById,
         changeDataObject,
         clearData

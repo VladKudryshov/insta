@@ -2,6 +2,7 @@ import {connect} from 'react-redux';
 
 import React, {Component} from "react";
 import {Link} from "react-router";
+import ToolTip from "../components/basic/tooltip/ToolTip";
 
 
 class SimpleBasketContainer extends Component {
@@ -9,12 +10,9 @@ class SimpleBasketContainer extends Component {
     render() {
         const {basket: {basket}} = this.props
         return (
-            <Link to="/basket">
-                <i className="fas fa-shopping-basket hover center p1020">{
-                    <span
-                        className={basket && basket.length > 0 ? "not-empty" : 'not-empty none'}>{basket ? basket.length : 0}</span>
-                }</i>
-            </Link>
+            <ToolTip tooltipMessage={"Корзина"}>
+                    <i className="fas fa-shopping-basket hover center p10"/>
+            </ToolTip>
         );
     }
 }

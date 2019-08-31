@@ -35,15 +35,12 @@ class CatalogContainer extends Component {
     render() {
         const {products} = this.props;
 
-
-        const flag = !isEmpty(get(products, 'content'));
-
         return (
             <div className="wrapper auto1fr">
                 <div className="">
                     <SelectorContainer change={this.handleChange} filter={this.props.filter}/>
                 </div>
-                {flag && <ListProducts products={get(products, 'content')}/>}
+                <ListProducts products={get(products, 'content')}/>
             </div>
         );
     }

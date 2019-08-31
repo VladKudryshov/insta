@@ -5,7 +5,7 @@ import ToolTip from "../tooltip/ToolTip";
 import {Link} from "react-router";
 
 
-const Home  = () => (
+const Home = () => (
     <>
         <SliderComponent/>
         <div className="information">
@@ -38,22 +38,36 @@ const Home  = () => (
         </div>
         <div className="categories card">
             <ul>
-
-                <ToolTip tooltipMessage={"Овощи"}>
-                    <Link to={{ pathname: `/products`, query: {category: 'Vegetable'}}} className="iamg hover" onlyActiveOnIndex><img src="images/salad-bowl-hand-drawn-food.png" alt=""/></Link>
-                </ToolTip>
-                <ToolTip tooltipMessage={"Зелень"}>
-                    <Link to={{ pathname: `/products`, query: {category: 'Greens'}}} className="iamg hover" onlyActiveOnIndex><img src="images/lettuce.png" alt=""/></Link>
-                </ToolTip>
-                <ToolTip tooltipMessage={"Фрукты"}>
-                    <Link to={{ pathname: `/products`, query: {category: 'Fruits'}}} className="iamg hover" onlyActiveOnIndex><img src="images/apple-and-grapes-on-a-bowl.png"alt=""/></Link>
-                </ToolTip>
-                <ToolTip tooltipMessage={"Ягоды"}>
-                    <Link to={{ pathname: `/products`, query: {category: 'Berries'}}} className="iamg hover" onlyActiveOnIndex><img src="images/strawberry.png" alt=""/></Link>
-                </ToolTip>
-                <ToolTip tooltipMessage={"Рассада"}>
-                    <Link to={{ pathname: `/products`, query: {category: 'Seedlings'}}} className="iamg hover" onlyActiveOnIndex> <img src="images/plant-with-leaves.png" alt=""/></Link>
-                </ToolTip>
+                <li className="category">
+                    <ToolTip tooltipMessage={"Овощи"}>
+                        <Link to={{pathname: `/products`, query: {category: 'Vegetable'}}} className="iamg hover"
+                              onlyActiveOnIndex><img src="images/salad-bowl-hand-drawn-food.png" alt=""/></Link>
+                    </ToolTip>
+                </li>
+                <li className="category">
+                    <ToolTip tooltipMessage={"Зелень"}>
+                        <Link to={{pathname: `/products`, query: {category: 'Greens'}}} className="iamg hover"
+                              onlyActiveOnIndex><img src="images/lettuce.png" alt=""/></Link>
+                    </ToolTip>
+                </li>
+                <li className="category">
+                    <ToolTip tooltipMessage={"Фрукты"}>
+                        <Link to={{pathname: `/products`, query: {category: 'Fruits'}}} className="iamg hover"
+                              onlyActiveOnIndex><img src="images/apple-and-grapes-on-a-bowl.png" alt=""/></Link>
+                    </ToolTip>
+                </li>
+                <li className="category">
+                    <ToolTip tooltipMessage={"Ягоды"}>
+                        <Link to={{pathname: `/products`, query: {category: 'Berries'}}} className="iamg hover"
+                              onlyActiveOnIndex><img src="images/strawberry.png" alt=""/></Link>
+                    </ToolTip>
+                </li>
+                <li className="category">
+                    <ToolTip tooltipMessage={"Рассада"}>
+                        <Link to={{pathname: `/products`, query: {category: 'Seedlings'}}} className="iamg hover"
+                              onlyActiveOnIndex> <img src="images/plant-with-leaves.png" alt=""/></Link>
+                    </ToolTip>
+                </li>
             </ul>
         </div>
         <WidgetPostContainer/>
