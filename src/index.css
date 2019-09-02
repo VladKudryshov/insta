@@ -87,10 +87,6 @@ body {
         margin-top: 20px;
     }
 
-    .custom-table > ul:nth-child(2n+2) {
-        background: #f5f5f5;
-    }
-
     .custom-table > .headers {
     }
 
@@ -611,23 +607,88 @@ body {
 
     .order-component {
         position: relative;
-        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        grid-column-gap: 20px;
+        padding-right: 30px;
+    }
+
+    .order-component-history {
+        padding: 20px 40px;
+        height: max-content;
+        font-size: 13px;
+    }
+
+    .order-component-history > ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    .progress {
+        float: left;
+        clear: both;
+        height: 100px;
+        width: 5px;
+        margin-right: 10px;
+        position: relative;
+        background: #F2F2F2;
+
+    }
+
+    .progress-done {
+        background: #00ba56;
+    }
+
+    .progress:first-child {
+        height: 25px;
+        border-radius: 12px 12px 0 0;
+    }
+
+    .progress:last-child {
+        border-radius: 0 0 12px 12px;
+    }
+
+    .step-done {
+        background: #00ba56 !important;
+        color: #ffffff !important;
+    }
+
+    .step {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        position: absolute;
+        left: -10px;
+        bottom: 0;
+        font-size: 14px;
+        text-align: center;
+        padding-top: 4px;
+        padding-left: 1px;
+        background: #F2F2F2;
+        color: #D4D4D4;
+    }
+
+
+    .status {
+        position: absolute;
+        width: max-content;
+        left: 30px;
+        bottom: 6px;
     }
 
     .order-info {
+        width: 100%;
         margin: 0 auto;
         display: grid;
         grid-template-columns: none;
         grid-column-gap: 20px;
         grid-row-gap: 20px;
-        padding: 20px 0;
     }
 
     .order-info-title {
         padding: 20px;
         display: grid;
         grid-template-columns: auto auto;
-        border-bottom: 1px solid #999999;
     }
 
     .order-info-products > ul > li {
@@ -1016,10 +1077,10 @@ body {
     }
 
     @keyframes move {
-        0%{
+        0% {
             background-position: -468px 0
         }
-        100%{
+        100% {
             background-position: 468px 0
         }
     }
@@ -1333,13 +1394,13 @@ body {
     }
 
     .basket-product-image {
-        width: 100px;
-        height: 100px;
+        width: 50px;
+        height: 50px;
     }
 
     .process-order {
         width: 100%;
-        height: 20px;
+        height: 10px;
         position: relative;
         margin: 50px 0;
         display: grid;
@@ -1350,8 +1411,8 @@ body {
 
     .process-type {
         display: table;
-        width: 50px;
-        height: 50px;
+        width: 35px;
+        height: 35px;
         border-radius: 50%;
         text-align: center;
         margin: -15px auto;
@@ -1535,8 +1596,6 @@ table {
         transform: rotate(-360deg)
     }
 }
-
-
 
 .Toastify {
     position: absolute;

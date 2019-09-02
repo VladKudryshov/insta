@@ -97,7 +97,6 @@ class BasketComponent extends Component {
         let actions = {
             removeAction: this.deleteProductByID
         };
-        console.log(products)
         let total = reduce(products, (prev, curr) => (Number.parseFloat((getPriceWithDiscount(prev) * this.getQuantityById(prev.id)).toFixed(2))
             + Number.parseFloat((getPriceWithDiscount(curr) * this.getQuantityById(curr.id)).toFixed(2))));
         let cost = reduce(products, (prev, curr) => prev.price * this.getQuantityById(prev.id) + curr.price * this.getQuantityById(curr.id));
@@ -105,22 +104,22 @@ class BasketComponent extends Component {
             <LoaderContainer>
                 <div>
                     <TableView headers={headers} data={map} actions={actions}
-                               columnSize={{gridTemplateColumns: '8% 32% 21% 8% 10% 5% 8% 10%'}}/>
+                               columnSize={{gridTemplateColumns: '8% 23% 16% 10% 15% 10% 10% 10%'}}/>
                     <table className="order-summary card">
-                        {/*<tbody>*/}
-                        {/*<tr className="cost">*/}
-                        {/*    <td>Стоимость заказа</td>*/}
-                        {/*    <td>{cost ? cost.toFixed(2) : 0} BYN</td>*/}
-                        {/*</tr>*/}
-                        {/*<tr className="discount">*/}
-                        {/*    <td>Скидка</td>*/}
-                        {/*    <td>{(cost - total).toFixed(2)} BYN</td>*/}
-                        {/*</tr>*/}
-                        {/*<tr className="total">*/}
-                        {/*    <td>Итого</td>*/}
-                        {/*    <td>{total ? total.toFixed(2) : 0} BYN</td>*/}
-                        {/*</tr>*/}
-                        {/*</tbody>*/}
+                        <tbody>
+                        <tr className="cost">
+                            <td>Стоимость заказа</td>
+                            <td>{cost ? Number(cost).toFixed(2) : 0} BYN</td>
+                        </tr>
+                        <tr className="discount">
+                            <td>Скидка</td>
+                            <td>{(cost - total).toFixed(2)} BYN</td>
+                        </tr>
+                        <tr className="total">
+                            <td>Итого</td>
+                            <td>{total ? Number(total).toFixed(2) : 0} BYN</td>
+                        </tr>
+                        </tbody>
                     </table>
                 </div>
             </LoaderContainer>

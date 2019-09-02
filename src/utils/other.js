@@ -23,7 +23,9 @@ export const getResponse = response => response.data;
 
 export const getHeadersRequest = () => {
     let token = localStorage.getItem('token');
+    console.log(token)
     if (token) {
+        console.log('Yes')
         return {
             headers: {
                 Authorization: token

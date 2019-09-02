@@ -6,27 +6,27 @@ import {browserHistory} from "react-router";
 
 const handleError = err => Promise.reject(err.response);
 
-export const fetchGetData = app => axios.get(`/api/${app}`, other.getHeadersRequest)
+export const fetchGetData = app => axios.get(`/api/${app}`, other.getHeadersRequest())
     .then(setAuth)
     .then(getResponse)
     .catch(handleError);
 
-export const fetchGetDataById = (id, app) => axios.get(`/api/${app}/${id}`, {})
+export const fetchGetDataById = (id, app) => axios.get(`/api/${app}/${id}`, other.getHeadersRequest())
     .then(setAuth)
     .then(getResponse)
     .catch(handleError);
 
-export const fetchPostData = (data, app) => axios.post(`/api/${app}`, data, other.getHeadersRequest)
+export const fetchPostData = (data, app) => axios.post(`/api/${app}`, data, other.getHeadersRequest())
     .then(setAuth)
     .then(getResponse)
     .catch(handleError);
 
-export const fetchDeleteData = (id, app) => axios.delete(`/api/${app}/${id}`, other.getHeadersRequest)
+export const fetchDeleteData = (id, app) => axios.delete(`/api/${app}/${id}`, other.getHeadersRequest())
     .then(setAuth)
     .then(getResponse)
     .catch(handleError);
 
-export const fetchPutDataById = (data, id, app) => axios.put(`/api/${app}/${id}`, data, other.getHeadersRequest)
+export const fetchPutDataById = (data, id, app) => axios.put(`/api/${app}/${id}`, data, other.getHeadersRequest())
     .then(setAuth)
     .then(getResponse)
     .catch(handleError);

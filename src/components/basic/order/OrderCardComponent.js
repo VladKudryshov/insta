@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 
-import {getRepresentationCategory, getRepresentationStatus} from "../../../models/statusMapping";
+import {getRepresentationCategory, getRepresentationStatus, getStepStatus} from "../../../models/statusMapping";
 import {getFormatedPrice} from "../../../utils/other";
 import LoaderContainer from "../../../containers/LoaderContainer";
 import {get} from 'lodash'
 import {ORDERS} from "../../../consts/apps";
+import TableView from "../../admin/TableView";
 
 class OrderCardComponent extends Component {
 
-    componentDidMount(){
+    componentDidMount() {
         console.log(this.props.params.id)
         this.props.actions.loadDataById(ORDERS, this.props.params.id)
     }
@@ -19,10 +20,11 @@ class OrderCardComponent extends Component {
     }
 
 
+
     render() {
         const {orders: {orderContact, productOrder, orderStatus}} = this.props;
         let products = [];
-        if(productOrder){
+        if (productOrder) {
             products = productOrder.map(product => <ul key={product.id}>
                     <li>{product.name}</li>
                     <li>{getRepresentationCategory(product.category)}</li>
@@ -33,16 +35,52 @@ class OrderCardComponent extends Component {
             );
         }
 
+        const headers = {
+            name: {
+                name: "Название",
+                style:{
+                    textAlign: "left"
+                }
+            },
+            category: {
+                name: "Категория",
+                style:{
+                    textAlign: "right"
+                }
+            },
+            price: {
+                name: "Цена",
+                style:{
+                    textAlign: "right"
+                }
+            },
+            discount: {
+                name: "Скидка",
+                style: {
+                    textAlign: 'right'
+                }
+            },
+            totalPrice: {
+                name: "Итого",
+                style: {
+                    textAlign: 'right'
+                }
+            }
+        };
+
+
+
         return (
             <div className="order-component" key={this.props.params.id}>
 
                 <LoaderContainer>
-                    <div className="order-info card">
-                        <ul className="order-info-title">
+
+                    <div className="order-info ">
+                        <ul className="order-info-title card">
                             <li>Заказ №{this.props.params.id}</li>
                             <li className="tx-l">Статус: {getRepresentationStatus(orderStatus)}</li>
                         </ul>
-                        <div className="cl2-rw1 order-info-contacts">
+                        <div className="cl2-rw1 order-info-contacts card">
                             <table className="order-info-person">
                                 <tbody>
                                 <tr>
@@ -80,7 +118,8 @@ class OrderCardComponent extends Component {
                                 </tbody>
                             </table>
                         </div>
-                        <div className="order-info-products">
+                        <TableView headers={headers} data={productOrder ? productOrder: []} columnSize={{gridTemplateColumns: '20% 20% 20% 20% 20%'}}/>
+                        {/*<div className="order-info-products">
                             <ul>
                                 <li>Название</li>
                                 <li>Категория</li>
@@ -89,11 +128,42 @@ class OrderCardComponent extends Component {
                                 <li className="tx-l">Итого</li>
                             </ul>
                             {products}
-                        </div>
+                        </div>*/}
+                    </div>
+                    <div className="order-component-history card">
+                        <ul>
+                            <li className={getStepStatus(orderStatus) >= getStepStatus('PENDING')? 'progress progress-done': 'progress'}>
+                                <div className={getStepStatus(orderStatus) >= getStepStatus('PENDING')? 'step step-done': 'step'}>
+                                    <i className="far fa-check-circle"/>
+                                </div>
+                                <div className="status">{getRepresentationStatus('PENDING')}</div>
+                            </li>
+
+                            <li className={getStepStatus(orderStatus) >= getStepStatus('PROCESSING')? 'progress progress-done': 'progress'}>
+                                <div className={getStepStatus(orderStatus) >= getStepStatus('PROCESSING')? 'step step-done': 'step'}>
+                                    <i className="far fa-check-circle"/>
+                                </div>
+                                <div className="status">{getRepresentationStatus('PROCESSING')}</div>
+                            </li>
+
+                            <li className={getStepStatus(orderStatus) >= getStepStatus('DELIVERY')? 'progress progress-done': 'progress'}>
+                                <div className={getStepStatus(orderStatus) >= getStepStatus('DELIVERY')? 'step step-done': 'step'}>
+                                    <i className="far fa-check-circle"/>
+                                </div>
+                                <div className="status">{getRepresentationStatus('DELIVERY')}</div>
+                            </li>
+
+                            <li className={getStepStatus(orderStatus) >= getStepStatus('DONE')? 'progress progress-done': 'progress'}>
+                                <div className={getStepStatus(orderStatus) >= getStepStatus('DONE')? 'step step-done': 'step'}>
+                                    <i className="far fa-check-circle"/>
+                                </div>
+                                <div className="status">{getRepresentationStatus('DONE')}</div>
+                            </li>
+                        </ul>
                     </div>
                 </LoaderContainer>
             </div>
-        )
+        );
     }
 }
 

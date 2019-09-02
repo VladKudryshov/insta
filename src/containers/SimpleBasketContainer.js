@@ -11,7 +11,7 @@ class SimpleBasketContainer extends Component {
         const {basket: {basket}} = this.props
         return (
             <ToolTip tooltipMessage={"Корзина"}>
-                    <i className="fas fa-shopping-basket hover center p10"/>
+                <Link to="/basket"><i className="fas fa-shopping-basket hover center p10"/></Link>
             </ToolTip>
         );
     }

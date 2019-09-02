@@ -3,7 +3,6 @@ import {bindActionCreators} from "redux";
 import {loadAllOrders, removeDataById} from "../../actions/action";
 import connect from "react-redux/es/connect/connect";
 import LoaderContainer from "../../containers/LoaderContainer";
-import {Link} from "react-router";
 import {ORDERS} from "../../consts/apps";
 import TableView from "./TableView";
 
@@ -51,7 +50,7 @@ class AdminOrdersProductsComponent extends Component {
             status: {
                 name: "Статус",
                 style: {
-                    textAlign: "center"
+                    textAlign: "right"
                 }
             },
             productsCount: {
