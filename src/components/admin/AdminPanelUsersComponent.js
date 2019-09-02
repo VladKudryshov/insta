@@ -61,8 +61,12 @@ class AdminPanelUsersComponent extends Component {
 
         return (
             <LoaderContainer>
-                <div>
-                    <Link to="/admin/products/new" className="btn action" onlyActiveOnIndex>Добавить</Link>
+                <div className="rw1">
+                    <div className="panel-actions">
+                        <button className="btn action">
+                            <Link to="/admin/products/new" onlyActiveOnIndex>Добавить</Link>
+                        </button>
+                    </div>
                     <TableView headers={headers} data={users} actions={actions} columnSize={{gridTemplateColumns: '10% 40% 40% 10%'}}/>
                 </div>
             </LoaderContainer>

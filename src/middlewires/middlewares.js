@@ -16,7 +16,6 @@ export const handleShowNotification = () => next => (action) => {
 
 
 export const handleApiError = store => next => (action) => {
-    console.log(action)
     const timeOutException = 'Gateway Timeout';
     if (action.type === ERROR) {
         const {err} = action;

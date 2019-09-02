@@ -32,7 +32,6 @@ class AdminPanelProductComponent extends Component {
     changeState = (e) => {
         const {actions: {changeDataObject}} = this.props;
         const {target: {name, value, type}} = e;
-        console.log(name)
         if (type === 'number') {
             changeDataObject(PRODUCTS, name, Number(value));
         } else {

@@ -11,6 +11,11 @@ export const fetchGetData = app => axios.get(`/api/${app}`, other.getHeadersRequ
     .then(getResponse)
     .catch(handleError);
 
+export const fetchGetDataWithFilter = (app, filter) => axios.get(`/api/${app}?${filter}`, other.getHeadersRequest)
+    .then(setAuth)
+    .then(getResponse)
+    .catch(handleError);
+
 export const fetchGetDataById = (id, app) => axios.get(`/api/${app}/${id}`, other.getHeadersRequest())
     .then(setAuth)
     .then(getResponse)

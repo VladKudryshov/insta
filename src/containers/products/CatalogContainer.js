@@ -16,7 +16,7 @@ class CatalogContainer extends Component {
         let category = this.props.location.query.category;
         let newVar = category ? category : '';
         filter(newVar);
-        loadData(PRODUCTS);
+        loadData(PRODUCTS, 'category='+newVar);
 
 
     }
@@ -28,7 +28,7 @@ class CatalogContainer extends Component {
             val = '';
         }
         filter(val);
-        loadData(val)
+        loadData(PRODUCTS, 'category='+val)
     };
 
 

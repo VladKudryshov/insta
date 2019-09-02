@@ -27,8 +27,6 @@ class ChatComponent extends Component {
 
     sendMessage = (msg, selfMsg) => {
         try {
-            console.log(selfMsg);
-
             let prepareMessage = {
                 orderId: 22,
                 fromUser: selfMsg.authorId,
@@ -45,7 +43,6 @@ class ChatComponent extends Component {
     componentWillMount() {
 
         getHistory(22).then((response) => {
-            console.log(response)
             this.setState({
                 messages: response.data !== "" ? response.data.map(f => {
                     return {
@@ -60,7 +57,6 @@ class ChatComponent extends Component {
 
     render() {
         const wsSourceUrl = "http://165.22.89.115:8080/api/handler";
-        console.log(this.state.messages)
         return (
             <div>
                 <Chat topic="Диалог"

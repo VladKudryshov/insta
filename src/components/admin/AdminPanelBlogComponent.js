@@ -7,7 +7,6 @@ import LoaderContainer from "../../containers/LoaderContainer";
 import {BLOG} from "../../consts/apps";
 import TableView from "./TableView";
 import {isEmpty} from "lodash"
-import {is} from "redux-saga/utils";
 
 
 class AdminPanelBlogComponent extends Component {
@@ -97,8 +96,12 @@ class AdminPanelBlogComponent extends Component {
 
         return (
             <LoaderContainer>
-                <div className="panel-products">
-                    <Link to="/admin/blog/new" className="btn action" onlyActiveOnIndex>Добавить</Link>
+                <div className="rw1">
+                    <div className="panel-actions">
+                        <button className="btn action">
+                            <Link to="/admin/blog/new" onlyActiveOnIndex>Добавить</Link>
+                        </button>
+                    </div>
                     <TableView headers={headers}
                                data={map}
                                actions={actions}

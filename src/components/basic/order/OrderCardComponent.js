@@ -9,8 +9,7 @@ import TableView from "../../admin/TableView";
 
 class OrderCardComponent extends Component {
 
-    componentDidMount() {
-        console.log(this.props.params.id)
+    componentDidMount(){
         this.props.actions.loadDataById(ORDERS, this.props.params.id)
     }
 
@@ -18,7 +17,6 @@ class OrderCardComponent extends Component {
         const locationChanged = this.props.params !== prevProps.params;
         locationChanged && this.props.actions.loadDataById(ORDERS, this.props.params.id)
     }
-
 
 
     render() {

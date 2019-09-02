@@ -42,7 +42,6 @@ class AdminPanelPostComponent extends Component {
 
     render() {
         const {post} = this.props;
-        console.log(post)
         return (
             <LoaderContainer>
                 <div className="admin-card panel-posts">
@@ -80,7 +79,6 @@ class AdminPanelPostComponent extends Component {
 
 const mapStateToProps = (state) => {
     const {data: {post}, loader} = state;
-    console.log(state)
     return {
         post,
         loader

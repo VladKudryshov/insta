@@ -7,7 +7,6 @@ export function* logIn(action) {
     try {
         yield call(fetchLogin, {login, password});
     } catch (err) {
-        console.log("adsadasdasd")
         yield put({type: ERROR, err});
     }
 }

@@ -9,13 +9,20 @@ import {
     SAVE_DATA, SAVE_DATA_WITH_IMAGE,
 } from '../actions/action';
 
-import {fetchDeleteData, fetchGetData, fetchGetDataById, fetchPostData, fetchPutDataById,} from '../api';
+import {
+    fetchDeleteData,
+    fetchGetData,
+    fetchGetDataById,
+    fetchGetDataWithFilter,
+    fetchPostData,
+    fetchPutDataById,
+} from '../api';
 import {upload} from '../services/fileService';
 
 function* loadData(action) {
     try {
-        const { app } = action;
-        const data = yield call(fetchGetData, app);
+        const { app, filter} = action;
+        const data = filter ? yield call(fetchGetDataWithFilter, app, filter): yield call(fetchGetData, app);
         yield put({ type: RECEIVE_DATA, data, app });
     } catch (err) {
         yield put({ type: ERROR, err });
@@ -58,7 +65,6 @@ function* saveData(action) {
 function* saveDataWithImage(action) {
     try {
         const { data, app } = action;
-        console.log(data.file)
         let fileUrl = yield call(upload, data.file);
         yield call(fetchPostData, {...data, image: fileUrl}, app);
         const newData = yield call(fetchGetData, app);

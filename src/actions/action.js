@@ -65,9 +65,10 @@ export const login = (login, password) => ({
 });
 
 
-export const loadData = app => ({
+export const loadData = (app, filter) => ({
     type: LOAD_DATA,
     app,
+    filter
 });
 
 

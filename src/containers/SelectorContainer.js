@@ -5,10 +5,13 @@ import {getRepresentationCategory} from "../models/statusMapping";
 class SelectorContainer extends Component {
 
     state = {
-        open: false
+        open: false,
+        categories: ['', 'Vegetable', 'Greens', 'Berries', 'Fruits', 'Seedlings']
     };
 
     render() {
+        const {categories} = this.state;
+
 
         return (
             <div className="select-box">
@@ -22,12 +25,11 @@ class SelectorContainer extends Component {
                          style={{transform: this.state.open ? 'translateY(-50%) rotate(180deg)' : 'translateY(-50%) rotate(0deg)'}}/>
                 </div>
                 <ul className="select-box__list" style={{display: this.state.open ? 'block' : 'none'}}>
-                    <li className="select-box__option" onClick={() => this.changeOption('')}>Все</li>
-                    <li className="select-box__option" onClick={() => this.changeOption('Vegetable')}>Овощи</li>
-                    <li className="select-box__option" onClick={() => this.changeOption('Greens')}>Зелень</li>
-                    <li className="select-box__option" onClick={() => this.changeOption('Berries')}>Ягоды</li>
-                    <li className="select-box__option" onClick={() => this.changeOption('Fruits')}>Фрукты</li>
-                    <li className="select-box__option" onClick={() => this.changeOption('Seedlings')}>Рассада</li>
+                   {
+                       categories.map(category => (
+                           <li className={category === this.props.filter ? "select-box__option active-selection" : "select-box__option" } onClick={() => this.changeOption(category)}>{getRepresentationCategory(category)}</li>
+                       ))
+                   }
 
                 </ul>
             </div>

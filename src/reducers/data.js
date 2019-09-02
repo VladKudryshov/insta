@@ -11,7 +11,6 @@ const data = (state = [], action) => {
         }
         case CHANGE_DATA_OBJECT: {
             const {name, value} = action;
-            console.log(action)
             return {...state, [name]: value}
         }
         case CLEAR_DATA: {

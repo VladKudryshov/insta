@@ -18,7 +18,7 @@ const TableView = ({
             {!isEmpty(keys(actions)) ? <li className="txc"><b>Действия</b></li> : ''}
         </ul>
         {
-            data.map(row => <ul className={row.status === 'PENDING' ? 'rows admin-card' : 'admin-card'} style={columnSize} key={row.id}>
+            data.map(row => <ul className={row.status === 'PENDING' ? 'row-pending admin-card' : 'admin-card row-active'} style={columnSize} key={row.id}>
                 {keys(headers).map(cell => <li key={cell} style={headers[cell].style} className="txtline">
                     <span>
                         {cell === 'status' ? getRepresentationStatus(row[cell]) : row[cell]}

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from "redux";
-import {loadData, removeCatalogProduct} from "../../actions/action";
+import {loadData, removeDataById} from "../../actions/action";
 import connect from "react-redux/es/connect/connect";
 import {Link} from "react-router";
 import LoaderContainer from "../../containers/LoaderContainer";
@@ -57,8 +57,8 @@ class AdminPanelProductsComponent extends Component {
     }
 
     removeProduct = (id) => {
-        const {actions: {removeCatalogProduct}} = this.props;
-        removeCatalogProduct(id)
+        const {actions: {removeDataById}} = this.props;
+        removeDataById(PRODUCTS, id)
     };
 
     editProduct = (id) => {
@@ -84,8 +84,10 @@ class AdminPanelProductsComponent extends Component {
 
         return (
             <LoaderContainer>
-                <div>
-                    <Link to="/admin/products/new" className="btn action" onlyActiveOnIndex>Добавить</Link>
+                <div className="rw1">
+                    <div className="panel-actions">
+                        <button className="btn action"> <Link to="/admin/products/new" onlyActiveOnIndex>Добавить</Link></button>
+                    </div>
                     <TableView headers={headers} data={map} actions={actions} columnSize={{gridTemplateColumns: '5% 20% 35% 10% 10% 10% 10%'}}/>
                 </div>
             </LoaderContainer>
@@ -106,7 +108,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
         loadData,
-        removeCatalogProduct
+        removeDataById
     }, dispatch),
 });
 

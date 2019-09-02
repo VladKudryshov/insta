@@ -16,7 +16,6 @@ const Chat = ({
         </div>
         <div className="chat-messages">
             {messages.map(message=>{
-                console.log( message)
                 return <div className={currentUserId === message.authorId ? "msg right" : "msg left"}>
                     <div> {currentUser} {new Date(message.timestamp).toLocaleTimeString("ru")}</div>
                     <div className={currentUserId === message.authorId ? "txr" : "txl"}> {message.message} </div>
