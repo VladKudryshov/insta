@@ -10,7 +10,7 @@
     "json-fetch": "^8.0.0",
     "jsonwebtoken": "8.5.1",
     "jwt-decode": "^2.2.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "moment": "^2.22.2",
     "prop-types": "^15.6.2",
     "proxy-addr": "~2.0.5",
